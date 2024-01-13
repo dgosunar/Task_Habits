@@ -5,7 +5,10 @@ body {
   padding: 20;
   align-items: center;
   background: linear-gradient(126deg, #001724 26.6%, #68D6F1 35.77%, #9E68F1 42.34%, #001724 49.18%, #001724 62.19%, #68D6F1 68.76%, #9E68F1 74.92%, #001724 81.63%);
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-family: 'BankGothic Md BT', sans-serif;
+  font-family: 'Bank Gothic Light', sans-serif;
+  font-family: 'BankGothic', sans-serif;
+
 }
 
 #root {

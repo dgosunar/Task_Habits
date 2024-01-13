@@ -24,6 +24,7 @@ const defaultTask = [
 function useLocalStorage(itemName, inicialValue){
 
   const localStorageItem = localStorage.getItem(itemName);
+  
   let parsedItem;
 
   if (!localStorageItem) {
@@ -45,7 +46,7 @@ function useLocalStorage(itemName, inicialValue){
 
 function App() {
 
-  const [task, saveTask] = React.useState("parsedTask");
+  const [task, saveTask] = useLocalStorage('Task_v1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTask = task.filter(
@@ -55,17 +56,17 @@ function App() {
   const totalTask = task.length;
 
   const searchTask = task.filter(
-    (task) => (
-      task.text.toLowerCase().includes(searchValue.toLowerCase())
-    )
+    (task) => {
+      const taskText = task.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return taskText.includes(searchText);
+    }
   )
-
- 
 
   const pendingTask = (text) => {
     const newTask = [...task];
     const taskIndex = newTask.findIndex(
-      (task) => task.text == text
+      (task) => task.text === text
     );
     newTask[taskIndex].status = status[0];
     saveTask(newTask);
@@ -74,7 +75,7 @@ function App() {
   const startTask = (text) => {
     const newTask = [...task];
     const taskIndex = newTask.findIndex(
-      (task) => task.text == text
+      (task) => task.text === text
     );
     newTask[taskIndex].status = status[1];
     saveTask(newTask);
@@ -83,7 +84,7 @@ function App() {
   const completeTask = (text) => {
     const newTask = [...task];
     const taskIndex = newTask.findIndex(
-      (task) => task.text == text
+      (task) => task.text === text
     );
     newTask[taskIndex].status = status[2];
     saveTask(newTask);
@@ -92,7 +93,7 @@ function App() {
   const deleteTask = (text) => {
     const newTask = [...task];
     const taskIndex = newTask.findIndex(
-      (task) => task.text == text
+      (task) => task.text === text
     );
     newTask.splice(taskIndex, 1);
     saveTask(newTask);
