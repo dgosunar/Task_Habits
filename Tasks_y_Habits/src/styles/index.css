@@ -1,23 +1,118 @@
 body {
-  display: flex;
-  justify-content: center;
   margin: 0;
-  padding: 20;
-  align-items: center;
-  background: linear-gradient(126deg, #001724 26.6%, #68D6F1 35.77%, #9E68F1 42.34%, #001724 49.18%, #001724 62.19%, #68D6F1 68.76%, #9E68F1 74.92%, #001724 81.63%);
-  font-family: 'BankGothic Md BT', sans-serif;
-  font-family: 'Bank Gothic Light', sans-serif;
-  font-family: 'BankGothic', sans-serif;
-
+  padding: 0;
+  background: var(--default-background-color) ;
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  width: 100vw;
 }
 
 #root {
-  display: flex;
-  padding: 20px;
-  justify-content: space-between;
-  align-items: center;
-  flex: 1 0 0;
-  align-self: stretch;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.10);
+  color: var(--white);
+  margin: 0;
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:root {
+  --default-background-color: #ffffff;
+
+  --gray-light: #A5A5A5;
+  --gray: #6c6c79;
+  --black: #34343d;
+  --white: #ffffff;
+
+  --primary-main: #001724;
+  --primary-light: #293c4b;
+  --primary-dark: #01080E;
+
+  --secondary-main: #68D6F1;
+  --secondary-light: #a5e8f7;
+  --secondary-dark: #006c85;
+
+  --accent-blue: #68D6F1;
+  --accent-yellow: #F1D568;
+  --accent-green: #91F168;
+  --accent-red: #f26868;
+}
+
+.primaryTitle_dark {
+  color: var(--primary-dark);
+  font-size: 41px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.primaryTitle_light {
+  color: var(--secondary-light);
+  font-size: 41px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.primaryTitle_White {
+  color: var(--white);
+  font-size: 41px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.primaryTitle_Black {
+  color: var(--black);
+  font-size: 41px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.primaryTitle {
+  font-size: 41px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.secondaryTitle {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.primarySubtitle {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.secondarySubtitle {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.mediumText {
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.generalText {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }

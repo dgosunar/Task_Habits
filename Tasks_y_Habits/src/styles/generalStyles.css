@@ -1,50 +1,23 @@
-.PrimaryTitle {
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+/*Estilos Header*/
+.itemSelected {
+    color: var(--secondary-main);
+    border-bottom: 1px solid var(--secondary-main);
 }
 
-.GeneralLight {
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    text-align: center;
+/*Estilos Task*/
+.Frame2Pending {
+    outline: 2px solid var(--accent-blue);
 }
 
-.GeneralApp {
-    display: flex;
-    width: 370px;
-    padding: 20px 10px 0px 10px;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    align-self: stretch;
-    background: #001724;
-    color: #ffffff;
-    border-radius: 15px;
+.Frame2Start {
+    outline: 2px solid var(--accent-yellow);
 }
 
-.Frame12 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    flex: 1 0 0;
-    align-self: stretch;
+.Frame2Completed {
+    outline: 2px solid var(--accent-green);
 }
 
-.Frame11 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
-    align-self: stretch;
-}
-
+/*Estilos CreateTask*/
 .Frame9 {
     display: flex;
     padding: 10px 79px;
@@ -52,78 +25,15 @@
     align-items: center;
 }
 
-.Frame1 {
-    display: flex;
-    padding: 10px;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 15px;
-    border: 1px solid #000;
-    background: rgba(255, 255, 255, 0.10);
-}
-
-.Frame13 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
-    align-self: stretch;
-    padding-inline-start: 0px;
-    margin: 0px;
-    color: #000;
-}
-
-.Frame2Pending {
-    display: flex;
-    padding: 15px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    border-radius: 15px;
-    background: #FFF;
-    outline: 2px solid #68D6F1;
-    outline-offset: -4px;
-}
-
-.Frame2Start {
-    display: flex;
-    padding: 15px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    text-decoration: underline;
-    border-radius: 15px;
-    background: #FFF;
-    outline: 2px solid #F1D568;
-    outline-offset: -4px;
-}
-
-.Frame2Completed {
-    display: flex;
-    padding: 15px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    text-decoration: line-through;
-    border-radius: 15px;
-    background: #FFF;
-    outline: 2px solid #91F168;
-    outline-offset: -4px;
-}
-
 .CreateTodoButton {
     border-radius: 100px;
-    background: linear-gradient(180deg, #68D6F1 0%, #9E68F1 100%);
+    background: var(--secondary-main);
     border: none;
     cursor: pointer;
     transform: rotate(-90deg);
     font-size: 48px;
     font-weight: 200;
-    color: #fafafa;
+    color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,24 +46,23 @@
     transform: rotate(270deg)
 }
 
+/*Estilos TaskFinder*/
 .TodoSearch {
-    background: #F9FBFC;
+    background: var(--white);
     border-radius: 2px;
-    border: 2px solid #202329;
+    border: 2px solid var(--primary-main);
     margin: 0 24px;
     padding: 10px;
     width: calc(100% - 20px);
     font-size: 18px;
     text-align: center;
-    font-family: 'Montserrat';
-    color: #000;
+    color: var(--black);
   }
   
   .TodoSearch::placeholder {
-    color: #A5A5A5;
-    font-family: 'Montserrat';
+    color: var(--gray-light);
   }
   
   .TodoSearch:focus {
-    outline-color: #61DAFA;
+    outline-color: var(--secondary-main);
   }

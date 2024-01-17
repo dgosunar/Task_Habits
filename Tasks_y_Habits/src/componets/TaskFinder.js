@@ -5,7 +5,7 @@ function TaskFinder({searchValue, setSearchValue}) {
     return (
         <input
             placeholder="Buscar tareas"
-            className="TodoSearch"
+            className="TodoSearch generalText"
             value={searchValue}
             onChange={
                 (event) => {
