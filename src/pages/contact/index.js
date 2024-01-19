@@ -1,13 +1,12 @@
 import React from 'react';
-import { GeneralApp } from '../../Componets/GeneralApp';
-
+import { Layout } from '../../Componets/Layout'
 
 function Contact() {
 
   return (
-    <GeneralApp route={"/contact"}>
+    <Layout>
       <p>Contact</p>
-    </GeneralApp>
+    </Layout>
   );
 }
 

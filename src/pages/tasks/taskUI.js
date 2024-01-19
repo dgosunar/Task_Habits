@@ -1,6 +1,5 @@
 import React from 'react';
 import { Context } from '../../Context';
-import { GeneralApp } from '../../Componets/GeneralApp';
 import { TaskStatus } from '../../Componets/TaskStatus';
 import { TaskFinder } from '../../Componets/TaskFinder';
 import { TaskLoading } from '../../Componets/TaskLoading';
@@ -12,6 +11,7 @@ import styled from "styled-components";
 import './tasksStyles.css';
 import { Modal } from '../../Componets/Modals/Modal';
 import { NewTask } from '../../Componets/Modals/NewTask';
+import { Separator } from '../../Componets/Modals/Separator';
 
 function TaskUI() {
 
@@ -29,7 +29,6 @@ function TaskUI() {
   } = React.useContext(Context);
 
   return (
-    <GeneralApp route={"/tasks"}>
       <div className='Frame1'>
         <div className='Frame2'>
           <TaskStatus />
@@ -39,6 +38,8 @@ function TaskUI() {
             {generalStatus.map((status) => (
               <div className='mediumText'>{status}</div>,
               <TaskList key={status}>
+                <div>{status}</div>
+                <Separator/>
                 {loading ? (<TaskLoading key={status} />) :
                   error ? (<TaskError />) :
                     (!loading && searchTask.length === 0) ? (<TaskEmpty />) :
@@ -69,7 +70,6 @@ function TaskUI() {
         ) : (<></>)}
 
       </div>
-    </GeneralApp >
   );
 }
 
@@ -93,7 +93,7 @@ export const TaskList = styled.div`
   gap: 10px;
   align-self: stretch;
   border-radius: 15px;
-  border: 1px solid #000;
-  background: rgba(0, 23, 36, 0.75);
+  background: var(--white);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 0px;
 `;

@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import styled from "styled-components";
+import { Separator } from "./Separator";
 
 function Modal({ children }) {
     return ReactDOM.createPortal(
         <ModalStyle>
             <Card>
-            <span className="primarySubtitlePM">Titulo de la Card</span>
-            <Separator/>
-            {children}
+                <span className="primarySubtitlePM">Titulo de la Card</span>
+                <Separator />
+                {children}
             </Card>
         </ModalStyle>,
         document.getElementById("modal")
@@ -27,6 +28,7 @@ export const ModalStyle = styled.div`
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 23, 36, 0.75);
+    z-index: 3;
 `;
 
 export const Card = styled.div`
@@ -41,11 +43,5 @@ export const Card = styled.div`
     gap: 10px;
     border-radius: 15px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-`;
-
-export const Separator = styled.div`
-    display: flex;
-    width: calc(100% - 20px);
-    border-bottom-style: solid;
 `;
 

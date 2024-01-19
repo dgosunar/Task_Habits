@@ -1,12 +1,12 @@
 import React from 'react';
-import { GeneralApp } from '../../Componets/GeneralApp';
+import { Layout } from '../../Componets/Layout'
 
 function Home() {
 
   return (
-    <GeneralApp route={"/"}>
+    <Layout>
       <p>Home</p>
-    </GeneralApp>
+    </Layout>
   );
 }
 

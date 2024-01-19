@@ -1,14 +1,16 @@
 import React from 'react';
 import { ContextProvider } from '../../Context';
 import TaskUI from './taskUI';
-
+import { Layout } from '../../Componets/Layout'
 
 function Tasks() {
 
   return (
-    <ContextProvider>
-      <TaskUI />
-    </ContextProvider>
+    <Layout>
+      <ContextProvider>
+        <TaskUI />
+      </ContextProvider>
+    </Layout>
   );
 }
 

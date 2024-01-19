@@ -1,40 +1,33 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import "../Styles/generalStyles.css"
+import "../Styles/generalStyles.css";
 
 const titles = [
-    {
-        label: 'Inicio',
-        route: '/',
-    },
-    {
-        label: 'Tareas',
-        route: '/tasks',
-    },
-    {
-        label: 'Habitos',
-        route: '/habits',
-    },
-    {
-        label: 'Contacto',
-        route: '/contact',
-    }
+    { label: 'Inicio', route: '/' },
+    { label: 'Tareas', route: '/tasks' },
+    { label: 'Habitos', route: '/habits' },
+    { label: 'Contacto', route: '/contact' }
 ]
 
 function Navbar() {
     return (
         <Container>
-            <Pages>
-                {titles.map((t) => (
-                    <NavLink to={t.route} key={t.label} className={({ isActive }) =>
-                        isActive ? "itemSelected" : "generalText"
-                    }>
-                        <Item className="generalText">
-                            {t.label}
-                        </Item>
-                    </NavLink>
-                ))}
-            </Pages>
+            <Header>
+                <div>
+                    <img src={`${process.env.PUBLIC_URL}/Imagotipo_dark.png`} alt="Imagotipo" />
+                </div>
+                <Pages>
+                    {titles.map((t) => (
+                        <NavLink to={t.route} key={t.label} className={({ isActive }) =>
+                            isActive ? "itemSelected" : "generalText"
+                        }>
+                            <Item className="generalText">
+                                {t.label}
+                            </Item>
+                        </NavLink>
+                    ))}
+                </Pages>
+            </Header>
         </Container >
     );
 }
@@ -43,14 +36,21 @@ export { Navbar };
 
 export const Container = styled.div` 
     display: flex;
-    height: 40px;
+    height: 60px;
     width: 100vw;
-    z-index: 10;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background: #001724;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background: var(--white);
+    color: var(--primary-main);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+`;
+
+export const Header = styled.div`
+    display: flex;
+    padding: 10px 120px;
+    width: 100%;   
+    justify-content: space-between;
 `;
 
 export const Pages = styled.div` 
@@ -58,7 +58,7 @@ export const Pages = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 30px;
 `;
 
 export const Item = styled.div` 
@@ -67,6 +67,7 @@ export const Item = styled.div`
     align-items: center;
     padding: 10px;
     cursor: pointer;
+    width: 80px;   
 
     &:hover{
     color: var(--secondary-main);
