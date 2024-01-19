@@ -1,20 +1,44 @@
-function CreateTask() {
+import styled from "styled-components";
+import { GoPlus } from "react-icons/go";
+
+function CreateTask({setOpenModal}) {
     return (
-        <span className='Frame9'>
-            <span className='GeneralLight' style={{color: '#68D6F1'}}>Tasks</span>
-            <button 
-                className="CreateTodoButton"
-                onClick={
-                    (event) => {
-                        console.log('Pos aja')
-                        console.log(event)
-                        console.log(event.target)
-                    }
-                }
-                    >+</button>
-            <span className='GeneralLight' style={{color: '#9E68F1'}}>Habits</span>
-        </span>
+        <BoxBotton>
+            <CreateTodoButton
+                onClick={()=>{
+                    setOpenModal(state => !state);
+                }}
+            ><GoPlus />
+            </CreateTodoButton>
+        </BoxBotton>
     );
 }
 
-export { CreateTask }; 
+export { CreateTask };
+
+export const BoxBotton = styled.div`
+    display: flex;
+    padding: 10px 79px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+`;
+
+export const CreateTodoButton = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    width: 58px;
+    background: var(--secondary-main);
+
+    font-size: 40px;
+    cursor: pointer;
+    border-radius: 100px;
+    transform: rotate(-90deg);
+    transition: .3s ease;
+
+    &:hover{
+        transform: rotate(270deg)
+    }
+`;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "../styles/generalStyles.css"
+import "../Styles/generalStyles.css"
 
 const titles = [
     {

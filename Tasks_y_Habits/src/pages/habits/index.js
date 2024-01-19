@@ -1,6 +1,6 @@
 import React from 'react';
-import './styles/generalStyles.css';
-import './styles/App.css';
+import './Styles/generalStyles.css';
+import './Styles/App.css';
 import { GeneralApp } from './componets/GeneralApp';
 
 function App() {

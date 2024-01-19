@@ -17,35 +17,6 @@
     outline: 2px solid var(--accent-green);
 }
 
-/*Estilos CreateTask*/
-.Frame9 {
-    display: flex;
-    padding: 10px 79px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.CreateTodoButton {
-    border-radius: 100px;
-    background: var(--secondary-main);
-    border: none;
-    cursor: pointer;
-    transform: rotate(-90deg);
-    font-size: 48px;
-    font-weight: 200;
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 58px;
-    width: 58px;
-    transition: .3s ease;
-}
-
-.CreateTodoButton:hover {
-    transform: rotate(270deg)
-}
-
 /*Estilos TaskFinder*/
 .TodoSearch {
     background: var(--white);
@@ -54,15 +25,37 @@
     margin: 0 24px;
     padding: 10px;
     width: calc(100% - 20px);
-    font-size: 18px;
     text-align: center;
     color: var(--black);
-  }
-  
-  .TodoSearch::placeholder {
+}
+
+.TodoSearch::placeholder {
     color: var(--gray-light);
-  }
-  
-  .TodoSearch:focus {
+}
+
+.TodoSearch:focus {
     outline-color: var(--secondary-main);
-  }
+}
+
+/*Estilos TextArea New Task*/
+.newTaskStyle {
+    background: var(--white);
+    border-radius: 2px;
+    border: 2px solid var(--primary-main);
+    margin: 0;
+    padding: 10px;
+    width: calc(100% - 40px);
+    max-width: calc(100% - 40px);
+    height: 70px;
+    text-align: center;
+    color: var(--black);
+    font-family: 'Montserrat';
+}
+
+.newTaskStyle::placeholder {
+    color: var(--gray-light);
+}
+
+.newTaskStyle:focus {
+    outline-color: var(--secondary-main);
+}

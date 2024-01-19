@@ -1,6 +1,9 @@
 import React from "react";
+import { Context } from "../Context";
 
-function TaskFinder({searchValue, setSearchValue}) {
+function TaskFinder() {
+    
+    const {searchValue, setSearchValue} = React.useContext(Context);
 
     return (
         <input

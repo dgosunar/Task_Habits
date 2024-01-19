@@ -1,13 +1,12 @@
 import React from 'react';
 import '../Styles/generalStyles.css';
 import '../Styles/App.css';
-import { GeneralApp } from '../../Componets/GeneralApp';
+import Home from '../pages/tasks';
 
 function App() {
 
   return (
-    <GeneralApp route={"/"}>
-    </GeneralApp>
+    <Home/>
   );
 }
 
