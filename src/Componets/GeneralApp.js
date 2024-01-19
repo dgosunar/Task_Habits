@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import { Header } from "./Header";
+import { Navbar } from "./Navbar";
 import { Background } from "./Background";
 
 function GeneralApp(props) {
     return (
-        <>
-            <Header route={props.route}/>
+        <div>
+            <Navbar route={props.route}/>
             <Container>
                 {props.children}
             </Container>
             <Background />
-        </>
+        </div>
     );
 }
 

@@ -3,13 +3,13 @@ import { ContextProvider } from '../../Context';
 import TaskUI from './taskUI';
 
 
-function App() {
+function Tasks() {
 
   return (
     <ContextProvider>
-      <TaskUI/>
+      <TaskUI />
     </ContextProvider>
   );
 }
 
-export default App;
+export default Tasks;

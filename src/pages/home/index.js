@@ -1,14 +1,13 @@
 import React from 'react';
-import '../Styles/generalStyles.css';
-import '../Styles/App.css';
 import { GeneralApp } from '../../Componets/GeneralApp';
 
-function App() {
+function Home() {
 
   return (
     <GeneralApp route={"/"}>
+      <p>Home</p>
     </GeneralApp>
   );
 }
 
-export default App;
+export default Home;

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "../Styles/generalStyles.css"
 
@@ -20,33 +21,34 @@ const titles = [
     }
 ]
 
-function Header({ route }) {
+function Navbar() {
     return (
         <Container>
             <Pages>
                 {titles.map((t) => (
-                    <a href={t.route} key={t.label}>
-                        <Item className={
-                            t.route === route ? ("generalText itemSelected"
-                            ) : ("generalText")
-                        }>
+                    <NavLink to={t.route} key={t.label} className={({ isActive }) =>
+                        isActive ? "itemSelected" : "generalText"
+                    }>
+                        <Item className="generalText">
                             {t.label}
                         </Item>
-                    </a>
+                    </NavLink>
                 ))}
             </Pages>
         </Container >
     );
 }
 
-export { Header };
+export { Navbar };
 
 export const Container = styled.div` 
     display: flex;
     height: 40px;
+    width: 100vw;
+    z-index: 10;
     justify-content: center;
     align-items: center;
-    padding: 10px 120px;
+    padding: 10px;
     background: #001724;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;

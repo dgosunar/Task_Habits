@@ -1,13 +1,13 @@
 import React from 'react';
 import { GeneralApp } from '../../Componets/GeneralApp';
 
-function Habits() {
+function NotFound() {
 
   return (
-    <GeneralApp route={"/habits"}>
-      <p>Habits</p>
+    <GeneralApp route={"/"}>
+      <p>NotFound</p>
     </GeneralApp>
   );
 }
 
-export default Habits;
+export default NotFound;
