@@ -8,13 +8,13 @@ function Home() {
     <Layout>
       <Container>
         <LogoBox>
-          <img src={`/Logos/CompletLogo_light.png`} alt="Imagotipo" />
+          <img src="./Logos/CompletLogo_light.png" alt="Imagotipo" />
           <div className='secondarySubtitle'>Gestiona tus tareas, conquista tus metas</div>
           <div className='secondarySubtitle'>Pequeños hábitos, grandes victorias</div>
         </LogoBox>
         <ImagenBox>
           <MyImagen>
-            <img src={`/Images/Reading list-bro.png`} alt="Imagotipo" />
+            <img src="./Images/Reading list-bro.png" alt="Imagotipo" />
           </MyImagen>
           <AttributeImagen>
             <a href="https://storyset.com/people" target='_blank'>People illustrations by Storyset</a>

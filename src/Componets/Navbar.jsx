@@ -3,10 +3,10 @@ import styled from "styled-components";
 import "../Styles/generalStyles.css";
 
 const titles = [
-    { label: 'Inicio', route: '/' },
-    { label: 'Tareas', route: '/tasks' },
-    { label: 'Habitos', route: '/habits' },
-    { label: 'Contacto', route: '/contact' }
+    { label: 'Inicio', route: "/" },
+    { label: 'Tareas', route: "/tasks" },
+    { label: 'Habitos', route: "/habits" },
+    { label: 'Contacto', route: "/contact" }
 ]
 
 function Navbar() {
@@ -14,7 +14,7 @@ function Navbar() {
         <Container>
             <Header>
                 <a href="/">
-                    <img src={`/Logos/Imagotipo_light.png`} alt="Imagotipo" />
+                    <img src="./Logos/Imagotipo_light.png" alt="Imagotipo" />
                 </a>
                 <Pages>
                     {titles.map((t) => (

@@ -11,10 +11,10 @@ function Contact() {
         <ContactCard title='Contacto'/>
         <ImagenBox>
           <MyImagen>
-            <img src={`/Images/Developer activity-bro.png`} />
+            <img src="./Images/Developer activity-bro.png" />
           </MyImagen>
           <AttributeImagen>
-            <a href="https://storyset.com/work" target='_blank'>Work illustrations by Storyset</a>
+            <a href="https://storyset.com/work" target='_blank' rel="noreferrer">Work illustrations by Storyset</a>
           </AttributeImagen>
         </ImagenBox>
       </Container>

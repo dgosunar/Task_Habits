@@ -7,7 +7,7 @@ function NotFound() {
   return (
     <Layout>
       <Container>
-        <img src={`/Images/404 error with person looking for-bro.png`} />
+        <img src="./Images/404 error with person looking for-bro.png" />
         <a href="https://storyset.com/online" target='_blank'>Online illustrations by Storyset</a>
       </Container>
     </Layout>

@@ -7,16 +7,16 @@ function ContactCard({ title }) {
             <span className="primarySubtitlePM">{title}</span>
             <Separator />
             <MyPresentation>
-                <img src={`/Images/Photo Daniel Osuna.png`} alt="PhotoDaniel"/>
+                <img src="./Images/Photo Daniel Osuna.png" alt="PhotoDaniel"/>
                 <span className="primaryTitle_main">Daniel Osuna</span>
                 <span className="mediumTextSM">Desarrollador Frontend</span>
                 <span className="mediumText">React | Vue | Angular | Astro | JavaScript</span>
                 <SocialNetworks>
                     <a href="https://github.com/dgosunar" target="_blank" rel="noreferrer">
-                        <img src={`/Iconos/GitHub.svg`} alt="IconoGithub"/>
+                        <img src="./Iconos/GitHub.svg" alt="IconoGithub"/>
                     </a>
                     <a href="https://www.linkedin.com/in/daniel-osuna-r/" target="_blank" rel="noreferrer">
-                        <img src={`/Iconos/Linkedin.svg`} alt="IconoLinkedin"/>
+                        <img src="./Iconos/Linkedin.svg" alt="IconoLinkedin"/>
                     </a>
                 </SocialNetworks>
             </MyPresentation>

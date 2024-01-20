@@ -4,13 +4,13 @@ import { Background } from "../Background";
 
 function Layout({ children }) {
     return (
-        <div>
+        <>
             <Navbar />
             <Container>
                 {children}
             </Container>
             <Background />
-        </div>
+        </>
     );
 }
 
@@ -22,7 +22,7 @@ export const Container = styled.div`
     padding: 20px;
     justify-content: center;
     align-items: flex-start;
-    height: calc(100% - 120px);
+    height: calc(100vh - 120px);
     border-radius: 0px 0px 15px 15px;
     --background: rgba(0, 23, 36, 0.75);
     --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
