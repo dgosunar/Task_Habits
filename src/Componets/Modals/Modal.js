@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import { Separator } from "./Separator";
 
-function Modal({ children }) {
+function Modal({ children , title}) {
     return ReactDOM.createPortal(
         <ModalStyle>
             <Card>
-                <span className="primarySubtitlePM">Titulo de la Card</span>
+                <span className="primarySubtitlePM">{title}</span>
                 <Separator />
                 {children}
             </Card>

@@ -32,7 +32,7 @@ export const Rectangle2 = styled.div`
     width: 40vh;
     height: 40vh;
     transform: rotate(-32deg);
-    background: var(--primary-light);
+    background: var(--white);
     top: -10%;
     right: -5%;
     z-index: -1;
@@ -42,7 +42,7 @@ export const Rectangle3 = styled.div`
     width: 40vh;
     height: 40vh;
     transform: rotate(-32deg);
-    background: var(--primary-light);
+    background: var(--white);
     bottom: -10%;
     left: -5%;
     z-index: -1;

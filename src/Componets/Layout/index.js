@@ -24,7 +24,7 @@ export const Container = styled.div`
     align-items: flex-start;
     height: calc(100% - 120px);
     border-radius: 0px 0px 15px 15px;
-    --background: rgba(255, 255, 255, 0.75);
+    --background: rgba(0, 23, 36, 0.75);
     --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: var(--primary-main);
+    color: var(--white);
 `;

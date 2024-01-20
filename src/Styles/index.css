@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: var(--default-background-color) ;
+  background: var(--primary-main) ;
   color: var(--white);
   font-family: "Montserrat", sans-serif;
   overflow: hidden;
@@ -23,6 +23,7 @@ a {
 
 img {
   max-height: 100%;
+  max-width: 100%;
 }
 
 :root {
@@ -47,8 +48,8 @@ img {
   --accent-red: #f26868;
 }
 
-.primaryTitle_dark {
-  color: var(--primary-dark);
+.primaryTitle_main {
+  color: var(--primary-main);
   font-size: 41px;
   font-style: normal;
   font-weight: 700;
@@ -123,11 +124,27 @@ img {
   color: var(--primary-main);
 }
 
+.secondarySubtitleSM {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  color: var(--secondary-main);
+}
+
 .mediumText {
   font-size: 17px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+}
+
+.mediumTextSM {
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  color: var(--secondary-main);
 }
 
 .generalText {

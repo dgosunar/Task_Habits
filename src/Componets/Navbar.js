@@ -13,9 +13,9 @@ function Navbar() {
     return (
         <Container>
             <Header>
-                <div>
-                    <img src={`${process.env.PUBLIC_URL}/Imagotipo_dark.png`} alt="Imagotipo" />
-                </div>
+                <a href="/">
+                    <img src={`/Logos/Imagotipo_light.png`} alt="Imagotipo" />
+                </a>
                 <Pages>
                     {titles.map((t) => (
                         <NavLink to={t.route} key={t.label} className={({ isActive }) =>
@@ -41,8 +41,8 @@ export const Container = styled.div`
     position: fixed;
     top: 0;
     z-index: 1;
-    background: var(--white);
-    color: var(--primary-main);
+    background: var(--primary-main);
+    color: var(--white);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
