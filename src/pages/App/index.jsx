@@ -7,7 +7,7 @@ import Habits from '../Habits'
 import Contact from '../Contact'
 import NotFound from '../NotFound'
 
-import './App.css'
+import '../../Styles/App.css'
 
 const AppRoutes = () => {
 
