@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import { useRoutes, BrowserRouter } from 'react-router-dom'
 
-import Home from '../Home/index';
-import Tasks from '../Tasks/index';
-import Habits from '../Habits/index';
-import Contact from '../Contact/index';
-import NotFound from '../NotFound/index';
+import Home from '../Home'
+import Tasks from '../Tasks'
+import Habits from '../Habits'
+import Contact from '../Contact'
+import NotFound from '../NotFound'
 
 import './App.css'
 
