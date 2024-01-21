@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Context } from "../../Context";
+import { Context } from "../../context";
 import React from "react";
 
 

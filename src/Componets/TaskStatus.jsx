@@ -1,5 +1,5 @@
 import React from "react";
-import { Context } from "../Context";
+import { Context } from "../context";
 import { PieChart } from '@mui/x-charts/PieChart';
 
 

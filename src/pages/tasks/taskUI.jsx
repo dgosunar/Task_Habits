@@ -1,5 +1,5 @@
 import React from 'react';
-import { Context } from '../../Context';
+import { Context } from '../../context';
 import { TaskStatus } from '../../Componets/TaskStatus';
 import { TaskFinder } from '../../Componets/TaskFinder';
 import { TaskLoading } from '../../Componets/TaskLoading';
