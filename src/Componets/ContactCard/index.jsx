@@ -7,7 +7,6 @@ function ContactCard({ title }) {
             <span className="primarySubtitlePM">{title}</span>
             <Separator />
             <MyPresentation>
-                <img src="./Images/Photo Daniel Osuna.png" alt="PhotoDaniel"/>
                 <span className="primaryTitle_main">Daniel Osuna</span>
                 <span className="mediumTextSM">Desarrollador Frontend</span>
                 <span className="mediumText">React | Vue | Angular | Astro | JavaScript</span>
