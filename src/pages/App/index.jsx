@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRoutes, BrowserRouter } from 'react-router-dom'
 
-import Home from '../home';
+import Home from '../Home';
 import Tasks from '../tasks';
 import Habits from '../habits';
 import Contact from '../contact';
