@@ -5,7 +5,7 @@ import Home from '../Home';
 import Tasks from '../tasks';
 import Habits from '../Habits';
 import Contact from '../Contact';
-import NotFound from '../notFound';
+import NotFound from '../NotFound';
 
 import '../../Styles/App.css'
 
