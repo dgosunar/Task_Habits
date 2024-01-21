@@ -4,7 +4,7 @@ import { useRoutes, BrowserRouter } from 'react-router-dom'
 import Home from '../Home';
 import Tasks from '../tasks';
 import Habits from '../Habits';
-import Contact from '../contact';
+import Contact from '../Contact';
 import NotFound from '../notFound';
 
 import '../../Styles/App.css'
