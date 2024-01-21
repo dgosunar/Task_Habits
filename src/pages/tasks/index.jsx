@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContextProvider } from '../../context';
+import { ContextProvider } from '../../Context';
 import TaskUI from './taskUI';
 import { Layout } from '../../Componets/Layout'
 
