@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "../styles/generalStyles.css";
-import { Div, MyImage, MyLink } from "../styles/styles";
+import { MyImage, MyLink } from "../styles/styles";
 
 const titles = [
     { label: 'Inicio', route: "/Task_Habits/" },
