@@ -28,6 +28,17 @@ export const Container = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+
+  @media screen and (max-width: 1024px) {
+    justify-content: space-evenly;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 600px) {
+  }
 `;
 
 export const ImagenBox = styled.div`
@@ -35,6 +46,16 @@ export const ImagenBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 40%;
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+    height: 40%;
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 600px) {
+  }
 `;

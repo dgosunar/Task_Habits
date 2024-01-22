@@ -39,6 +39,17 @@ export const Card = styled.div`
     gap: 10px;
     border-radius: 15px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        
+    @media screen and (max-width: 1024px) {
+    }
+    
+    @media screen and (max-width: 768px) {
+    }
+    
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        margin: 10px;
+    }
 `;
 
 export const MyPresentation = styled.div`
@@ -51,6 +62,15 @@ export const MyPresentation = styled.div`
     & img {
         border-radius: 15px;
     }
+    
+    @media screen and (max-width: 1024px) {
+    }
+
+    @media screen and (max-width: 768px) {
+    }
+
+    @media screen and (max-width: 600px) {
+    }
 `;
 
 export const SocialNetworks = styled.div`
@@ -61,5 +81,14 @@ export const SocialNetworks = styled.div`
     & img {
         height: 30px;
         border-radius: 0px;
+    }
+
+    @media screen and (max-width: 1024px) {
+    }
+
+    @media screen and (max-width: 768px) {
+    }
+
+    @media screen and (max-width: 600px) {
     }
 `;

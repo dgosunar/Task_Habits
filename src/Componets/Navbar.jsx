@@ -53,6 +53,17 @@ export const Header = styled.div`
     padding: 10px 120px;
     width: 100%;   
     justify-content: space-between;
+    align-items: center;
+    
+    @media screen and (max-width: 1024px) {
+        padding: 10px 60px;
+    }
+
+    @media screen and (max-width: 768px) {
+    }
+
+    @media screen and (max-width: 600px) {
+    }
 `;
 
 export const Pages = styled.div` 
@@ -61,6 +72,16 @@ export const Pages = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
+
+    @media screen and (max-width: 1024px) {
+        gap: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+    }
+
+    @media screen and (max-width: 600px) {
+    }
 `;
 
 export const Item = styled.div` 
@@ -73,5 +94,14 @@ export const Item = styled.div`
 
     &:hover{
     color: var(--secondary-main);
+    }
+
+    @media screen and (max-width: 1024px) {
+    }
+
+    @media screen and (max-width: 768px) {
+    }
+
+    @media screen and (max-width: 600px) {
     }
 `;

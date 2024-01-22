@@ -8,7 +8,6 @@ import { TaskEmpty } from '../../componets/TaskEmpty';
 import { Task } from '../../componets/Task';
 import { CreateTask } from '../../componets/CreateTask';
 import styled from "styled-components";
-import './tasksStyles.css';
 import { Modal } from '../../componets/Modals/Modal';
 import { NewTask } from '../../componets/Modals/NewTask';
 import { Separator } from '../../componets/Modals/Separator';
@@ -31,8 +30,8 @@ function TaskUI() {
   } = React.useContext(Context);
 
   return (
-    <div className='Frame1'>
-      <div className='Frame3'>
+    <Container>
+      <ContainerStatus>
         <Div className="primaryTitle_SM">Tareas</Div>
         <Div className="generalText">Gestiona tus tareas, conquista tus metas</Div>
         <TaskStatus />
@@ -43,9 +42,9 @@ function TaskUI() {
             <NewTask />
           </Modal>
         ) : (<></>)}
-      </div>
+      </ContainerStatus>
 
-      <div className='Frame2'>
+      <ContainerTasks>
         <TaskFinder />
         <GeneralList>
           {generalStatus.map((status) => (
@@ -73,12 +72,73 @@ function TaskUI() {
           ))}
 
         </GeneralList>
-      </div>
-    </div>
+      </ContainerTasks>
+    </Container>
   );
 }
 
 export default TaskUI;
+
+
+export const Container = styled.div`    
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: scroll;
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 600px) {
+  }
+`;
+
+export const ContainerStatus = styled.div`    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  @media screen and (max-width: 1024px) {
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 600px) {
+  }
+`;
+
+
+export const ContainerTasks = styled.div`    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+
+  @media screen and (max-width: 1024px) {
+  }
+  
+  @media screen and (max-width: 768px) {
+    width: 98%;
+  }
+
+  @media screen and (max-width: 600px) {
+    
+  }
+`;
+
 
 export const GeneralList = styled.div` 
   display: flex;
@@ -87,20 +147,44 @@ export const GeneralList = styled.div`
   justify-content: center;
   gap: 10px;
   height: 100%;
-`;
 
-export const TaskList = styled.div` 
+  
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  `;
+  
+  export const TaskList = styled.div` 
   display: flex;
   padding: 10px;
   flex-direction: column;
   align-items: center;
   width: 250px;
-  max-height: 100%;
+  min-height: calc(100% - 20px);
   gap: 10px;
-  align-self: stretch;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.75);
   color: var(--primary-main);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 0px;
+  
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+  }
+  
+  @media screen and (max-width: 600px) {
+    width: calc(100% - 20px);
+    min-height: auto;
+  }
 `;

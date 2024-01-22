@@ -31,6 +31,10 @@ export const Container = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
+      
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const LogoBox = styled.div`
@@ -38,8 +42,13 @@ export const LogoBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 60%;
+  text-align: center;
   width: 40%;
+
+  @media screen and (max-width: 768px) {
+    height: 30%;
+    width: 100%;
+  }
 `;
 
 export const ImagenBox = styled.div`
@@ -49,4 +58,9 @@ export const ImagenBox = styled.div`
   justify-content: center;
   height: 100%;
   width: 40%;
+
+  @media screen and (max-width: 768px) {
+    height: 50%;
+    width: 100%;
+  }
 `;
