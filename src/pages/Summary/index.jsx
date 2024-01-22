@@ -1,13 +1,13 @@
 import React from 'react';
 import { Layout } from '../../componets/Layout'
 
-function Habits() {
+function Summary() {
 
   return (
     <Layout>
-      <p>Habits</p>
+      <p>Resumen</p>
     </Layout>
   );
 }
 
-export default Habits;
+export default Summary;

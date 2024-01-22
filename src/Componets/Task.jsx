@@ -1,5 +1,5 @@
 import { GoChevronLeft as Back, GoChevronRight as Next, GoCheckCircleFill as Completed } from "react-icons/go";
-import "../Styles/generalStyles.css"
+import "../styles/generalStyles.css";
 import styled from "styled-components";
 
 function Task(props) {

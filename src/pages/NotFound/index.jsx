@@ -1,14 +1,16 @@
 import React from 'react';
-import { Layout } from '../../Componets/Layout'
+import { Layout } from '../../componets/Layout';
 import styled from 'styled-components';
+import { MyImage, MyLink } from '../../styles/styles';
+
 
 function NotFound() {
 
   return (
     <Layout>
       <Container>
-        <img src="./Images/404 error with person looking for-bro.png" />
-        <a href="https://storyset.com/online" target='_blank'>Online illustrations by Storyset</a>
+        <MyImage src='./Images/404 error with person looking for-bro.png' alt='image404' />
+        <MyLink href='https://storyset.com/online' target='_blank' rel='noopener noreferrer'>Online illustrations by Storyset</MyLink>
       </Container>
     </Layout>
   );

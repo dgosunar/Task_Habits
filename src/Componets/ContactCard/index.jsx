@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Separator } from "../Modals/Separator";
+import { MyImage, MyLink } from "../../styles/styles";
 
 function ContactCard({ title }) {
     return (
@@ -11,12 +12,12 @@ function ContactCard({ title }) {
                 <span className="mediumTextSM">Desarrollador Frontend</span>
                 <span className="mediumText">React | Vue | Angular | Astro | JavaScript</span>
                 <SocialNetworks>
-                    <a href="https://github.com/dgosunar" target="_blank" rel="noreferrer">
-                        <img src="./Iconos/GitHub.svg" alt="IconoGithub"/>
-                    </a>
-                    <a href="https://www.linkedin.com/in/daniel-osuna-r/" target="_blank" rel="noreferrer">
-                        <img src="./Iconos/Linkedin.svg" alt="IconoLinkedin"/>
-                    </a>
+                    <MyLink href="https://github.com/dgosunar" target="_blank" rel="noopener noreferrer">
+                        <MyImage src="./Iconos/GitHub.svg" alt="IconoGithub"/>
+                    </MyLink>
+                    <MyLink href="https://www.linkedin.com/in/daniel-osuna-r/" target="_blank" rel="noopener noreferrer">
+                        <MyImage src="./Iconos/Linkedin.svg" alt="IconoLinkedin"/>
+                    </MyLink>
                 </SocialNetworks>
             </MyPresentation>
         </Card>

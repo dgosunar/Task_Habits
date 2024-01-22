@@ -1,7 +1,8 @@
 import React from 'react';
-import { Layout } from '../../Componets/Layout'
+import { Layout } from '../../componets/Layout'
 import styled from 'styled-components';
-import ContactCard from '../../Componets/ContactCard';
+import ContactCard from '../../componets/ContactCard';
+import { MyImage, MyLink } from '../../styles/styles';
 
 function Contact() {
 
@@ -10,12 +11,8 @@ function Contact() {
       <Container>
         <ContactCard title='Contacto'/>
         <ImagenBox>
-          <MyImagen>
-            <img src="./Images/Developer activity-bro.png" />
-          </MyImagen>
-          <AttributeImagen>
-            <a href="https://storyset.com/work" target='_blank' rel="noreferrer">Work illustrations by Storyset</a>
-          </AttributeImagen>
+            <MyImage src='./Images/Developer activity-bro.png' alt='imagenContacto'/>
+            <MyLink href='https://storyset.com/work' target='_blank' rel='noopener noreferrer'>Work illustrations by Storyset</MyLink>
         </ImagenBox>
       </Container>
     </Layout>
@@ -40,12 +37,4 @@ export const ImagenBox = styled.div`
   justify-content: center;
   height: 100%;
   width: 40%;
-`;
-
-export const MyImagen = styled.div`
-display: flex;
-`;
-
-export const AttributeImagen = styled.div`
-display: flex;
 `;

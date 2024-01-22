@@ -1,17 +1,19 @@
 import React from 'react';
 import { Context } from '../../Context';
-import { TaskStatus } from '../../Componets/TaskStatus';
-import { TaskFinder } from '../../Componets/TaskFinder';
-import { TaskLoading } from '../../Componets/TaskLoading';
-import { TaskError } from '../../Componets/TaskError';
-import { TaskEmpty } from '../../Componets/TaskEmpty';
-import { Task } from '../../Componets/Task';
-import { CreateTask } from '../../Componets/CreateTask';
+import { TaskStatus } from '../../componets/TaskStatus';
+import { TaskFinder } from '../../componets/TaskFinder';
+import { TaskLoading } from '../../componets/TaskLoading';
+import { TaskError } from '../../componets/TaskError';
+import { TaskEmpty } from '../../componets/TaskEmpty';
+import { Task } from '../../componets/Task';
+import { CreateTask } from '../../componets/CreateTask';
 import styled from "styled-components";
 import './tasksStyles.css';
-import { Modal } from '../../Componets/Modals/Modal';
-import { NewTask } from '../../Componets/Modals/NewTask';
-import { Separator } from '../../Componets/Modals/Separator';
+import { Modal } from '../../componets/Modals/Modal';
+import { NewTask } from '../../componets/Modals/NewTask';
+import { Separator } from '../../componets/Modals/Separator';
+import { Div } from '../../styles/styles';
+
 
 function TaskUI() {
 
@@ -30,16 +32,27 @@ function TaskUI() {
 
   return (
     <div className='Frame1'>
-      <div className='Frame2'>
+      <div className='Frame3'>
+        <Div className="primaryTitle_SM">Tareas</Div>
+        <Div className="generalText">Gestiona tus tareas, conquista tus metas</Div>
         <TaskStatus />
+        <CreateTask setOpenModal={setOpenModal} />
+
+        {openModal ? (
+          <Modal title='Crear una nueva tarea'>
+            <NewTask />
+          </Modal>
+        ) : (<></>)}
+      </div>
+
+      <div className='Frame2'>
         <TaskFinder />
         <GeneralList>
-
           {generalStatus.map((status) => (
-            <div className='mediumText'>{status}</div>,
+            <Div className='mediumText'>{status}</Div>,
             <TaskList key={status}>
               <div>{status}</div>
-              <Separator />
+              <Separator/>
               {loading ? (<TaskLoading key={status} />) :
                 error ? (<TaskError />) :
                   (!loading && searchTask.length === 0) ? (<TaskEmpty />) :
@@ -61,14 +74,6 @@ function TaskUI() {
 
         </GeneralList>
       </div>
-      <CreateTask setOpenModal={setOpenModal} />
-
-      {openModal ? (
-        <Modal title='Crear una nueva tarea'>
-          <NewTask />
-        </Modal>
-      ) : (<></>)}
-
     </div>
   );
 }
@@ -90,6 +95,7 @@ export const TaskList = styled.div`
   flex-direction: column;
   align-items: center;
   width: 250px;
+  max-height: 100%;
   gap: 10px;
   align-self: stretch;
   border-radius: 15px;

@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import "../Styles/generalStyles.css";
+import "../styles/generalStyles.css";
+import { MyImage, MyLink } from "../styles/styles";
 
 const titles = [
     { label: 'Inicio', route: "/" },
+    { label: 'Resumen', route: "/summary" },
     { label: 'Tareas', route: "/tasks" },
     { label: 'Habitos', route: "/habits" },
     { label: 'Contacto', route: "/contact" }
@@ -13,9 +15,9 @@ function Navbar() {
     return (
         <Container>
             <Header>
-                <a href="/">
-                    <img src="./Logos/Imagotipo_light.png" alt="Imagotipo" />
-                </a>
+                <MyLink href="/">
+                    <MyImage src="./Logos/Imagotipo_light.png" alt="Imagotipo" />
+                </MyLink>
                 <Pages>
                     {titles.map((t) => (
                         <NavLink to={t.route} key={t.label} className={({ isActive }) =>

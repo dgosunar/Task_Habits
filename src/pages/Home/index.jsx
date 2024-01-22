@@ -1,6 +1,7 @@
 import React from 'react';
-import { Layout } from '../../Componets/Layout'
 import styled from 'styled-components';
+import { Layout } from '../../componets/Layout'
+import { MyImage, MyLink } from '../../styles/styles';
 
 function Home() {
 
@@ -8,17 +9,13 @@ function Home() {
     <Layout>
       <Container>
         <LogoBox>
-          <img src="./Logos/CompletLogo_light.png" alt="Imagotipo" />
+          <MyImage src='./Logos/CompletLogo_light.png' alt='imagotipo' />
           <div className='secondarySubtitle'>Gestiona tus tareas, conquista tus metas</div>
           <div className='secondarySubtitle'>Pequeños hábitos, grandes victorias</div>
         </LogoBox>
         <ImagenBox>
-          <MyImagen>
-            <img src="./Images/Reading list-bro.png" alt="Imagotipo" />
-          </MyImagen>
-          <AttributeImagen>
-            <a href="https://storyset.com/people" target='_blank'>People illustrations by Storyset</a>
-          </AttributeImagen>
+            <MyImage src='./Images/Reading list-bro.png' alt='imagenHome' />
+            <MyLink href='https://storyset.com/people' target='_blank' rel='noopener noreferrer'>People illustrations by Storyset</MyLink>
         </ImagenBox>
       </Container>
     </Layout>
@@ -52,11 +49,4 @@ export const ImagenBox = styled.div`
   justify-content: center;
   height: 100%;
   width: 40%;
-`;
-
-export const MyImagen = styled.div`
-display: flex;
-`;
-export const AttributeImagen = styled.div`
-display: flex;
 `;

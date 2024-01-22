@@ -56,8 +56,8 @@ img {
   line-height: normal;
 }
 
-.primaryTitle_light {
-  color: var(--secondary-light);
+.primaryTitle_SM {
+  color: var(--secondary-main);
   font-size: 41px;
   font-style: normal;
   font-weight: 700;
@@ -108,12 +108,27 @@ img {
   line-height: normal;
   color: var(--primary-main);
 }
+.primarySubtitleW {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--white);
+}
 
 .secondarySubtitle {
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+}
+
+.secondarySubtitleW {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  color: var(--white);
 }
 
 .secondarySubtitlePM {
