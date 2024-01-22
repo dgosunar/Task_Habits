@@ -1,22 +1,22 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "../styles/generalStyles.css";
-import { MyImage, MyLink } from "../styles/styles";
+import { Div, MyImage, MyLink } from "../styles/styles";
 
 const titles = [
-    { label: 'Inicio', route: "/" },
-    { label: 'Resumen', route: "/summary" },
-    { label: 'Tareas', route: "/tasks" },
-    { label: 'Habitos', route: "/habits" },
-    { label: 'Contacto', route: "/contact" }
+    { label: 'Inicio', route: "/Task_Habits/" },
+    { label: 'Resumen', route: "/Task_Habits/summary" },
+    { label: 'Tareas', route: "/Task_Habits/tasks" },
+    { label: 'Habitos', route: "/Task_Habits/habits" },
+    { label: 'Contacto', route: "/Task_Habits/contact" }
 ]
 
 function Navbar() {
     return (
         <Container>
             <Header>
-                <MyLink href="/">
-                    <MyImage src="./Logos/Imagotipo_light.png" alt="Imagotipo" />
+                <MyLink href="/Task_Habits/">
+                    <MyImage src="./Logos/BannerTaskHabits_dev.png" alt="Imagotipo" />
                 </MyLink>
                 <Pages>
                     {titles.map((t) => (
