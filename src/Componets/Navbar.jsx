@@ -1,7 +1,9 @@
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "../styles/generalStyles.css";
-import { MyImage, MyLink } from "../styles/styles";
+import { Div, MyImage, MyLink } from "../styles/styles";
+import { GrMenu, GrClose } from "react-icons/gr";
 
 const titles = [
     { label: 'Inicio', route: "/Task_Habits/" },
@@ -12,23 +14,47 @@ const titles = [
 ]
 
 function Navbar() {
+
+    const [clicked, setClicked] = useState(false);
+
+    const handleClick = () => {
+        setClicked(!clicked);
+    }
+
     return (
         <Container>
             <Header>
-                <MyLink href="/Task_Habits/">
-                    <MyImage src="./Logos/BannerTaskHabits_dev.png" alt="Imagotipo" />
-                </MyLink>
-                <Pages>
-                    {titles.map((t) => (
-                        <NavLink to={t.route} key={t.label} className={({ isActive }) =>
-                            isActive ? "itemSelected" : "generalText"
-                        }>
-                            <Item className="generalText">
-                                {t.label}
-                            </Item>
-                        </NavLink>
-                    ))}
-                </Pages>
+                <Logo>
+                    <MyLink href="/Task_Habits/">
+                        <MyImage src="./Logos/BannerTaskHabits_dev.png" alt="Imagotipo" />
+                    </MyLink>
+                </Logo>
+
+                <Menu >
+                    <GrMenu
+                        className="burguerBotton"
+                        onClick={handleClick} />
+                    <Div className={clicked ? "background open" : "background"} />
+                    <Pages className={clicked ? "menu open" : "menu"}>
+                        <LogoNav>
+                            <MyImage src="./Logos/Imagotipo_dark2.png" alt="Imagotipo" />
+                        </LogoNav>
+                        {titles.map((t) => (
+                            <NavLink to={t.route} key={t.label} className={({ isActive }) =>
+                                isActive ? "itemSelected" : "generalText"
+                            }>
+                                <Item >
+                                    {t.label}
+                                </Item>
+                            </NavLink>
+                        ))}
+                    </Pages>
+
+                    <GrClose
+                        className={clicked ? "xBotton open" : "xBotton"}
+                        onClick={handleClick}
+                        color="var(--primary-main)" />
+                </Menu>
             </Header>
         </Container >
     );
@@ -60,28 +86,113 @@ export const Header = styled.div`
     }
 
     @media screen and (max-width: 768px) {
+        padding: 10px 20px;
     }
 
     @media screen and (max-width: 600px) {
+        gap: 10px;
     }
 `;
 
-export const Pages = styled.div` 
+export const Logo = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    height: 100%;
+`;
 
-    @media screen and (max-width: 1024px) {
+export const LogoNav = styled.div`
+    display: flex;
+    margin: 0 50px 0 5px;
+    @media screen and (min-width: 1024px) {
+        display: none;
+    }
+`;
+
+export const Menu = styled.div`
+    display: flex;
+
+    
+    @media screen and (max-width: 600px) {
         gap: 10px;
     }
-
-    @media screen and (max-width: 768px) {
+    
+    .background{
+        display: none;
     }
-
-    @media screen and (max-width: 600px) {
+    .background.open{
+        @media screen and (max-width: 768px) {
+            display: flex;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background-color: rgba(0, 23, 36, 0.75);
+            height: 100vh;
+            width: 100vw;
+            z-index:100;
+        }
     }
+    
+    .menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        @media screen and (max-width: 1024px) {
+            gap: 10px;
+        }
+        @media screen and (max-width: 768px) {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            right: 0px;
+            top: 0px;
+            background-color: var(--secondary-main);
+            width: 300px;
+            height: 100vh;
+            justify-content: flex-start;
+            color: var(--primary-main);
+            z-index:100;
+        }
+    }
+    
+    .menu.open{
+        display: flex;
+    }
+    
+    .burguerBotton{
+        display: none;
+        @media screen and (max-width: 768px) {
+            display: flex;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+        }
+    }
+  
+    .xBotton {
+        display: none;
+    }
+    .xBotton.open {
+        @media screen and (max-width: 768px) {
+            display: flex;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+            z-index: 100;
+        }
+    }
+    
+`;
+
+export const Pages = styled.div` 
 `;
 
 export const Item = styled.div` 
@@ -105,3 +216,4 @@ export const Item = styled.div`
     @media screen and (max-width: 600px) {
     }
 `;
+

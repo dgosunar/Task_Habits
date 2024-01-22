@@ -21,7 +21,6 @@ export const BoxBotton = styled.div`
     padding: 10px 79px;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
 `;
 
 export const CreateTodoButton = styled.div`

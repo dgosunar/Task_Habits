@@ -2,6 +2,19 @@
 .itemSelected {
     color: var(--secondary-main);
     border-bottom: 1px solid var(--secondary-main);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    
+    @media screen and (max-width: 768px) {
+        color: var(--primary-main);
+        border-bottom: none;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
 }
 
 /*Estilos Task*/
