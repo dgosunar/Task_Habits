@@ -4,8 +4,7 @@ import { Layout } from '../../componets/Layout'
 function Summary() {
 
   return (
-    <Layout>
-      <p>Resumen</p>
+    <Layout title={'Resumen'}>
     </Layout>
   );
 }

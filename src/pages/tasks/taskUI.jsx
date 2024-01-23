@@ -32,8 +32,6 @@ function TaskUI() {
   return (
     <Container>
       <ContainerStatus>
-        <Div className="primaryTitle_SM">Tareas</Div>
-        <Div className="generalText">Gestiona tus tareas, conquista tus metas</Div>
         <TaskStatus />
         <CreateTask setOpenModal={setOpenModal} />
 
@@ -51,23 +49,25 @@ function TaskUI() {
             <Div className='mediumText'>{status}</Div>,
             <TaskList key={status}>
               <div>{status}</div>
-              <Separator/>
-              {loading ? (<TaskLoading key={status} />) :
-                error ? (<TaskError />) :
-                  (!loading && searchTask.length === 0) ? (<TaskEmpty />) :
-                    (searchTask.map((task) => (
-                      task.status === status ? (
-                        <Task
-                          key={task.id}
-                          text={task.text}
-                          status={task.status}
-                          onPending={() => pendingTask(task.text)}
-                          onStart={() => startTask(task.text)}
-                          onComplete={() => completeTask(task.text)}
-                          onDelete={() => deleteTask(task.text)}
-                        />
-                      ) : (<></>)
-                    )))}
+              <Separator />
+              <Div className='list'>
+                {loading ? (<TaskLoading key={status} />) :
+                  error ? (<TaskError />) :
+                    (!loading && searchTask.length === 0) ? (<TaskEmpty />) :
+                      (searchTask.map((task) => (
+                        task.status === status ? (
+                          <Task
+                            key={task.id}
+                            text={task.text}
+                            status={task.status}
+                            onPending={() => pendingTask(task.text)}
+                            onStart={() => startTask(task.text)}
+                            onComplete={() => completeTask(task.text)}
+                            onDelete={() => deleteTask(task.text)}
+                          />
+                        ) : (<></>)
+                      )))}
+              </Div>
             </TaskList>
           ))}
 
@@ -93,7 +93,6 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    overflow-y: scroll;
   }
 
   @media screen and (max-width: 768px) {
@@ -108,8 +107,11 @@ export const ContainerStatus = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  height: 100%;
+  justify-content: space-between;
 
   @media screen and (max-width: 1024px) {
+    height: min-content;
   }
 
   @media screen and (max-width: 768px) {
@@ -128,6 +130,7 @@ export const ContainerTasks = styled.div`
   height: 100%;
 
   @media screen and (max-width: 1024px) {
+    height: calc(100% - 78px);
   }
   
   @media screen and (max-width: 768px) {
@@ -146,8 +149,7 @@ export const GeneralList = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
-  height: 100%;
-
+  height: calc(100% - 50px);
   
   @media screen and (max-width: 1024px) {
     width: 100%;
@@ -161,20 +163,20 @@ export const GeneralList = styled.div`
     justify-content: flex-start;
   }
   `;
-  
-  export const TaskList = styled.div` 
+
+export const TaskList = styled.div` 
   display: flex;
   padding: 10px;
   flex-direction: column;
   align-items: center;
   width: 250px;
   min-height: calc(100% - 20px);
+  max-height: calc(100% - 20px);
   gap: 10px;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.75);
   color: var(--primary-main);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 0px;
   
   @media screen and (max-width: 1024px) {
     width: 100%;
@@ -186,5 +188,14 @@ export const GeneralList = styled.div`
   @media screen and (max-width: 600px) {
     width: calc(100% - 20px);
     min-height: auto;
+  }
+
+  .list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    overflow-y: auto;
   }
 `;

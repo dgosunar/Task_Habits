@@ -97,6 +97,7 @@ export const Header = styled.div`
 export const Logo = styled.div`
     display: flex;
     height: 100%;
+    width: 90%;
 `;
 
 export const LogoNav = styled.div`
@@ -167,6 +168,7 @@ export const Menu = styled.div`
             right: 10px;
             top: 10px;
             height: 40px;
+            width: 30px;
             justify-content: center;
             align-items: center;
             margin: 0 10px;
@@ -183,6 +185,7 @@ export const Menu = styled.div`
             right: 10px;
             top: 10px;
             height: 40px;
+            width: 30px;
             justify-content: center;
             align-items: center;
             margin: 0 10px;

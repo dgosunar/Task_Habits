@@ -108,6 +108,13 @@ img {
   line-height: normal;
   color: var(--primary-main);
 }
+.primarySubtitleSM {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--secondary-main);
+}
 .primarySubtitleW {
   font-size: 25px;
   font-style: normal;
