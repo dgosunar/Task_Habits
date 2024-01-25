@@ -1,13 +1,23 @@
 import React from 'react';
 
-// const generalStatus = ['Pendiente', 'En Proceso', 'Completado'];
+// const generalStatus = [
+//   { id: 1, name: 'Pendiente' },
+//   { id: 2, name: 'En Proceso' },
+//   { id: 3, name: 'Completado' },
+// ];
+// const spaceWork = [
+//   { id: 0, name: 'General' },
+//   { id: 1, name: 'Casa' },
+//   { id: 2, name: 'Proyecto T&H' },
+//   { id: 3, name: 'Clase de Multiservicios' },
+// ];
 // localStorage.removeItem('Task_v1');
 // const defaultTask = [
-//   { id: "1", text: 'Tender la cama', status: generalStatus[0] },
-//   { id: "2", text: 'Ir al GyM', status: generalStatus[1] },
-//   { id: "3", text: 'Tomar una ducha', status: generalStatus[1] },
-//   { id: "4", text: 'Lavar la loza', status: generalStatus[2] },
-//   { id: "5", text: 'Lavar el baño', status: generalStatus[2] },
+//   { id: 1, text: 'Tender la cama', status: generalStatus[0].id, spaceWork: spaceWork[0].id, date: '12/01/2024, 03:30:00' },
+//   { id: 2, text: 'Ir al Gym', status: generalStatus[1].id, spaceWork: spaceWork[2].id, date: '12/01/2024, 03:30:00' },
+//   { id: 3, text: 'Tomar una ducha', status: generalStatus[1].id, spaceWork: spaceWork[1].id, date: '12/01/2024, 03:30:00' },
+//   { id: 4, text: 'Lavar la loza', status: generalStatus[2].id, spaceWork: spaceWork[3].id, date: '12/01/2024, 03:30:00' },
+//   { id: 5, text: 'Lavar el baño', status: generalStatus[2].id, spaceWork: spaceWork[0].id, date: '12/01/2024, 03:30:00' },
 // ];
 // localStorage.setItem('Task_v1', JSON.stringify(defaultTask));
 

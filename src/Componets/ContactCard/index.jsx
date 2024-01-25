@@ -10,7 +10,8 @@ function ContactCard({ title }) {
             <MyPresentation>
                 <span className="primaryTitle_main">Daniel Osuna</span>
                 <span className="mediumTextSM">Desarrollador Frontend</span>
-                <span className="mediumText">React | Vue | Angular | Astro | JavaScript</span>
+                <span className="mediumText">React | Astro | JavaScript</span>
+                <span className="mediumText">dgosunar@gmail.com</span>
                 <SocialNetworks>
                     <MyLink href="https://github.com/dgosunar" target="_blank" rel="noopener noreferrer">
                         <MyImage src="./Iconos/GitHub.svg" alt="IconoGithub"/>

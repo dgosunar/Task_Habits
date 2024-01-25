@@ -128,7 +128,7 @@ export const Menu = styled.div`
             background-color: rgba(0, 23, 36, 0.75);
             height: 100vh;
             width: 100vw;
-            z-index:100;
+            z-index: 100;
         }
     }
     

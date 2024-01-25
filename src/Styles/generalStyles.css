@@ -18,15 +18,15 @@
 }
 
 /*Estilos Task*/
-.Frame2Pending {
+.Pending {
     outline: 2px solid var(--accent-blue);
 }
 
-.Frame2Start {
+.Start {
     outline: 2px solid var(--accent-yellow);
 }
 
-.Frame2Completed {
+.Completed {
     outline: 2px solid var(--accent-green);
 }
 
@@ -49,24 +49,3 @@
     outline-color: var(--secondary-main);
 }
 
-/*Estilos TextArea New Task*/
-.newTaskStyle {
-    background: var(--white);
-    border-radius: 2px;
-    border: 2px solid var(--primary-main);
-    margin: 0;
-    padding: 10px;
-    width: calc(100% - 40px);
-    height: 70px;
-    text-align: center;
-    color: var(--black);
-    font-family: 'Montserrat';
-}
-
-.newTaskStyle::placeholder {
-    color: var(--gray-light);
-}
-
-.newTaskStyle:focus {
-    outline-color: var(--secondary-main);
-}

@@ -9,7 +9,7 @@ import { Task } from '../../componets/Task';
 import { CreateTask } from '../../componets/CreateTask';
 import styled from "styled-components";
 import { Modal } from '../../componets/Modals/Modal';
-import { NewTask } from '../../componets/Modals/NewTask';
+import { BadBotton, GoodBotton, Label, NewTask, StatusBox } from '../../componets/Modals/NewTask';
 import { Separator } from '../../componets/Modals/Separator';
 import { Div } from '../../styles/styles';
 
@@ -20,6 +20,7 @@ function TaskUI() {
     loading,
     error,
     generalStatus,
+    spaceWork,
     searchTask,
     pendingTask,
     startTask,
@@ -29,58 +30,108 @@ function TaskUI() {
     setOpenModal,
   } = React.useContext(Context);
 
+  const onSubmit = () => {
+  };
+
+  const onCancel = () => {
+  };
+
   return (
     <Container>
-      <ContainerStatus>
-        <TaskStatus />
-        <CreateTask setOpenModal={setOpenModal} />
+      <SelectorSpace>
+        <StatusBox>
+          <Label>Espacio de Trabajo</Label>
+          <select className='status generalText'>
+            {spaceWork.map((space) => (
+              <option key={space.id}>{space.name}</option>
+            ))}
+          </select>
+        </StatusBox>
+        <BottonBox>
+          <BadBotton className="generalText" onClick={onCancel}>Eliminar Espacio de Trabajo</BadBotton>
+          <GoodBotton className="generalText" onClick={onSubmit}>Crear nuevo espacio de trabajo</GoodBotton>
+        </BottonBox>
+      </SelectorSpace>
+      <Separator/>
+      <WorkSpace>
+        <ContainerStatus>
+          <TaskStatus />
+          <CreateTask setOpenModal={setOpenModal} />
+          {openModal ? (
+            <Modal title='Crear una nueva tarea'>
+              <NewTask />
+            </Modal>
+          ) : (<></>)}
+        </ContainerStatus>
 
-        {openModal ? (
-          <Modal title='Crear una nueva tarea'>
-            <NewTask />
-          </Modal>
-        ) : (<></>)}
-      </ContainerStatus>
-
-      <ContainerTasks>
-        <TaskFinder />
-        <GeneralList>
-          {generalStatus.map((status) => (
-            <Div className='mediumText'>{status}</Div>,
-            <TaskList key={status}>
-              <div>{status}</div>
-              <Separator />
-              <Div className='list'>
-                {loading ? (<TaskLoading key={status} />) :
-                  error ? (<TaskError />) :
-                    (!loading && searchTask.length === 0) ? (<TaskEmpty />) :
-                      (searchTask.map((task) => (
-                        task.status === status ? (
-                          <Task
-                            key={task.id}
-                            text={task.text}
-                            status={task.status}
-                            onPending={() => pendingTask(task.text)}
-                            onStart={() => startTask(task.text)}
-                            onComplete={() => completeTask(task.text)}
-                            onDelete={() => deleteTask(task.text)}
-                          />
-                        ) : (<></>)
-                      )))}
-              </Div>
-            </TaskList>
-          ))}
-
-        </GeneralList>
-      </ContainerTasks>
+        <ContainerTasks>
+          <TaskFinder />
+          <GeneralList>
+            {generalStatus.map((status) => (
+              <TaskList key={status.id}>
+                <div>{status.name}</div>
+                <Separator />
+                <Div className='list'>
+                  {loading ? (<TaskLoading />) :
+                    error ? (<TaskError />) :
+                      (!loading && searchTask.length === 0) ? (<TaskEmpty />) :
+                        (searchTask.map((task) => (
+                          task.status === status.id ? (
+                            <Task
+                              key={task.id}
+                              task={task}
+                              onPending={() => pendingTask(task.id)}
+                              onStart={() => startTask(task.id)}
+                              onComplete={() => completeTask(task.id)}
+                              onDelete={() => deleteTask(task.id)}
+                            />
+                          ) : (<></>)
+                        )))}
+                </Div>
+              </TaskList>
+            ))}
+          </GeneralList>
+        </ContainerTasks>
+      </WorkSpace>
     </Container>
   );
 }
 
 export default TaskUI;
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+`;
 
-export const Container = styled.div`    
+export const SelectorSpace = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 600px) {
+  }
+`;
+
+export const BottonBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 20px;
+    text-align: center;
+`;
+
+export const WorkSpace = styled.div`    
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -128,6 +179,7 @@ export const ContainerTasks = styled.div`
   align-items: center;
   gap: 10px;
   height: 100%;
+  width: min-content;
 
   @media screen and (max-width: 1024px) {
     height: calc(100% - 78px);
@@ -197,5 +249,7 @@ export const TaskList = styled.div`
     gap: 10px;
     border-radius: 15px;
     overflow-y: auto;
+    width: 100%;
   }
 `;
+

@@ -5,11 +5,22 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
 
-    const generalStatus = ['Pendiente', 'En Proceso', 'Completado'];
+    const generalStatus = [
+        { id: 1, name: 'Pendiente' },
+        { id: 2, name: 'En Proceso' },
+        { id: 3, name: 'Completado' },
+    ];
+
+    const spaceWork = [
+        { id: 0, name: 'General' },
+        { id: 1, name: 'Casa' },
+        { id: 2, name: 'Proyecto T&H' },
+        { id: 3, name: 'Clase de Multiservicios' },
+    ];
 
     const { item: task, saveItem: saveTask, loading, error } = useLocalStorage('Task_v1', []);
     const [searchValue, setSearchValue] = React.useState('');
-    
+
     const [openModal, setOpenModal] = React.useState(false);
 
     const completedTask = task.filter(
@@ -26,45 +37,49 @@ function ContextProvider({ children }) {
         }
     )
 
-    const addTask = (text) =>{
+    const addTask = (text, spaceWork, date) => {
         const newTask = [...task];
         newTask.push({
-            text, status:'Pendiente'
+            id: (newTask[newTask.length - 1].id + 1),
+            text, 
+            status: generalStatus[0].id,
+            spaceWork,
+            date
         })
         saveTask(newTask);
     }
 
-    const pendingTask = (text) => {
+    const pendingTask = (id) => {
         const newTask = [...task];
         const taskIndex = newTask.findIndex(
-            (task) => task.text === text
+            (task) => task.id === id
         );
-        newTask[taskIndex].status = generalStatus[0];
+        newTask[taskIndex].status = generalStatus[0].id;
         saveTask(newTask);
     }
 
-    const startTask = (text) => {
+    const startTask = (id) => {
         const newTask = [...task];
         const taskIndex = newTask.findIndex(
-            (task) => task.text === text
+            (task) => task.id === id
         );
-        newTask[taskIndex].status = generalStatus[1];
+        newTask[taskIndex].status = generalStatus[1].id;
         saveTask(newTask);
     }
 
-    const completeTask = (text) => {
+    const completeTask = (id) => {
         const newTask = [...task];
         const taskIndex = newTask.findIndex(
-            (task) => task.text === text
+            (task) => task.id === id
         );
-        newTask[taskIndex].status = generalStatus[2];
+        newTask[taskIndex].status = generalStatus[2].id;
         saveTask(newTask);
     }
 
-    const deleteTask = (text) => {
+    const deleteTask = (id) => {
         const newTask = [...task];
         const taskIndex = newTask.findIndex(
-            (task) => task.text === text
+            (task) => task.id === id
         );
         newTask.splice(taskIndex, 1);
         saveTask(newTask);
@@ -80,6 +95,7 @@ function ContextProvider({ children }) {
             searchValue,
             setSearchValue,
             generalStatus,
+            spaceWork,
             searchTask,
             pendingTask,
             startTask,
