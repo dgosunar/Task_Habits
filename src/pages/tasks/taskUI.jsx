@@ -17,18 +17,38 @@ import { Div } from '../../styles/styles';
 function TaskUI() {
 
   const {
-    loading,
-    error,
     generalStatus,
     spaceWork,
+    loadingSpace,
+    errorSpace,
+    loading,
+    error,
+    searchValue,
+    setSearchValue,
+    openModal,
+    setOpenModal,
+    totalPending,
+    totalInProcess,
+    totalCompleted,
+    totalTask,
     searchTask,
+    selectSpace,
+    space,
+    setSpace,
+    spaceTasks,
+    setSpaceTasks,
+    addTask,
     pendingTask,
     startTask,
     completeTask,
     deleteTask,
-    openModal,
-    setOpenModal,
   } = React.useContext(Context);
+
+  const onChangeSpace = (event) => {
+    const id = spaceWork.findIndex((space) => space.name === event.target.value);
+    setSpace(id);
+    setSpaceTasks(selectSpace(id));
+  };
 
   const onSubmit = () => {
   };
@@ -41,7 +61,7 @@ function TaskUI() {
       <SelectorSpace>
         <StatusBox>
           <Label>Espacio de Trabajo</Label>
-          <select className='status generalText'>
+          <select className='status generalText' selected={space} onChange={onChangeSpace}>
             {spaceWork.map((space) => (
               <option key={space.id}>{space.name}</option>
             ))}
@@ -49,23 +69,17 @@ function TaskUI() {
         </StatusBox>
         <BottonBox>
           <BadBotton className="generalText" onClick={onCancel}>Eliminar Espacio de Trabajo</BadBotton>
-          <GoodBotton className="generalText" onClick={onSubmit}>Crear nuevo espacio de trabajo</GoodBotton>
+          <GoodBotton className="generalText" onClick={onSubmit}>Crear Nuevo Espacio de Trabajo</GoodBotton>
         </BottonBox>
       </SelectorSpace>
-      <Separator/>
+      <Separator />
       <WorkSpace>
         <ContainerStatus>
           <TaskStatus />
-          <CreateTask setOpenModal={setOpenModal} />
-          {openModal ? (
-            <Modal title='Crear una nueva tarea'>
-              <NewTask />
-            </Modal>
-          ) : (<></>)}
+          <TaskFinder />
         </ContainerStatus>
 
         <ContainerTasks>
-          <TaskFinder />
           <GeneralList>
             {generalStatus.map((status) => (
               <TaskList key={status.id}>
@@ -75,7 +89,7 @@ function TaskUI() {
                   {loading ? (<TaskLoading />) :
                     error ? (<TaskError />) :
                       (!loading && searchTask.length === 0) ? (<TaskEmpty />) :
-                        (searchTask.map((task) => (
+                        (spaceTasks.map((task) => (
                           task.status === status.id ? (
                             <Task
                               key={task.id}
@@ -92,7 +106,16 @@ function TaskUI() {
             ))}
           </GeneralList>
         </ContainerTasks>
+
       </WorkSpace>
+      
+      <CreateTask setOpenModal={setOpenModal} />
+      {openModal ? (
+        <Modal title='Crear una nueva tarea'>
+          <NewTask />
+        </Modal>
+      ) : (<></>)}
+
     </Container>
   );
 }
@@ -159,6 +182,7 @@ export const ContainerStatus = styled.div`
   align-items: center;
   gap: 10px;
   height: 100%;
+  width: 100%;
   justify-content: space-between;
 
   @media screen and (max-width: 1024px) {

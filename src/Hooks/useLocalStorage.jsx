@@ -1,25 +1,32 @@
 import React from 'react';
 
-// const generalStatus = [
-//   { id: 1, name: 'Pendiente' },
-//   { id: 2, name: 'En Proceso' },
-//   { id: 3, name: 'Completado' },
-// ];
-// const spaceWork = [
-//   { id: 0, name: 'General' },
-//   { id: 1, name: 'Casa' },
-//   { id: 2, name: 'Proyecto T&H' },
-//   { id: 3, name: 'Clase de Multiservicios' },
-// ];
-// localStorage.removeItem('Task_v1');
-// const defaultTask = [
-//   { id: 1, text: 'Tender la cama', status: generalStatus[0].id, spaceWork: spaceWork[0].id, date: '12/01/2024, 03:30:00' },
-//   { id: 2, text: 'Ir al Gym', status: generalStatus[1].id, spaceWork: spaceWork[2].id, date: '12/01/2024, 03:30:00' },
-//   { id: 3, text: 'Tomar una ducha', status: generalStatus[1].id, spaceWork: spaceWork[1].id, date: '12/01/2024, 03:30:00' },
-//   { id: 4, text: 'Lavar la loza', status: generalStatus[2].id, spaceWork: spaceWork[3].id, date: '12/01/2024, 03:30:00' },
-//   { id: 5, text: 'Lavar el baño', status: generalStatus[2].id, spaceWork: spaceWork[0].id, date: '12/01/2024, 03:30:00' },
-// ];
-// localStorage.setItem('Task_v1', JSON.stringify(defaultTask));
+const generalStatus = [
+  { id: 1, name: 'Pendiente' },
+  { id: 2, name: 'En Proceso' },
+  { id: 3, name: 'Completado' },
+];
+
+localStorage.removeItem('Space_v1');
+const spaceWork = [
+  { id: 0, name: 'General' },
+  { id: 1, name: 'Proyecto T&H' },
+];
+localStorage.setItem('Space_v1', JSON.stringify(spaceWork));
+
+localStorage.removeItem('Task_v1');
+const defaultTask = [
+  { id: 1, text: 'Reparar pata de la moto', status: generalStatus[0].id, spaceWork: spaceWork[0].id, date: '' },
+  { id: 2, text: 'Cambiar guardas del baul', status: generalStatus[0].id, spaceWork: spaceWork[0].id, date: '' },
+  { id: 3, text: 'Verificar canciones para el viernes', status: generalStatus[1].id, spaceWork: spaceWork[0].id, date: '' },
+  { id: 4, text: 'Verificar canciones para el Sábado', status: generalStatus[1].id, spaceWork: spaceWork[0].id, date: '' },
+
+  { id: 5, text: 'Funcionalidad de botones para espacio de trabajo', status: generalStatus[0].id, spaceWork: spaceWork[1].id, date: '' },
+  { id: 6, text: 'Corregir ubicación barra de busqueda', status: generalStatus[1].id, spaceWork: spaceWork[1].id, date: '' },
+  { id: 7, text: 'Corregir Verificar responsive', status: generalStatus[0].id, spaceWork: spaceWork[1].id, date: '' },
+  { id: 8, text: 'Verificar distribucion del contenido', status: generalStatus[0].id, spaceWork: spaceWork[1].id, date: '' },
+  { id: 8, text: 'Realizar filtrado segun el espacio de trabajo', status: generalStatus[2].id, spaceWork: spaceWork[1].id, date: '' },
+];
+localStorage.setItem('Task_v1', JSON.stringify(defaultTask));
 
 function useLocalStorage(itemName, inicialValue) {
 

@@ -11,23 +11,34 @@ function ContextProvider({ children }) {
         { id: 3, name: 'Completado' },
     ];
 
-    const spaceWork = [
-        { id: 0, name: 'General' },
-        { id: 1, name: 'Casa' },
-        { id: 2, name: 'Proyecto T&H' },
-        { id: 3, name: 'Clase de Multiservicios' },
-    ];
-
+    const { item: spaceWork, saveItem: saveSpace, loadingSpace, errorSpace } = useLocalStorage('Space_v1', []);
     const { item: task, saveItem: saveTask, loading, error } = useLocalStorage('Task_v1', []);
-    const [searchValue, setSearchValue] = React.useState('');
 
+    const [space, setSpace] = React.useState(0);//espacio de trabajo en uso
+    const [spaceTasks, setSpaceTasks] = React.useState([]);//datos del espacio de trabajo
+    
+    const [searchValue, setSearchValue] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
 
-    const completedTask = task.filter(
-        task => task.status === generalStatus[2]
+    React.useEffect(() => {
+        if (task.length > 0) {
+          setSpaceTasks(selectSpace(space));
+        }
+      }, [task]);
+
+    const totalPending = spaceTasks.filter(
+        task => task.status === generalStatus[0].id
     ).length;
 
-    const totalTask = task.length;
+    const totalInProcess = spaceTasks.filter(
+        task => task.status === generalStatus[1].id
+    ).length;
+
+    const totalCompleted = spaceTasks.filter(
+        task => task.status === generalStatus[2].id
+    ).length;
+
+    const totalTask = spaceTasks.length;
 
     const searchTask = task.filter(
         (task) => {
@@ -37,11 +48,18 @@ function ContextProvider({ children }) {
         }
     )
 
+    const selectSpace = (spaceId) => {
+        const selectedSpace = searchTask.filter(
+            task => task.spaceWork === spaceId,
+        )
+        return selectedSpace;
+    }
+
     const addTask = (text, spaceWork, date) => {
         const newTask = [...task];
         newTask.push({
             id: (newTask[newTask.length - 1].id + 1),
-            text, 
+            text,
             status: generalStatus[0].id,
             spaceWork,
             date
@@ -88,22 +106,31 @@ function ContextProvider({ children }) {
 
     return (
         <Context.Provider value={{
-            loading,
-            error,
-            totalTask,
-            completedTask,
-            searchValue,
-            setSearchValue,
             generalStatus,
             spaceWork,
+            space,
+            setSpace,
+            spaceTasks,
+            setSpaceTasks,
+            loadingSpace,
+            errorSpace,
+            loading,
+            error,
+            searchValue,
+            setSearchValue,
+            openModal,
+            setOpenModal,
+            totalPending,
+            totalInProcess,
+            totalCompleted,
+            totalTask,
             searchTask,
+            selectSpace,
+            addTask,
             pendingTask,
             startTask,
             completeTask,
             deleteTask,
-            openModal,
-            setOpenModal,
-            addTask,
         }}>
             {children}
         </Context.Provider>

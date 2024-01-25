@@ -6,8 +6,8 @@ import { Layout } from '../../componets/Layout'
 function Tasks() {
 
   return (
-    //<Layout title={'Tareas'} description={'Gestiona tus tareas, conquista tus metas'}>
-    <Layout>
+    //<Layout>
+    <Layout title={'Tareas'} description={'Gestiona tus tareas, conquista tus metas'}>
       <ContextProvider>
         <TaskUI />
       </ContextProvider>
