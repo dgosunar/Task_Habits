@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Layout } from '../../componets/Layout'
+import { Layout } from '../../componets/Layout/Home'
 import { MyImage, MyLink } from '../../styles/styles';
 
 function Home() {

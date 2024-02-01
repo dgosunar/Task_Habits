@@ -1,22 +1,20 @@
 import styled from "styled-components";
 import { Navbar } from "../Navbar";
-import { Background } from "../Background";
-import { Div } from "../../styles/styles";
+import { BgDashboard } from "../BgDashboard";
 
 function Layout({ children, title, description }) {
     return (
         <>
             <Navbar />
             <Container>
-                <Div className="presentation">
-                    <Div className="primaryTitle_SM">{title}</Div>
-                    <Div className="mediumText">{description}</Div>
-                </Div>
-                <Div className="content">
+                <div className="presentation">
+                    <div className="primaryTitle_SM">{title}</div>
+                </div>
+                <div className="content">
                     {children}
-                </Div>
+                </div>
             </Container>
-            <Background />
+            <BgDashboard />
         </>
     );
 }
@@ -31,18 +29,20 @@ export const Container = styled.div`
     gap: 10px;
     justify-content: flex-start;
     align-items: flex-start;
-    height: calc(100vh - 120px);
-    border-radius: 0px 0px 15px 15px;
-    background: rgba(0, 23, 36, 0.75);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: calc(100vh - 100px);
     color: var(--white);
     overflow-y: auto;
+    --background: rgba(0, 23, 36, 0.5);
+    --backdrop-filter: blur(10px);
+    --box-shadow: 0px 4px 10px 0px var(--black);
     
     @media screen and (max-width: 1024px) {
         margin: 60px 60px 0px 60px;
     }
     
     @media screen and (max-width: 768px) {
+        --background: rgba(0, 23, 36, 0.75);
+        --box-shadow: 0px 4px 10px 0px var(--black);
         margin: 60px 20px 0px 20px;
     }
     
@@ -51,18 +51,18 @@ export const Container = styled.div`
     }
 
     .presentation{
+        display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
         max-height: 50px; 
         gap: 20px;
     }
     
     .content {
+        display: flex;
         width: 100%;
         min-height: calc(100% - 60px);
-        @media screen and (max-width: 1024px) {
-        }
+        justify-content: center;
     }
 `;

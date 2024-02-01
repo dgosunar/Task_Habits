@@ -5,30 +5,17 @@ import { Context } from "../../Context";
 import styled from "styled-components";
 import { PBotton, SBotton } from "../Bottons";
 
-function NewTask() {
+function NewSpace() {
 
   const {
     setOpenModal,
-    addTask,
-    workspace,
+    addSpace,
   } = React.useContext(Context);
 
   const [description, setDescription] = React.useState('');
-  const [space, setSpace] = React.useState(0);
-  const [date, setDate] = React.useState('');
 
   const onSubmit = () => {
-    const formattedDate = new Intl.DateTimeFormat('es', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      timeZone: 'UTC',
-    }).format(date);
-    const myDate = (formattedDate === '01/01/1970, 00:00:00'? ' ': formattedDate)
-    addTask(description, space, myDate);
+    addSpace(description);
     setOpenModal(false);
   };
 
@@ -40,37 +27,13 @@ function NewTask() {
     setDescription(event.target.value);
   };
 
-  const onChangeSpace = (event) => {
-    const idCorrespondiente = workspace.findIndex((space) => space.name === event.target.value);
-    setSpace(idCorrespondiente);
-  };
-
   return (
     <Container>
       <Form>
         <TextBox>
-          <Label>Ingresa una nueva tarea</Label>
-          <textarea placeholder="Hacer ..." className="newTaskStyle" value={description} onChange={onChangeDescripcion} />
+          <Label>Nombre del Espacio de Trabajo</Label>
+          <textarea placeholder="..." className="newTaskStyle" value={description} onChange={onChangeDescripcion} />
         </TextBox>
-        <Details>
-          <StatusBox>
-            <Label>Espacio de Trabajo</Label>
-            <select className="status generalText" selected={space} onChange={onChangeSpace}>
-              {workspace.map((item) => (
-                <option key={item.id} >{item.name}</option>
-              ))}
-            </select>
-          </StatusBox>
-
-          <StatusBox>
-            <Label>Fecha Limite:</Label>
-            <DatePicker
-              className="calendar generalText"
-              selected={date}
-              onChange={(date) => setDate(date)}
-              showTimeSelect dateFormat="Pp" />
-          </StatusBox>
-        </Details>
       </Form>
       <BottonBox>
         <SBotton onClick={onCancel}>Cancelar</SBotton>
@@ -80,7 +43,7 @@ function NewTask() {
   )
 }
 
-export { NewTask };
+export { NewSpace };
 
 export const Container = styled.div`
   display: flex;

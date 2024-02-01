@@ -39,7 +39,7 @@ export const Card = styled.div`
     padding: 10px;
     gap: 10px;
     border-radius: 15px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 10px 0px var(--black);
         
     @media screen and (max-width: 1024px) {
     }

@@ -1,0 +1,62 @@
+.workspace{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    gap: 10px;
+    border-radius: 15px;
+}
+
+.space{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 4px 10px 0px var(--black);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 10px;
+    gap: 10px;
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    gap: 10px;
+}
+
+.notes{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    gap: 10px;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    gap: 5px;
+}

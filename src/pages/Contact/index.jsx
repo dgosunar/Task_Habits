@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../../componets/Layout'
+import { Layout } from '../../componets/Layout/Home'
 import styled from 'styled-components';
 import ContactCard from '../../componets/ContactCard';
 import { MyImage, MyLink } from '../../styles/styles';

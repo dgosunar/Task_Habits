@@ -1,13 +1,12 @@
 import React from 'react';
 import { ContextProvider } from '../../Context';
 import TaskUI from './taskUI';
-import { Layout } from '../../componets/Layout'
+import { Layout } from '../../componets/Layout/Dashboard'
 
 function Tasks() {
 
   return (
-    //<Layout>
-    <Layout title={'Tareas'} description={'Gestiona tus tareas, conquista tus metas'}>
+    <Layout title={'Tareas'}>
       <ContextProvider>
         <TaskUI />
       </ContextProvider>

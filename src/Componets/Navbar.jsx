@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import "../styles/generalStyles.css";
-import { Div, MyImage, MyLink } from "../styles/styles";
+import { div, MyImage, MyLink } from "../styles/styles";
 import { GrMenu, GrClose } from "react-icons/gr";
 
 const titles = [
     { label: 'Inicio', route: "/Task_Habits/" },
     { label: 'Resumen', route: "/Task_Habits/summary" },
     { label: 'Tareas', route: "/Task_Habits/tasks" },
+    { label: 'Espacios de Trabajo', route: "/Task_Habits/space" },
     { label: 'Habitos', route: "/Task_Habits/habits" },
     { label: 'Contacto', route: "/Task_Habits/contact" }
 ]
@@ -34,7 +35,7 @@ function Navbar() {
                     <GrMenu
                         className="burguerBotton"
                         onClick={handleClick} />
-                    <Div className={clicked ? "background open" : "background"} />
+                    <div className={clicked ? "background open" : "background"} />
                     <Pages className={clicked ? "menu open" : "menu"}>
                         <LogoNav>
                             <MyImage src="./Logos/Imagotipo_dark2.png" alt="Imagotipo" />
@@ -71,7 +72,7 @@ export const Container = styled.div`
     z-index: 1;
     background: var(--primary-main);
     color: var(--white);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 10px 0px var(--black);
 `;
 
 export const Header = styled.div`
@@ -205,6 +206,7 @@ export const Item = styled.div`
     padding: 10px;
     cursor: pointer;
     width: 80px;   
+    text-align: center;
 
     &:hover{
     color: var(--secondary-main);

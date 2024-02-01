@@ -11,7 +11,7 @@ export { Separator };
 
 export const BoxSeparator = styled.div`
     display: flex;
-    width: calc(100% - 20px);
+    width: 100%;
     border-bottom-style: solid;
 `;
 

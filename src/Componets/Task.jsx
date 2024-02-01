@@ -6,8 +6,7 @@ import { Context } from '../Context';
 
 function Task(props) {
     const {
-        generalStatus,
-        spaceWork
+        generalStatus
     } = React.useContext(Context);
 
     return (
@@ -57,19 +56,23 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-self: stretch;
     min-height: 40px;
     padding: 0 10px;
-    background: var(--white);
+    width: calc(100% - 20px);
     color: var(--black);
     border-radius: 15px;
     outline-offset: -4px;
+    background-color: var(--white);
     gap: 10px;
 
     .detalles{
         display: flex;
         flex-direction: column;
         padding: 10px 0;
+    }
+
+    &:hover{
+        box-shadow: 0px 4px 10px 0px var(--black);
     }
 `;
 

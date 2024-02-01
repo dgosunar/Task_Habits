@@ -1,0 +1,49 @@
+.statusBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.label {
+    font-size: 12px;
+    width: fit-content;
+    padding: 0 5px;
+    background-color: var(--white);
+    margin: 0 0 -8px 1px;
+    color: var(--primary-main);
+    z-index: 1;
+    border-radius: 8px 8px 0 0;
+}
+
+.status {
+    display: flex;
+    padding: 10px;
+    width: 200px;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    border: 1px solid var(--primary-main);
+    background-color: var(--white);
+
+    @media screen and (max-width: 600px) {
+        width: calc(100% - 30px);
+    }
+}
+
+.status::placeholder {
+    color: var(--gray-light);
+}
+
+.status:focus {
+    outline-color: var(--secondary-main);
+}
+
+option {
+    width: calc(100% - 16px);
+    height: 40px;
+}
+
+option:checked {
+    width: calc(100% - 16px);
+    height: 40px;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../../componets/Layout';
+import { Layout } from '../../componets/Layout/Home';
 import styled from 'styled-components';
 import { MyImage, MyLink } from '../../styles/styles';
 
@@ -7,7 +7,7 @@ import { MyImage, MyLink } from '../../styles/styles';
 function NotFound() {
 
   return (
-    <Layout>
+    <Layout title={"Pagina no encontrada"}>
       <Container>
         <MyImage src='./Images/404 error with person looking for-bro.png' alt='image404' />
         <MyLink href='https://storyset.com/online' target='_blank' rel='noopener noreferrer'>Online illustrations by Storyset</MyLink>

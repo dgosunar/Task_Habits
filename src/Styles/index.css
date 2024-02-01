@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: var(--primary-main) ;
+  background-image: url('../../public/Fondo2.png');
   color: var(--white);
   font-family: "Montserrat", sans-serif;
   overflow: hidden;
@@ -29,9 +29,10 @@ img {
 :root {
   --default-background-color: #ffffff;
 
-  --gray-light: #A5A5A5;
-  --gray: #6c6c79;
-  --black: #34343d;
+  --gray: #A5A5A5;
+  --gray-light:#cbcbcb;
+  --gray-dark: #424242;
+  --black: #000000;
   --white: #ffffff;
 
   --primary-main: #001724;
@@ -155,14 +156,14 @@ img {
 }
 
 .mediumText {
-  font-size: 17px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
 }
 
 .mediumTextSM {
-  font-size: 17px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -175,6 +176,7 @@ img {
   font-weight: 300;
   line-height: normal;
 }
+
 .miniText {
   font-size: 12px;
   font-style: normal;

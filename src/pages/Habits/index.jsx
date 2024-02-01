@@ -1,10 +1,10 @@
 import React from 'react';
-import { Layout } from '../../componets/Layout'
+import { Layout } from '../../componets/Layout/Dashboard'
 
 function Habits() {
 
   return (
-    <Layout title={'Habits'} description={'Pequeños hábitos, grandes victorias'}>
+    <Layout title={'Habits'}>
     </Layout>
   );
 }
