@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MyImage } from "../styles/styles";
+import { MyImage } from "../../styles/styles";
 
 function BgDashboard() {
     return (

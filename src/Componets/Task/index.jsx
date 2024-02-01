@@ -1,16 +1,16 @@
 import React from 'react';
 import { GoChevronLeft as Back, GoChevronRight as Next, GoCheckCircleFill as Completed } from "react-icons/go";
-import "../styles/generalStyles.css";
+import "../../styles/generalStyles.css";
 import styled from "styled-components";
-import { Context } from '../Context';
+import { Context } from '../../Context';
 
 function Task(props) {
     const {
-        generalStatus
+        getGeneralStatus
     } = React.useContext(Context);
 
     return (
-        props.task.status === generalStatus[0].id ?
+        props.task.status === getGeneralStatus()[0].id ?
             <Container className="Pending">
                 <TasksButtom />
                 <div className='detalles'>
@@ -21,7 +21,7 @@ function Task(props) {
                     <Next />
                 </TasksButtom>
             </Container> :
-            props.task.status === generalStatus[1].id ?
+            props.task.status === getGeneralStatus()[1].id ?
                 <Container className="Start">
                     <TasksButtom onClick={props.onPending}>
                         <Back />
@@ -34,7 +34,7 @@ function Task(props) {
                         <Next />
                     </TasksButtom>
                 </Container> :
-                props.task.status === generalStatus[2].id ?
+                props.task.status === getGeneralStatus()[2].id ?
                     <Container className="Completed">
                         <TasksButtom onClick={props.onStart}>
                             <Back />

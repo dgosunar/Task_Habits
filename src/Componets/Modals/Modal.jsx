@@ -41,7 +41,7 @@ export const Card = styled.div`
     color: var(--black);
     padding: 10px;
     gap: 10px;
-    border-radius: 15px;
+    border-radius: 8px;
     box-shadow: 0px 4px 10px 0px var(--black);
 `;
 

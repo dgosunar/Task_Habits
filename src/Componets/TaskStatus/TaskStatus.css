@@ -45,7 +45,7 @@
     display: flex;
     width: 20px;
     height: 20px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 .boxPending{
     background-color: var(--accent-blue);

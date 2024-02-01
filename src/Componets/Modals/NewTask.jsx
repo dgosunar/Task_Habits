@@ -10,7 +10,7 @@ function NewTask() {
   const {
     setOpenModal,
     addTask,
-    workspace,
+    getWorkspace,
   } = React.useContext(Context);
 
   const [description, setDescription] = React.useState('');
@@ -41,7 +41,7 @@ function NewTask() {
   };
 
   const onChangeSpace = (event) => {
-    const idCorrespondiente = workspace.findIndex((space) => space.name === event.target.value);
+    const idCorrespondiente = getWorkspace().findIndex((space) => space.name === event.target.value);
     setSpace(idCorrespondiente);
   };
 
@@ -56,7 +56,7 @@ function NewTask() {
           <StatusBox>
             <Label>Espacio de Trabajo</Label>
             <select className="status generalText" selected={space} onChange={onChangeSpace}>
-              {workspace.map((item) => (
+              {getWorkspace().map((item) => (
                 <option key={item.id} >{item.name}</option>
               ))}
             </select>

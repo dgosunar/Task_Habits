@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Navbar } from "../Navbar";
-import { BbHome } from "../BgHome";
+import { BbHome } from "../Backgrounds/BgHome";
 
 function Layout({ children, title, description }) {
     return (
@@ -45,6 +45,7 @@ export const Container = styled.div`
     
     @media screen and (max-width: 600px) {
         margin: 60px 0px 0px 0px;
+        padding: 10px;
     }
 
     .presentation{

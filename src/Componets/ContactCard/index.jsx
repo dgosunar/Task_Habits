@@ -38,7 +38,7 @@ export const Card = styled.div`
     color: var(--black);
     padding: 10px;
     gap: 10px;
-    border-radius: 15px;
+    border-radius: 8px;
     box-shadow: 0px 4px 10px 0px var(--black);
         
     @media screen and (max-width: 1024px) {
@@ -61,7 +61,7 @@ export const MyPresentation = styled.div`
     gap: 10px;
 
     & img {
-        border-radius: 15px;
+        border-radius: 8px;
     }
     
     @media screen and (max-width: 1024px) {

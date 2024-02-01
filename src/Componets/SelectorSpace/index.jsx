@@ -6,15 +6,15 @@ import { Context } from "../../Context";
 function SelectorSpace() {
 
     const {
-        workspace,
+        getWorkspace,
         selectSpace,
-        space,
+        getSpace,
         setSpace,
         setSpaceTasks,
     } = React.useContext(Context);
 
     const onChangeSpace = (event) => {
-        const id = workspace.findIndex((space) => space.name === event.target.value);
+        const id = getWorkspace().findIndex((space) => space.name === event.target.value);
         setSpace(id);
         setSpaceTasks(selectSpace(id));
     };
@@ -23,9 +23,9 @@ function SelectorSpace() {
         <Container>
             <div className="statusBox">
                 <div className="label">Espacio de Trabajo</div>
-                <select className='status generalText' onChange={onChangeSpace}>
-                    {workspace.map((s) => (
-                        <option className="option" key={s.id} selected={space === s.id}>{s.name}</option>
+                <select className='status generalText' defaultValue={getSpace()} onChange={onChangeSpace}>
+                    {getWorkspace().map((s) => (
+                        <option className="option" key={s.id} value={s.id}>{s.name}</option>
                     ))}
                 </select>
             </div>

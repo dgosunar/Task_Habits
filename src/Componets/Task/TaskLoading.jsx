@@ -27,7 +27,7 @@ export const LoaderBox = styled.div`
     align-self: stretch;
     padding: 10px;
     color: var(--black);
-    border-radius: 15px;
+    border-radius: 8px;
     outline-offset: -4px;
     gap: 10px;
 

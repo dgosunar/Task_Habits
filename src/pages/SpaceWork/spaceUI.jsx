@@ -1,18 +1,18 @@
 import React from "react";
 import { Context } from "../../Context";
-import styled from "styled-components";
-import { Botton, PBotton, SBotton } from "../../componets/Bottons";
-import "./spaceUI.css"
 import { Separator } from "../../componets/Modals/Separator";
-import { MyIcon } from "../../styles/styles";
 import { Modal } from "../../componets/Modals/Modal";
 import { NewSpace } from "../../componets/Modals/NewSpace";
+import { CreateTask } from "../../componets/CreateTask";
+import { MyIcon } from "../../styles/styles";
+import styled from "styled-components";
+import "./spaceUI.css"
 
 function SpaceUI() {
 
     const {
-        workspace,
-        openModal,
+        getWorkspace,
+        getOpenModal,
         setOpenModal,
         totalPendingSpace,
         totalStartSpace,
@@ -30,8 +30,8 @@ function SpaceUI() {
     return (
         <Container>
             <div className="workspace">
-                {workspace.map((space) => (
-                    <div className="space">
+                {getWorkspace().map((space) => (
+                    <div className="space" key={space.id}>
                         <div className="secondarySubtitle">{space.name}</div>
                         <Separator />
                         <div className="details">
@@ -54,10 +54,9 @@ function SpaceUI() {
                 ))}
             </div>
             <div>
-                <PBotton onClick={() => {
-                    setOpenModal(state => !state);
-                }}>Nuevo</PBotton>
-                {openModal ? (
+                
+            <CreateTask setOpenModal={setOpenModal} title="Nuevo"/>
+                {getOpenModal() ? (
                     <Modal title='Crear nuevo espacio de trabajo'>
                         <NewSpace />
                     </Modal>

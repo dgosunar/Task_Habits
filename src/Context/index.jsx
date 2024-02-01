@@ -1,5 +1,6 @@
 import React from "react";
-import { useLocalStorage } from "../Hooks/useLocalStorage";
+import useTaskFunctions from "../Hooks/useTaskFunctions";
+import useSpaceFunctions from "../Hooks/useSpaceFunctions";
 
 const Context = React.createContext();
 
@@ -10,185 +11,89 @@ function ContextProvider({ children }) {
         { id: 2, name: 'En Proceso' },
         { id: 3, name: 'Completado' },
     ];
+    const getGeneralStatus = () => (generalStatus);
 
-    // localStorage.removeItem('Space_v1');
-    // const defaultWork = [
-    //     { id: 0, name: 'General' },
-    // ];
-    // localStorage.setItem('Space_v1', JSON.stringify(defaultWork));
+    const taskFunctions = useTaskFunctions(getGeneralStatus);
+    const {
+        getTask,
+        setTask,
+        getTaskLoading,
+        getTaskError,
+        getSearchValue,
+        setSearchValue,
+        getSpaceTasks,
+        setSpaceTasks,
+        totalTask,
+        totalPending,
+        totalInProcess,
+        totalCompleted,
+        searchTask,
+        addTask,
+        pendingTask,
+        startTask,
+        completeTask,
+        deleteTask,
+    } = taskFunctions;
 
-    // localStorage.removeItem('Task_v1');
-    // const defaultTask = [
-    // { id: 1, text: 'Tarea Pendiente...', status: 1, workspace: 0, date: '' },
-    // { id: 2, text: 'Tarea en Proceso...', status: 2, workspace: 0, date: '' },
-    // { id: 3, text: 'Tarea Completada!!!', status: 3, workspace: 0, date: '' },
-    // ];
-    // localStorage.setItem('Task_v1', JSON.stringify(defaultTask));
-
-    const { item: workspace, saveItem: saveSpace, loadingSpace, errorSpace } = useLocalStorage('Space_v1', []);
-    const { item: task, saveItem: saveTask, loading, error } = useLocalStorage('Task_v1', []);
-
-    const initialworkspace = workspace.length === 0 ? [
-        { id: 0, name: 'General' }
-    ] : workspace;
-
-    const [space, setSpace] = React.useState(0);
-    const [spaceTasks, setSpaceTasks] = React.useState([]);
-    const [searchValue, setSearchValue] = React.useState('');
-    const [openModal, setOpenModal] = React.useState(false);
-    const [currentworkspace, setCurrentworkspace] = React.useState(initialworkspace);
+    const spaceFunctions = useSpaceFunctions(getGeneralStatus, getTask, setTask);
+    const {
+        getWorkspace,
+        getWorkspaceLoading,
+        getWorkspaceError,
+        getSpace,
+        setSpace,
+        selectSpace,
+        totalTaskSpace,
+        totalPendingSpace,
+        totalStartSpace,
+        totalCompleteSpace,
+        addSpace,
+        deleteSpace,
+    } = spaceFunctions;
 
     React.useEffect(() => {
-        if (task.length > 0) {
-            setSpaceTasks(selectSpace(space));
+        if (getTask().length > 0) {
+            setSpaceTasks(selectSpace(getSpace()));
         }
-    }, [task]);
+    }, [getTask()]);
 
-    // Cantidad de tareas globales
-    const totalTask = () => (
-        task.length
-    )
-    const totalPending = () => (
-        task.filter(
-            task => task.status === generalStatus[0].id
-        ).length
-    )
-    const totalInProcess = () => (
-        task.filter(
-            task => task.status === generalStatus[1].id
-        ).length
-    )
-    const totalCompleted = () => (
-        task.filter(
-            task => task.status === generalStatus[2].id
-        ).length
-    )
+    const [openModal, setOpenModal] = React.useState(false);
+    const getOpenModal = () => (openModal);
 
-    //Filtrador de tareas
-    const searchTask = spaceTasks.filter((task) => {
-        const taskText = task.text.toLowerCase();
-        const searchText = searchValue.toLowerCase();
-        return taskText.includes(searchText);
-    })
-
-    //Metodos para tareas
-    const addTask = (text, workspace, date) => {
-        const id = task.length === 0 ? 1 : task[task.length - 1].id + 1;
-        const newTask = [...task, {
-            id: id,
-            text,
-            status: generalStatus[0].id,
-            workspace,
-            date
-        }];
-        saveTask(newTask);
-    }
-
-    const updateTaskStatus = (id, newStatusId) => {
-        const updatedTasks = task.map((t) =>
-            t.id === id ? { ...t, status: newStatusId } : t
-        );
-        saveTask(updatedTasks);
-    };
-
-    const pendingTask = (id) => {
-        updateTaskStatus(id, generalStatus[0].id);
-    }
-
-    const startTask = (id) => {
-        updateTaskStatus(id, generalStatus[1].id);
-    }
-
-    const completeTask = (id) => {
-        updateTaskStatus(id, generalStatus[2].id);
-    }
-
-    const deleteTask = (idTask) => {
-        const updatedTasks = task.filter(task => task.id !== idTask);
-        saveTask(updatedTasks);
-    };
-
-    //Filtrador de Espacios de Trabajo
-    const selectSpace = (spaceId) => (
-        console.log(task.filter(
-            task => task.workspace === spaceId,
-        )),
-        task.filter(
-            task => task.workspace === spaceId,
-        )
-    )
-
-
-    // Cantidad de tareas por Espacio de Trabajo
-    const totalTaskSpace = (spaceId) => (
-        selectSpace(spaceId).length
-    )
-    const totalPendingSpace = (spaceId) => {
-        const thisSpace = selectSpace(spaceId);
-        const size = thisSpace.filter(
-            task => task.status === generalStatus[0].id
-        ).length;
-        return size;
-    }
-    const totalStartSpace = (spaceId) => {
-        const thisSpace = selectSpace(spaceId);
-        const size = thisSpace.filter(
-            task => task.status === generalStatus[1].id
-        ).length;
-        return size;
-    }
-    const totalCompleteSpace = (spaceId) => {
-        const thisSpace = selectSpace(spaceId);
-        const size = thisSpace.filter(
-            task => task.status === generalStatus[2].id
-        ).length;
-        return size;
-    }
-
-    //Metodos para Espacios de Trabajo
-    const addSpace = (name) => {
-        const newSpace = [...workspace];
-        const id = newSpace.length === 0 ? 1 : newSpace[newSpace.length - 1].id + 1;
-        newSpace.push({
-            id: id,
-            name
-        })
-        saveSpace(newSpace);
-    }
-    const deleteSpace = (id) => {
-        const updatedTasks = task.filter(task => task.workspace !== id);
-        saveTask(updatedTasks);
-        const updatedSpace = workspace.filter(space => space.id !== id);
-        saveSpace(updatedSpace);
-    };
+    // const initialworkspace = workspace.length === 0 ? [
+    //     { id: 0, name: 'General' }
+    // ] : workspace;
+    // const [currentworkspace, setCurrentworkspace] = React.useState(initialworkspace);
 
     return (
         <Context.Provider value={{
-            generalStatus,
-            workspace,
-            space,
-            setSpace,
-            spaceTasks,
-            setSpaceTasks,
-            loadingSpace,
-            errorSpace,
-            loading,
-            error,
-            searchValue,
-            setSearchValue,
-            openModal,
+            getGeneralStatus,
+            getOpenModal,
             setOpenModal,
+            getTask,
+            setTask,
+            getTaskLoading,
+            getTaskError,
+            getSearchValue,
+            setSearchValue,
+            getSpaceTasks,
+            setSpaceTasks,
+            totalTask,
             totalPending,
             totalInProcess,
             totalCompleted,
-            totalTask,
             searchTask,
-            selectSpace,
             addTask,
             pendingTask,
             startTask,
             completeTask,
             deleteTask,
+            getWorkspace,
+            getWorkspaceLoading,
+            getWorkspaceError,
+            getSpace,
+            setSpace,
+            selectSpace,
             totalTaskSpace,
             totalPendingSpace,
             totalStartSpace,

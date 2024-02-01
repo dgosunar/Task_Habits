@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import { PBotton } from "./Bottons";
 
-function CreateTask({ setOpenModal }) {
+function CreateTask({ setOpenModal , title}) {
     return (
-        <CreateTodoButton
-            onClick={() => {
-                setOpenModal(state => !state);
-            }}
-        >Crear Nueva Tarea
+        <CreateTodoButton>
+            <PBotton
+                onClick={() => {
+                    setOpenModal(state => !state);
+                }}
+            >{title}
+            </PBotton>
         </CreateTodoButton>
     );
 }
@@ -15,13 +18,9 @@ export { CreateTask };
 
 
 export const CreateTodoButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--secondary-main);
-    padding: 10px;
-    border-radius: 8px;
-    width: 200px;
-    color: var(--primary-main);
-    cursor: pointer;
+    position: relative;
+    bottom: 0px;
+    @media screen and (max-width: 768px) {
+        bottom: 30px;
+    }
 `;
