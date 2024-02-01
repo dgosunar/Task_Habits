@@ -7,6 +7,8 @@ import { CreateTask } from "../../componets/CreateTask";
 import { MyIcon } from "../../styles/styles";
 import styled from "styled-components";
 import "./spaceUI.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function SpaceUI() {
 
@@ -18,6 +20,7 @@ function SpaceUI() {
         totalStartSpace,
         totalCompleteSpace,
         deleteSpace,
+        totalNoteSpace,
     } = React.useContext(Context);
 
     const onSubmit = () => {
@@ -32,7 +35,10 @@ function SpaceUI() {
             <div className="workspace">
                 {getWorkspace().map((space) => (
                     <div className="space" key={space.id}>
-                        <div className="secondarySubtitle">{space.name}</div>
+                        <div style={{display: "flex", flexDirection: "row", gap: "10px",}}>
+                            <img src="./Icons/Gear.svg" alt="GearIcon" width={20}/>
+                            <div className="secondarySubtitle">{space.name}</div>
+                        </div>
                         <Separator />
                         <div className="details">
                             <div className="task">
@@ -43,19 +49,21 @@ function SpaceUI() {
                             </div>
                             <div className="notes">
                                 <div className="mediumText">Notas:</div>
-                                <div className="miniText">Pendientes: {totalPendingSpace(space.id)}</div>
+                                <div className="miniText">{totalNoteSpace(space.id)}</div>
                             </div>
                         </div>
                         <div className="icons">
                             {/* <MyIcon src="./Icons/Pen.svg" onClick={() => { onSubmit() }} alt="PenIcon" /> */}
-                            <MyIcon src="./Icons/Trash.svg" onClick={() => { onDelete(space.id) }} alt="TrashIcon" />
+                            <MyIcon>
+                                <FontAwesomeIcon icon={faTrash} color="#f26868" onClick={() => { onDelete(space.id) }} alt="TrashIcon" />
+                            </MyIcon>
                         </div>
                     </div>
                 ))}
             </div>
             <div>
-                
-            <CreateTask setOpenModal={setOpenModal} title="Nuevo"/>
+
+                <CreateTask setOpenModal={setOpenModal} title="Nuevo" />
                 {getOpenModal() ? (
                     <Modal title='Crear nuevo espacio de trabajo'>
                         <NewSpace />

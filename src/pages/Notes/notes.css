@@ -1,4 +1,4 @@
-.workspace{
+.generalNotes{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -12,11 +12,11 @@
     border-radius: 8px;
 }
 
-.space{
+.note{
     display: flex;
     flex-direction: column;
-    height: 150px;
-    width: 300px;
+    height: 300px;
+    width: 200px;
     background-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0px 4px 10px 0px var(--black);
     backdrop-filter: blur(7px);
@@ -28,28 +28,6 @@
     }
 }
 
-.details{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    width: 100%;
-}
-
-.task{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    gap: 10px;
-}
-
-.notes{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 100%;
-    gap: 10px;
-}
 .icons{
     display: flex;
     flex-direction: row;

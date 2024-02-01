@@ -8,7 +8,6 @@ function SelectorSpace() {
     const {
         getWorkspace,
         selectSpace,
-        getSpace,
         setSpace,
         setSpaceTasks,
     } = React.useContext(Context);
@@ -23,9 +22,9 @@ function SelectorSpace() {
         <Container>
             <div className="statusBox">
                 <div className="label">Espacio de Trabajo</div>
-                <select className='status generalText' defaultValue={getSpace()} onChange={onChangeSpace}>
+                <select className='status generalText' onChange={onChangeSpace}>
                     {getWorkspace().map((s) => (
-                        <option className="option" key={s.id} value={s.id}>{s.name}</option>
+                        <option className="option" key={s.id}>{s.name}</option>
                     ))}
                 </select>
             </div>

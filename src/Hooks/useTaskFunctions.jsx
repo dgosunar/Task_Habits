@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
 
-const useTaskFunctions = (generalStatus) => {
+const useTaskFunctions = (getGeneralStatus) => {
 
   // localStorage.removeItem('Task_v1');
   // const defaultTask = [
@@ -26,17 +26,17 @@ const useTaskFunctions = (generalStatus) => {
   )
   const totalPending = () => (
     task.filter(
-      task => task.status === generalStatus[0].id
+      task => task.status === getGeneralStatus()[0].id
     ).length
   )
   const totalInProcess = () => (
     task.filter(
-      task => task.status === generalStatus[1].id
+      task => task.status === getGeneralStatus()[1].id
     ).length
   )
   const totalCompleted = () => (
     task.filter(
-      task => task.status === generalStatus[2].id
+      task => task.status === getGeneralStatus()[2].id
     ).length
   )
 
@@ -53,7 +53,7 @@ const useTaskFunctions = (generalStatus) => {
     const newTask = [...task, {
       id: id,
       text,
-      status: generalStatus[0].id,
+      status: getGeneralStatus()[0].id,
       workspace,
       date
     }];
@@ -68,13 +68,13 @@ const useTaskFunctions = (generalStatus) => {
   }
 
   const pendingTask = (id) => {
-    updateTaskStatus(id, generalStatus[0].id);
+    updateTaskStatus(id, getGeneralStatus()[0].id);
   }
   const startTask = (id) => {
-    updateTaskStatus(id, generalStatus[1].id);
+    updateTaskStatus(id, getGeneralStatus()[1].id);
   }
   const completeTask = (id) => {
-    updateTaskStatus(id, generalStatus[2].id);
+    updateTaskStatus(id, getGeneralStatus()[2].id);
   }
 
   const deleteTask = (idTask) => {

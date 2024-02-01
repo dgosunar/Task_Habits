@@ -1,6 +1,7 @@
 import React from "react";
 import useTaskFunctions from "../Hooks/useTaskFunctions";
 import useSpaceFunctions from "../Hooks/useSpaceFunctions";
+import useNoteFunctions from "../Hooks/useNoteFunctions";
 
 const Context = React.createContext();
 
@@ -51,6 +52,18 @@ function ContextProvider({ children }) {
         deleteSpace,
     } = spaceFunctions;
 
+    const noteFunctions = useNoteFunctions();
+    const {
+        getNotes,
+        setNotes,
+        getNotesLoading,
+        getNotesError,
+        selectNotes,
+        totalNoteSpace,
+        addNote,
+        deleteNote
+    } = noteFunctions;
+
     React.useEffect(() => {
         if (getTask().length > 0) {
             setSpaceTasks(selectSpace(getSpace()));
@@ -100,6 +113,14 @@ function ContextProvider({ children }) {
             totalCompleteSpace,
             addSpace,
             deleteSpace,
+            getNotes,
+            setNotes,
+            getNotesLoading,
+            getNotesError,
+            selectNotes,
+            totalNoteSpace,
+            addNote,
+            deleteNote,
         }}>
             {children}
         </Context.Provider>

@@ -4,8 +4,9 @@ import { useRoutes, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Summary from './pages/Summary';
 import Tasks from './pages/tasks';
-import Habits from './pages/Habits';
+import Notes from './pages/Notes';
 import SpaceWork from './pages/SpaceWork';
+import Habits from './pages/Habits';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
@@ -18,6 +19,7 @@ const AppRoutes = () => {
     { path: "/Task_Habits/summary", element: <Summary/> },
     { path: "/Task_Habits/tasks", element: <Tasks /> },
     { path: "/Task_Habits/space", element: <SpaceWork/> },
+    { path: "/Task_Habits/notes", element: <Notes /> },
     { path: "/Task_Habits/habits", element: <Habits /> },
     { path: "/Task_Habits/contact", element: <Contact /> },
     { path: "/Task_Habits/*", element: <NotFound /> }

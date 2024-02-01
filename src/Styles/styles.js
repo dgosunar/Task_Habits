@@ -10,7 +10,10 @@ export const MyLink = styled.a`
     text-decoration: none;
 `;
 
-export const MyIcon = styled.img`
+export const MyIcon = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 20px;
     height: 20px;
     padding: 10px;

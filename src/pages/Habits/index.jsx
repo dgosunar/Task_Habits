@@ -4,7 +4,7 @@ import { Layout } from '../../componets/Layout/Dashboard'
 function Habits() {
 
   return (
-    <Layout title={'Habits'}>
+    <Layout title={'Habitos'}>
     </Layout>
   );
 }
