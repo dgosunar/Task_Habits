@@ -4,14 +4,14 @@ import { useLocalStorage } from "../Hooks/useLocalStorage";
 const useTaskFunctions = (getGeneralStatus) => {
 
   // localStorage.removeItem('Task_v1');
-  // const defaultTask = [
-  // { id: 1, text: 'Tarea Pendiente...', status: 1, workspace: 0, date: '' },
-  // { id: 2, text: 'Tarea en Proceso...', status: 2, workspace: 0, date: '' },
-  // { id: 3, text: 'Tarea Completada!!!', status: 3, workspace: 0, date: '' },
-  // ];
+  const defaultTask = [
+  { id: 1, text: 'Tarea Pendiente...', status: 1, workspace: 0, date: '' },
+  { id: 2, text: 'Tarea en Proceso...', status: 2, workspace: 0, date: '' },
+  { id: 3, text: 'Tarea Completada!!!', status: 3, workspace: 0, date: '' },
+  ];
   // localStorage.setItem('Task_v1', JSON.stringify(defaultTask));
 
-  const { item: task, saveItem: setTask, loading, error } = useLocalStorage('Task_v1', []);
+  const { item: task, saveItem: setTask, loading, error } = useLocalStorage('Task_v1', defaultTask);
   const getTask = () => (task);
   const getTaskLoading = () => (loading);
   const getTaskError = () => (error);

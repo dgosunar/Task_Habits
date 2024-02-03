@@ -4,14 +4,14 @@ import { useLocalStorage } from "../Hooks/useLocalStorage";
 const useNoteFunctions = () => {
 
   // localStorage.removeItem('Note_v1');
-  // const defaultNotes = [
-  //   { id: 1, title: 'Nota1', text: 'Tarea Pendiente...', workspace: 0 },
-  //   { id: 2, title: 'Nota2', text: 'Tarea en Proceso...', workspace: 0 },
-  //   { id: 3, title: 'Nota3', text: 'Tarea Completada!!!', workspace: 0 },
-  // ];
+  const defaultNotes = [
+    { id: 1, title: 'Nota1', text: 'Anotaciones 1...', workspace: 0 },
+    { id: 2, title: 'Nota2', text: 'Anotaciones 2...', workspace: 0 },
+    { id: 3, title: 'Nota3', text: 'Anotaciones 3...', workspace: 0 },
+  ];
   // localStorage.setItem('Note_v1', JSON.stringify(defaultNotes));
 
-  const { item: notes, saveItem: setNotes, loading, error } = useLocalStorage('Note_v1', []);
+  const { item: notes, saveItem: setNotes, loading, error } = useLocalStorage('Note_v1', defaultNotes);
   const getNotes = () => (notes);
   const getNotesLoading = () => (loading);
   const getNotesError = () => (error);

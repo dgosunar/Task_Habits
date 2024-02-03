@@ -9,7 +9,6 @@ export const Botton = styled.div`
     width: 100px;
     height: 20px;
     border-radius: 8px;
-    box-shadow: 0px 4px 10px 0px var(--black);
     cursor: pointer;
 `;
 

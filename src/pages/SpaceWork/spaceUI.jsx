@@ -8,7 +8,7 @@ import { MyIcon } from "../../styles/styles";
 import styled from "styled-components";
 import "./spaceUI.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 
 function SpaceUI() {
 
@@ -35,8 +35,8 @@ function SpaceUI() {
             <div className="workspace">
                 {getWorkspace().map((space) => (
                     <div className="space" key={space.id}>
-                        <div style={{display: "flex", flexDirection: "row", gap: "10px",}}>
-                            <img src="./Icons/Gear.svg" alt="GearIcon" width={20}/>
+                        <div style={{ display: "flex", flexDirection: "row", gap: "10px", }}>
+                            <img src="./Icons/Gear.svg" alt="GearIcon" width={20} />
                             <div className="secondarySubtitle">{space.name}</div>
                         </div>
                         <Separator />
@@ -53,9 +53,11 @@ function SpaceUI() {
                             </div>
                         </div>
                         <div className="icons">
-                            {/* <MyIcon src="./Icons/Pen.svg" onClick={() => { onSubmit() }} alt="PenIcon" /> */}
-                            <MyIcon>
-                                <FontAwesomeIcon icon={faTrash} color="#f26868" onClick={() => { onDelete(space.id) }} alt="TrashIcon" />
+                            <MyIcon onClick={() => { onSubmit() }}>
+                                <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
+                            </MyIcon>
+                            <MyIcon onClick={() => { onDelete(space.id) }} >
+                                <FontAwesomeIcon icon={faTrash} color="#f26868" alt="TrashIcon" />
                             </MyIcon>
                         </div>
                     </div>

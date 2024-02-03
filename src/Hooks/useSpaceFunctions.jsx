@@ -4,12 +4,12 @@ import { useLocalStorage } from "../Hooks/useLocalStorage";
 const useSpaceFunctions = (getGeneralStatus, getTask, setTask) => {
 
   // localStorage.removeItem('Space_v1');
-  // const defaultWork = [
-  //     { id: 0, name: 'General' },
-  // ];
+  const defaultWork = [
+      { id: 0, name: 'General' },
+  ];
   // localStorage.setItem('Space_v1', JSON.stringify(defaultWork));
 
-  const { item: workspace, saveItem: saveSpace, loading, error } = useLocalStorage('Space_v1', []);
+  const { item: workspace, saveItem: saveSpace, loading, error } = useLocalStorage('Space_v1', defaultWork);
   const getWorkspace = () => (workspace);
   const getWorkspaceLoading = () => (loading);
   const getWorkspaceError = () => (error);

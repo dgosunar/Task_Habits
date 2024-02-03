@@ -7,7 +7,8 @@ import { MyIcon } from "../../styles/styles";
 import styled from "styled-components";
 import "./notes.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faNoteSticky, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faNoteSticky, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import { NewNote } from "../../componets/Modals/NewNote";
 
 
 function NotesUI() {
@@ -38,15 +39,18 @@ function NotesUI() {
                 {getNotes().map((note) => (
                     <div className="note" key={note.id}>
                         <div style={{ display: "flex", flexDirection: "row", gap: "10px", }}>
-                            <FontAwesomeIcon icon={faNoteSticky}/>
+                            <FontAwesomeIcon icon={faNoteSticky} />
                             <div className="secondarySubtitle">{note.title}</div>
                         </div>
                         <Separator />
-                        <div className="miniText">{note.text}</div>
-                        <div className="icons">
-                            {/* <MyIcon src="./Icons/Pen.svg" onClick={() => { onSubmit() }} alt="PenIcon" /> */}
-                            <MyIcon>
-                                <FontAwesomeIcon icon={faTrash} color="#f26868" onClick={() => { onDelete(note.id) }} alt="TrashIcon" />
+                        <div className="description miniText">{note.text}</div>
+                        <div className="NoteIcons">
+                            <div className="seeMore generalText">Ver mas...</div>
+                            <MyIcon onClick={() => { onSubmit() }}>
+                                <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
+                            </MyIcon>
+                            <MyIcon onClick={() => { onDelete(note.id) }} >
+                                <FontAwesomeIcon icon={faTrash} color="#f26868" alt="TrashIcon" />
                             </MyIcon>
                         </div>
                     </div>
@@ -57,7 +61,7 @@ function NotesUI() {
                 <CreateTask setOpenModal={setOpenModal} title="Nueva" />
                 {getOpenModal() ? (
                     <Modal title='Nueva Nota'>
-                        <></>
+                        <NewNote />
                     </Modal>
                 ) : (<></>)}
             </div>

@@ -10,6 +10,9 @@
     overflow-y: auto;
     gap: 10px;
     border-radius: 8px;
+    @media screen and (max-width: 600px) {
+        height: calc(100% - 80px);
+    }
 }
 
 .space{
@@ -50,6 +53,12 @@
     height: 100%;
     gap: 10px;
 }
+
+.seeMore{
+    display: flex;
+    padding: 10px;
+}
+
 .icons{
     display: flex;
     flex-direction: row;

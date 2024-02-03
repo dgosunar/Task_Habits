@@ -2,14 +2,17 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     align-content: flex-start;
     width: 100%;
     height: calc(100% - 50px);
     overflow-y: auto;
     gap: 10px;
-    border-radius: 8px;
+    border-radius: 8px;    
+    @media screen and (max-width: 600px) {
+        height: calc(100% - 80px);
+    }
 }
 
 .note{
@@ -23,19 +26,29 @@
     border-radius: 8px;
     padding: 10px;
     gap: 10px;
+
     @media screen and (max-width: 600px) {
-        width: 100%;
+        width: 42%;
     }
 }
 
-.icons{
+.description{
+    display: flex;
+    width: 100%;
+    height: calc(100% - 53px);
+    overflow: hidden;
+  }
+
+.NoteIcons{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;    
+    align-items: flex-end;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 10px;
+    height: 80px;
+    width: calc(100% - 20px);
+    bottom: 10px;
+    left: 10px;
     gap: 5px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #263A45 65%);
 }
