@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../../public/Fondo2.png');
+  background-image: url('../../public/Fondo.png');
   color: var(--white);
   font-family: "Montserrat", sans-serif;
   overflow: hidden;

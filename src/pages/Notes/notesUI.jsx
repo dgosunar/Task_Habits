@@ -9,6 +9,7 @@ import "./notes.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNoteSticky, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 import { NewNote } from "../../componets/Modals/NewNote";
+import { NoteDetails } from "./NoteDetails";
 
 
 function NotesUI() {
@@ -20,11 +21,14 @@ function NotesUI() {
         getNotesError,
         selectNotes,
         totalNoteSpace,
-        addNote,
         deleteNote,
         getOpenModal,
         setOpenModal,
     } = React.useContext(Context);
+
+
+    const [openDetails, setOpenDetails] = React.useState(false);
+    const getOpenDetails = () => (openDetails);
 
     const onSubmit = () => {
     };
@@ -46,7 +50,10 @@ function NotesUI() {
                         <div className="description miniText">{note.text}</div>
                         <div className="NoteIcons">
                             <div className="seeMore generalText">Ver mas...</div>
-                            <MyIcon onClick={() => { onSubmit() }}>
+                            <MyIcon key={note.id} onClick={() => {setOpenDetails(state => !state)}}>
+                                {getOpenDetails() ? (
+                                        <NoteDetails note={note}/>
+                                ) : (<></>)}
                                 <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
                             </MyIcon>
                             <MyIcon onClick={() => { onDelete(note.id) }} >
