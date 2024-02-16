@@ -12,7 +12,7 @@ body {
   color: var(--white);
   margin: 0;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
 }
 
@@ -49,38 +49,6 @@ img {
   --accent-red: #f26868;
 }
 
-.primaryTitle_main {
-  color: var(--primary-main);
-  font-size: 41px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.primaryTitle_SM {
-  color: var(--secondary-main);
-  font-size: 41px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.primaryTitle_White {
-  color: var(--white);
-  font-size: 41px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.primaryTitle_Black {
-  color: var(--black);
-  font-size: 41px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
 .primaryTitle {
   font-size: 41px;
   font-style: normal;
@@ -102,57 +70,11 @@ img {
   line-height: normal;
 }
 
-.primarySubtitlePM {
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  color: var(--primary-main);
-}
-.primarySubtitleSM {
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  color: var(--secondary-main);
-}
-.primarySubtitleW {
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  color: var(--white);
-}
-
 .secondarySubtitle {
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-}
-
-.secondarySubtitleW {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  color: var(--white);
-}
-
-.secondarySubtitlePM {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  color: var(--primary-main);
-}
-
-.secondarySubtitleSM {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  color: var(--secondary-main);
 }
 
 .mediumText {
@@ -162,12 +84,11 @@ img {
   line-height: normal;
 }
 
-.mediumTextSM {
+.mediumTextB {
   font-size: 16px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 700;
   line-height: normal;
-  color: var(--secondary-main);
 }
 
 .generalText {

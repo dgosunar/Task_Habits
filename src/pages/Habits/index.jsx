@@ -1,12 +1,8 @@
-import React from 'react';
-import { Layout } from '../../componets/Layout/Dashboard'
+import React from "react";
+import { Layout } from "../../layout/Dashboard";
 
 function Habits() {
-
-  return (
-    <Layout title={'Habitos'}>
-    </Layout>
-  );
+  return <Layout title={"Habitos"}></Layout>;
 }
 
 export default Habits;

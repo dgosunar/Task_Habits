@@ -1,4 +1,4 @@
-.generalNotes{
+.generalNotes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -9,13 +9,14 @@
     height: calc(100% - 50px);
     overflow-y: auto;
     gap: 10px;
-    border-radius: 8px;    
+    border-radius: 8px;
+
     @media screen and (max-width: 600px) {
         height: calc(100% - 80px);
     }
 }
 
-.note{
+.note {
     display: flex;
     flex-direction: column;
     height: 300px;
@@ -32,17 +33,17 @@
     }
 }
 
-.description{
+.description {
     display: flex;
     width: 100%;
     height: calc(100% - 53px);
     overflow: hidden;
-  }
+}
 
-.NoteIcons{
+.NoteIcons {
     display: flex;
     flex-direction: row;
-    justify-content: center;    
+    justify-content: flex-end;
     align-items: flex-end;
     position: absolute;
     height: 80px;

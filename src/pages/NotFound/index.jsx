@@ -1,16 +1,22 @@
-import React from 'react';
-import { Layout } from '../../componets/Layout/Home';
-import styled from 'styled-components';
-import { MyImage, MyLink } from '../../styles/styles';
-
+import React from "react";
+import { Layout } from "../../layout/Home";
+import styled from "styled-components";
 
 function NotFound() {
-
   return (
     <Layout title={"Pagina no encontrada"}>
       <Container>
-        <MyImage src='./Images/404 error with person looking for-bro.png' alt='image404' />
-        <MyLink href='https://storyset.com/online' target='_blank' rel='noopener noreferrer'>Online illustrations by Storyset</MyLink>
+        <img
+          src="./Images/404 error with person looking for-bro.png"
+          alt="image404"
+        />
+        <a
+          href="https://storyset.com/online"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Online illustrations by Storyset
+        </a>
       </Container>
     </Layout>
   );
@@ -18,7 +24,7 @@ function NotFound() {
 
 export default NotFound;
 
-export const Container = styled.div`    
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;

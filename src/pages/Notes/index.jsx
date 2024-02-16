@@ -1,14 +1,13 @@
-import React from 'react';
-import { Layout } from '../../componets/Layout/Dashboard';
+import React from "react";
+import { Layout } from "../../layout/Dashboard";
 import { ContextProvider } from "../../Context";
 import NotesUI from "./notesUI";
 
 function Notes() {
-
   return (
-    <Layout title={'Notas'}>
+    <Layout title={"Notas"}>
       <ContextProvider>
-        <NotesUI/>
+        <NotesUI />
       </ContextProvider>
     </Layout>
   );

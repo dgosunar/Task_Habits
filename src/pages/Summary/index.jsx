@@ -1,12 +1,8 @@
-import React from 'react';
-import { Layout } from '../../componets/Layout/Dashboard'
+import React from "react";
+import { Layout } from "../../layout/Dashboard";
 
 function Summary() {
-
-  return (
-    <Layout title={'Resumen'}>
-    </Layout>
-  );
+  return <Layout title={"Resumen"}></Layout>;
 }
 
 export default Summary;

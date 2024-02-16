@@ -1,18 +1,22 @@
-import React from 'react';
-import { Layout } from '../../componets/Layout/Home'
-import styled from 'styled-components';
-import ContactCard from '../../componets/ContactCard';
-import { MyImage, MyLink } from '../../styles/styles';
+import React from "react";
+import { Layout } from "../../layout/Home";
+import styled from "styled-components";
+import ContactCard from "../../componets/ContactCard";
 
 function Contact() {
-
   return (
     <Layout>
       <Container>
-        <ContactCard title='Contacto'/>
+        <ContactCard title="Contacto" />
         <ImagenBox>
-            <MyImage src='./Images/Developer activity-bro.png' alt='imagenContacto'/>
-            <MyLink href='https://storyset.com/work' target='_blank' rel='noopener noreferrer'>Work illustrations by Storyset</MyLink>
+          <img src="./Images/Developer activity-bro.png" alt="imagenContacto" />
+          <a
+            href="https://storyset.com/work"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Work illustrations by Storyset
+          </a>
         </ImagenBox>
       </Container>
     </Layout>
@@ -21,7 +25,7 @@ function Contact() {
 
 export default Contact;
 
-export const Container = styled.div`    
+export const Container = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
