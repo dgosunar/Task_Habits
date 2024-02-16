@@ -8,12 +8,13 @@ import { MyIcon } from "../../styles/styles";
 import styled from "styled-components";
 import "./spaceUI.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import { faGears, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 
 function SpaceUI() {
   const {
+    accentColors,
     getWorkspace,
-    getOpenModal,
+    openModal,
     setOpenModal,
     totalPendingSpace,
     totalStartSpace,
@@ -33,8 +34,11 @@ function SpaceUI() {
       <div className="workspace">
         {getWorkspace().map((space) => (
           <div className="space" key={space.id}>
-            <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
-              <img src="./Icons/Gear.svg" alt="GearIcon" width={20} />
+            <div
+              className="title"
+              style={{ color: accentColors[space.color].color }}
+            >
+              <FontAwesomeIcon icon={faGears} size="xl" />
               <div className="secondarySubtitle">{space.name}</div>
             </div>
             <Separator />
@@ -81,7 +85,7 @@ function SpaceUI() {
       </div>
       <div>
         <CreateTask setOpenModal={setOpenModal} title="Nuevo" />
-        {getOpenModal() ? (
+        {openModal ? (
           <Modal>
             <NewSpace />
           </Modal>
@@ -99,7 +103,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  width: calc(100% - 210px);
   height: 100%;
   gap: 10px;
 

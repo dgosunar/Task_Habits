@@ -30,7 +30,6 @@ export const Container = styled.div`
   color: var(--white);
   overflow-y: auto;
   --background: rgba(0, 23, 36, 0.5);
-  --backdrop-filter: blur(10px);
   --box-shadow: 0px 4px 10px 0px var(--black);
 
   @media screen and (max-width: 1024px) {

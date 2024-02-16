@@ -4,6 +4,8 @@ import { Separator } from "../../componets/Modals/Separator";
 import { Modal } from "../../componets/Modals/Modal";
 import { CreateTask } from "../../componets/CreateTask";
 import { MyIcon } from "../../styles/styles";
+import { NewNote } from "../../componets/Modals/NewNote";
+import { NoteEdit } from "./NoteEdit";
 import styled from "styled-components";
 import "./notes.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,23 +14,26 @@ import {
   faTrash,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
-import { NewNote } from "../../componets/Modals/NewNote";
 import { NoteDetails } from "./NoteDetails";
 
 function NotesUI() {
   const {
-    getNotes,
+    notes,
     setNotes,
-    getNotesLoading,
-    getNotesError,
+    notesLoading,
+    notesError,
     selectNotes,
     totalNoteSpace,
+    addNote,
     deleteNote,
-    getNotesDetails,
+    notesDetails,
     setNotesDetails,
-    getShowDetails,
+    showDetails,
     setShowDetails,
-    getOpenModal,
+    showEdit,
+    setShowEdit,
+    upDateNote,
+    openModal,
     setOpenModal,
   } = React.useContext(Context);
 
@@ -41,20 +46,28 @@ function NotesUI() {
   return (
     <Container>
       <div className="generalNotes">
-        {getNotes().map((note) => (
+        {notes.map((note) => (
           <div className="note" key={note.id}>
             <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
               <FontAwesomeIcon icon={faNoteSticky} />
               <div className="secondarySubtitle">{note.title}</div>
             </div>
             <Separator />
-            <div className="description miniText">{note.text}</div>
+            <div
+              className="description miniText"
+              onClick={() => {
+                setNotesDetails(note);
+                setShowDetails((stateDetails) => !stateDetails);
+              }}
+            >
+              {note.text}
+            </div>
             <div className="NoteIcons">
               <MyIcon
                 key={note.id}
                 onClick={() => {
                   setNotesDetails(note);
-                  setShowDetails((state) => !state);
+                  setShowEdit((stateEdit) => !stateEdit);
                 }}
               >
                 <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
@@ -74,23 +87,32 @@ function NotesUI() {
           </div>
         ))}
       </div>
-      {getShowDetails() ? (
+      <CreateTask setOpenModal={setOpenModal} title="Nueva" />
+
+      {/* Modal para Editar Notas */}
+      {showEdit ? (
         <Modal>
-          <NoteDetails note={getNotesDetails()} />
+          <NoteEdit />
         </Modal>
       ) : (
         <></>
       )}
-      <div>
-        <CreateTask setOpenModal={setOpenModal} title="Nueva" />
-        {getOpenModal() ? (
-          <Modal title="Nueva Nota">
-            <NewNote />
-          </Modal>
-        ) : (
-          <></>
-        )}
-      </div>
+      {/* Modal para Ver Notas */}
+      {showDetails ? (
+        <Modal>
+          <NoteDetails />
+        </Modal>
+      ) : (
+        <></>
+      )}
+      {/* Modal para Crear Notas */}
+      {openModal ? (
+        <Modal title="Nueva Nota">
+          <NewNote />
+        </Modal>
+      ) : (
+        <></>
+      )}
     </Container>
   );
 }

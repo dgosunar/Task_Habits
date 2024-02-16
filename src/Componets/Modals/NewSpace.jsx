@@ -6,12 +6,13 @@ import { BottonBox, PBotton, SBotton } from "../Bottons";
 import { Card } from "./Card";
 
 function NewSpace() {
-  const { setOpenModal, addSpace } = React.useContext(Context);
+  const { setOpenModal, addSpace, accentColors } = React.useContext(Context);
 
   const [description, setDescription] = React.useState("");
+  const [color, setColor] = React.useState(0);
 
   const onSubmit = () => {
-    addSpace(description);
+    addSpace(description, color);
     setOpenModal(false);
   };
 
@@ -21,6 +22,10 @@ function NewSpace() {
 
   const onChangeDescripcion = (event) => {
     setDescription(event.target.value);
+  };
+
+  const thisColor = (id) => {
+    setColor(id);
   };
 
   return (
@@ -36,6 +41,18 @@ function NewSpace() {
               onChange={onChangeDescripcion}
             />
           </TextBox>
+          {/* <TextBox>
+            <Label>Selecciona un Color</Label>
+            <div className="selectColor">
+              {accentColors.map((c) => (
+                <button
+                  className="color"
+                  style={{ backgroundColor: c.color }}
+                  onClick={() => thisColor(c.id)}
+                />
+              ))}
+            </div>
+          </TextBox> */}
         </Form>
         <BottonBox>
           <SBotton onClick={onCancel}>Cancelar</SBotton>
@@ -79,6 +96,26 @@ export const Form = styled.div`
   }
   .newTaskStyle:focus {
     outline-color: var(--secondary-main);
+  }
+  .selectColor {
+    display: flex;
+    gap: 5px;
+    border: 1px solid var(--primary-main);
+    border-radius: 8px;
+    padding: 10px;
+  }
+  .color {
+    display: flex;
+    height: 25px;
+    width: 25px;
+    border: 1px solid var(--white);
+    border-radius: 100%;
+  }
+  .color:hover {
+    border: 1px solid var(--primary-main);
+  }
+  .color:focus {
+    border: 1px solid var(--primary-main);
   }
 `;
 

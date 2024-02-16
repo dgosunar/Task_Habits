@@ -28,9 +28,10 @@ img {
 
 :root {
   --default-background-color: #ffffff;
+  --bg-cards: #263A45;
 
   --gray: #A5A5A5;
-  --gray-light:#cbcbcb;
+  --gray-light: #cbcbcb;
   --gray-dark: #424242;
   --black: #000000;
   --white: #ffffff;
@@ -43,10 +44,12 @@ img {
   --secondary-light: #a5e8f7;
   --secondary-dark: #006c85;
 
+  --accent-red: #F16767;
+  --accent-yellow: #F1CF67;
+  --accent-green: #78F167;
   --accent-blue: #68D6F1;
-  --accent-yellow: #F1D568;
-  --accent-green: #91F168;
-  --accent-red: #f26868;
+  --accent-purple: #7867F1;
+  --accent-pink: #F167E0;
 }
 
 .primaryTitle {

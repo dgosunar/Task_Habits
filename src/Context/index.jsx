@@ -6,6 +6,21 @@ import useNoteFunctions from "../Hooks/useNoteFunctions";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
+  const accentColors = [
+    { id: 0, color: "#FFFFFF" },
+    { id: 1, color: "#F16767" },
+    { id: 2, color: "#F19B67" },
+    { id: 3, color: "#F1CF67" },
+    { id: 4, color: "#78F167" },
+    { id: 5, color: "#67F1F1" },
+    { id: 6, color: "#67BDF1" },
+    { id: 7, color: "#7867F1" },
+    { id: 8, color: "#AC67F1" },
+    { id: 9, color: "#F167E0" },
+  ];
+
+  const [colorSelected, setColorSelected] = React.useState(0);
+
   const generalStatus = [
     { id: 1, name: "Pendiente" },
     { id: 2, name: "En Proceso" },
@@ -15,13 +30,13 @@ function ContextProvider({ children }) {
 
   const taskFunctions = useTaskFunctions(getGeneralStatus);
   const {
-    getTask,
+    task,
     setTask,
-    getTaskLoading,
-    getTaskError,
-    getSearchValue,
+    loading,
+    error,
+    searchValue,
     setSearchValue,
-    getSpaceTasks,
+    spaceTasks,
     setSpaceTasks,
     totalTask,
     totalPending,
@@ -35,7 +50,7 @@ function ContextProvider({ children }) {
     deleteTask,
   } = taskFunctions;
 
-  const spaceFunctions = useSpaceFunctions(getGeneralStatus, getTask, setTask);
+  const spaceFunctions = useSpaceFunctions(getGeneralStatus, task, setTask);
   const {
     getWorkspace,
     getWorkspaceLoading,
@@ -53,29 +68,30 @@ function ContextProvider({ children }) {
 
   const noteFunctions = useNoteFunctions();
   const {
-    getNotes,
+    notes,
     setNotes,
-    getNotesLoading,
-    getNotesError,
+    notesLoading,
+    notesError,
     selectNotes,
     totalNoteSpace,
     addNote,
     deleteNote,
-    getNotesDetails,
+    notesDetails,
     setNotesDetails,
-    getShowDetails,
+    showDetails,
     setShowDetails,
+    showEdit,
+    setShowEdit,
     upDateNote,
   } = noteFunctions;
 
   React.useEffect(() => {
-    if (getTask().length > 0) {
+    if (task.length > 0) {
       setSpaceTasks(selectSpace(getSpace()));
     }
-  }, [getTask()]);
+  }, [task]);
 
   const [openModal, setOpenModal] = React.useState(false);
-  const getOpenModal = () => openModal;
 
   // const initialworkspace = workspace.length === 0 ? [
   //     { id: 0, name: 'General' }
@@ -85,16 +101,19 @@ function ContextProvider({ children }) {
   return (
     <Context.Provider
       value={{
+        accentColors,
+        colorSelected,
+        setColorSelected,
         getGeneralStatus,
-        getOpenModal,
+        openModal,
         setOpenModal,
-        getTask,
+        task,
         setTask,
-        getTaskLoading,
-        getTaskError,
-        getSearchValue,
+        loading,
+        error,
+        searchValue,
         setSearchValue,
-        getSpaceTasks,
+        spaceTasks,
         setSpaceTasks,
         totalTask,
         totalPending,
@@ -118,18 +137,21 @@ function ContextProvider({ children }) {
         totalCompleteSpace,
         addSpace,
         deleteSpace,
-        getNotes,
+
+        notes,
         setNotes,
-        getNotesLoading,
-        getNotesError,
+        notesLoading,
+        notesError,
         selectNotes,
         totalNoteSpace,
         addNote,
         deleteNote,
-        getNotesDetails,
+        notesDetails,
         setNotesDetails,
-        getShowDetails,
+        showDetails,
         setShowDetails,
+        showEdit,
+        setShowEdit,
         upDateNote,
       }}
     >

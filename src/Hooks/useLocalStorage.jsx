@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // const generalStatus = [
 //   { id: 1, name: 'Pendiente' },
@@ -7,7 +7,6 @@ import React from 'react';
 // ];
 
 function useLocalStorage(itemName, inicialValue) {
-
   const [item, setItem] = React.useState(inicialValue);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);

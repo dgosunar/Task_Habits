@@ -13,21 +13,17 @@ const useNoteFunctions = () => {
   const {
     item: notes,
     saveItem: setNotes,
-    loading,
-    error,
+    notesLoading,
+    notesError,
   } = useLocalStorage("Note_v1", defaultNotes);
-  const getNotes = () => notes;
-  const getNotesLoading = () => loading;
-  const getNotesError = () => error;
 
   const [notesDetails, setNotesDetails] = React.useState([]);
-  const getNotesDetails = () => notesDetails;
   const [showDetails, setShowDetails] = React.useState(false);
-  const getShowDetails = () => showDetails;
+  const [showEdit, setShowEdit] = React.useState(false);
 
   //Filtrador de Espacios de Trabajo
   const selectNotes = (spaceId) =>
-    getNotes().filter((note) => note.workspace === spaceId);
+    notes.filter((note) => note.workspace === spaceId);
 
   // Cantidad de tareas por Espacio de Trabajo
   const totalNoteSpace = (spaceId) => selectNotes(spaceId).length;
@@ -62,18 +58,20 @@ const useNoteFunctions = () => {
   };
 
   return {
-    getNotes,
+    notes,
     setNotes,
-    getNotesLoading,
-    getNotesError,
+    notesLoading,
+    notesError,
     selectNotes,
     totalNoteSpace,
     addNote,
     deleteNote,
-    getNotesDetails,
+    notesDetails,
     setNotesDetails,
-    getShowDetails,
+    showDetails,
     setShowDetails,
+    showEdit,
+    setShowEdit,
     upDateNote,
   };
 };

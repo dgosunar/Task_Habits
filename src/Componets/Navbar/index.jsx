@@ -10,7 +10,7 @@ const titles = [
   { label: "Tareas", route: "/Task_Habits/tasks" },
   { label: "Espacios de Trabajo", route: "/Task_Habits/space" },
   { label: "Notas", route: "/Task_Habits/notes" },
-  { label: "Habitos", route: "/Task_Habits/habits" },
+  // { label: "Habitos", route: "/Task_Habits/habits" },
   { label: "Contacto", route: "/Task_Habits/contact" },
 ];
 

@@ -3,95 +3,67 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Context } from "../../Context";
 import styled from "styled-components";
 import { PBotton, SBotton } from "../../componets/Bottons";
-import { Card } from "../../componets/Modals/Card";
+import { GrClose } from "react-icons/gr";
+import { Separator } from "../../componets/Modals/Separator";
 
 function NoteDetails() {
-  const { setShowDetails, getNotesDetails, upDateNote, getWorkspace } =
+  const { setShowDetails, setShowEdit, notesDetails } =
     React.useContext(Context);
 
-  const [title, setTitle] = React.useState(getNotesDetails().title);
-  const [description, setDescription] = React.useState(
-    getNotesDetails().description
-  );
-  const [space, setSpace] = React.useState(0);
-
   const onSubmit = () => {
-    console.log(
-      getNotesDetails().id + ", " + title + ", " + description + ", " + space
-    );
-    upDateNote(getNotesDetails().id, title, description, space);
     setShowDetails(false);
+    setShowEdit(true);
   };
 
   const onCancel = () => {
     setShowDetails(false);
   };
 
-  const onChangeTitle = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const onChangeDescription = (event) => {
-    setDescription(event.target.value);
-  };
-
-  const onChangeSpace = (event) => {
-    const idCorrespondiente = getWorkspace().findIndex(
-      (space) => space.name === event.target.value
-    );
-    setSpace(idCorrespondiente);
-  };
-
   return (
-    <Card title="Crear Nueva Nota">
+    <CardDetails>
       <Container>
         <Form>
-          <TitleBox>
-            <Label>Titulo de la Nota</Label>
-            <textarea className="titleStyle" onChange={onChangeTitle}>
-              {getNotesDetails().title}
-            </textarea>
-          </TitleBox>
-          <DescriptionBox>
-            <Label>Descripción</Label>
-            <textarea
-              className="descriptionStyle"
-              onChange={onChangeDescription}
-            >
-              {getNotesDetails().text}
-            </textarea>
-          </DescriptionBox>
-          <Details>
-            <StatusBox>
-              <Label>Espacio de Trabajo</Label>
-              <select
-                className="status generalText"
-                selected={space}
-                onChange={onChangeSpace}
-              >
-                {getWorkspace().map((item) => (
-                  <option key={item.id}>{item.name}</option>
-                ))}
-              </select>
-            </StatusBox>
-          </Details>
+          <div className="titleStyle primarySubtitle">{notesDetails.title}</div>
+          <Separator />
+          <div className="descriptionStyle mediumText">{notesDetails.text}</div>
         </Form>
         <BottonBox>
-          <SBotton onClick={onCancel}>Cancelar</SBotton>
-          <PBotton onClick={onSubmit}>Guardar</PBotton>
+          <PBotton onClick={onSubmit}>Editar</PBotton>
         </BottonBox>
+
+        <GrClose className="xBotton" onClick={onCancel} />
       </Container>
-    </Card>
+    </CardDetails>
   );
 }
 
 export { NoteDetails };
+
+export const CardDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+  height: min-content;
+  background-color: var(--bg-cards);
+  color: var(--white);
+  padding: 10px;
+  gap: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px 0px var(--black);
+
+  @media screen and (max-width: 600px) {
+    width: calc(100% - 50px);
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  backdrop-filter: blur(7px);
   height: 75vh;
   width: 100%;
   gap: 10px;
@@ -104,52 +76,43 @@ export const Container = styled.div`
     justify-content: space-between;
     overflow-y: auto;
   }
+
+  .xBotton {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-red);
+    z-index: 30;
+  }
 `;
 
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  width: calc(100% - 40px);
+  align-items: flex-start;
+  width: 100%;
   height: 100%;
   gap: 10px;
-  padding: 10px 20px;
 
   .titleStyle {
-    background: var(--white);
+    display: flex;
     margin: 0;
-    padding: 10px;
-    width: calc(100% - 20px);
-    height: 18px;
-    color: var(--black);
-    font-family: "Montserrat";
-    border: 1px solid var(--primary-main);
-    border-radius: 8px;
-  }
-  .titleStyle::placeholder {
-    color: var(--gray-light);
-  }
-  .titleStyle:focus {
-    outline-color: var(--secondary-main);
+    padding: 0 10px;
+    width: calc(100% - 50px);
+    text-align: center;
   }
 
   .descriptionStyle {
-    background: var(--white);
     margin: 0;
-    padding: 10px;
+    padding: 0 10px;
     width: calc(100% - 20px);
     height: 100%;
-    color: var(--black);
-    font-family: "Montserrat";
-    border: 1px solid var(--primary-main);
-    border-radius: 8px;
-  }
-  .descriptionStyle::placeholder {
-    color: var(--gray-light);
-  }
-  .descriptionStyle:focus {
-    outline-color: var(--secondary-main);
   }
 `;
 
@@ -172,18 +135,6 @@ export const Details = styled.div`
   .calendar:focus {
     outline-color: var(--secondary-main);
   }
-`;
-export const TitleBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-export const DescriptionBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
 `;
 
 export const StatusBox = styled.div`
@@ -226,28 +177,4 @@ export const BottonBox = styled.div`
   gap: 50px;
   width: calc(100% - 40px);
   padding: 10px 20px;
-`;
-
-export const GoodBotton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--secondary-main);
-  padding: 10px;
-  border-radius: 8px;
-  min-width: 100px;
-  color: var(--primary-main);
-  cursor: pointer;
-`;
-
-export const BadBotton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--gray-light);
-  padding: 10px;
-  border-radius: 8px;
-  min-width: 100px;
-  color: var(--primary-main);
-  cursor: pointer;
 `;

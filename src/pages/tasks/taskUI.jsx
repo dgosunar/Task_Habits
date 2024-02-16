@@ -15,15 +15,15 @@ import styled from "styled-components";
 
 function TaskUI() {
   const {
-    getTaskLoading,
-    getTaskError,
+    taskLoading,
+    taskError,
     searchTask,
     pendingTask,
     startTask,
     completeTask,
     deleteTask,
     getGeneralStatus,
-    getOpenModal,
+    openModal,
     setOpenModal,
   } = React.useContext(Context);
 
@@ -33,7 +33,6 @@ function TaskUI() {
       <Separator />
 
       <WorkSpace>
-        <TaskStatus />
         <TaskFinder />
         <ContainerTasks>
           <GeneralList>
@@ -43,11 +42,11 @@ function TaskUI() {
                 <Separator />
 
                 <div className="list">
-                  {getTaskLoading() ? (
+                  {taskLoading ? (
                     <TaskLoading />
-                  ) : getTaskError() ? (
+                  ) : taskError ? (
                     <TaskError />
-                  ) : !getTaskLoading() && searchTask().length === 0 ? (
+                  ) : !taskLoading && searchTask().length === 0 ? (
                     <TaskEmpty />
                   ) : (
                     searchTask().map((task) =>
@@ -73,7 +72,7 @@ function TaskUI() {
       </WorkSpace>
 
       <CreateTask setOpenModal={setOpenModal} title="Nueva" />
-      {getOpenModal() ? (
+      {openModal ? (
         <Modal>
           <NewTask />
         </Modal>
@@ -145,19 +144,17 @@ export const ContainerTasks = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  height: calc(100% - 137px);
+  height: calc(100% - 50px);
   width: 100%;
   border-radius: 8px;
 
   @media screen and (max-width: 1024px) {
-    height: calc(100% - 78px);
   }
 
   @media screen and (max-width: 768px) {
   }
 
   @media screen and (max-width: 600px) {
-    height: calc(100% - 137px);
   }
 `;
 
@@ -165,7 +162,7 @@ export const GeneralList = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   height: 100%;
   width: 100%;
@@ -192,10 +189,9 @@ export const TaskList = styled.div`
   height: calc(100% - 20px);
   gap: 10px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--bg-cards);
   color: var(--white);
   box-shadow: 0px 4px 10px 0px var(--black);
-  backdrop-filter: blur(10px);
 
   @media screen and (max-width: 1024px) {
   }
