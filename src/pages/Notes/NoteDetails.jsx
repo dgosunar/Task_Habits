@@ -2,8 +2,7 @@ import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { Context } from "../../Context";
 import styled from "styled-components";
-import { PBotton, SBotton } from "../../componets/Bottons";
-import { GrClose } from "react-icons/gr";
+import { PBotton, XButton } from "../../componets/Bottons";
 import { Separator } from "../../componets/Modals/Separator";
 
 function NoteDetails() {
@@ -25,13 +24,15 @@ function NoteDetails() {
         <Form>
           <div className="titleStyle primarySubtitle">{notesDetails.title}</div>
           <Separator />
-          <div className="descriptionStyle mediumText">{notesDetails.text}</div>
+          <div className="descriptionStyle mediumText">
+            <pre>{notesDetails.text}</pre>
+          </div>
         </Form>
         <BottonBox>
           <PBotton onClick={onSubmit}>Editar</PBotton>
         </BottonBox>
 
-        <GrClose className="xBotton" onClick={onCancel} />
+        <XButton onClick={onCancel} />
       </Container>
     </CardDetails>
   );
@@ -76,19 +77,6 @@ export const Container = styled.div`
     justify-content: space-between;
     overflow-y: auto;
   }
-
-  .xBotton {
-    display: flex;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 30px;
-    width: 30px;
-    justify-content: center;
-    align-items: center;
-    color: var(--accent-red);
-    z-index: 30;
-  }
 `;
 
 export const Form = styled.div`
@@ -97,7 +85,7 @@ export const Form = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 50px);
   gap: 10px;
 
   .titleStyle {
@@ -109,10 +97,12 @@ export const Form = styled.div`
   }
 
   .descriptionStyle {
-    margin: 0;
-    padding: 0 10px;
+    margin: 0 10px;
     width: calc(100% - 20px);
-    height: 100%;
+    height: calc(100% - 53px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-radius: 8px;
   }
 `;
 
@@ -176,5 +166,5 @@ export const BottonBox = styled.div`
   justify-content: center;
   gap: 50px;
   width: calc(100% - 40px);
-  padding: 10px 20px;
+  padding: 0 20px;
 `;

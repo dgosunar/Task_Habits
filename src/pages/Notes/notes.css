@@ -38,6 +38,7 @@
     width: 100%;
     height: calc(100% - 53px);
     overflow: hidden;
+    cursor: pointer;
 }
 
 .NoteIcons {

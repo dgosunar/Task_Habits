@@ -10,9 +10,7 @@ function NoteEdit() {
     React.useContext(Context);
 
   const [title, setTitle] = React.useState(notesDetails.title);
-  const [description, setDescription] = React.useState(
-    notesDetails.description
-  );
+  const [description, setDescription] = React.useState(notesDetails.text);
   const [space, setSpace] = React.useState(0);
 
   const onSubmit = () => {
@@ -46,7 +44,7 @@ function NoteEdit() {
           <TitleBox>
             <Label>Titulo de la Nota</Label>
             <textarea className="titleStyle" onChange={onChangeTitle}>
-              {notesDetails.title}
+              {title}
             </textarea>
           </TitleBox>
           <DescriptionBox>
@@ -55,7 +53,7 @@ function NoteEdit() {
               className="descriptionStyle"
               onChange={onChangeDescription}
             >
-              {notesDetails.text}
+              {description}
             </textarea>
           </DescriptionBox>
           <Details>

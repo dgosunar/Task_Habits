@@ -50,7 +50,15 @@ function NotesUI() {
           <div className="note" key={note.id}>
             <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
               <FontAwesomeIcon icon={faNoteSticky} />
-              <div className="secondarySubtitle">{note.title}</div>
+              <div
+                className="secondarySubtitle"
+                onClick={() => {
+                  setNotesDetails(note);
+                  setShowDetails((stateDetails) => !stateDetails);
+                }}
+              >
+                {note.title}
+              </div>
             </div>
             <Separator />
             <div
@@ -60,7 +68,7 @@ function NotesUI() {
                 setShowDetails((stateDetails) => !stateDetails);
               }}
             >
-              {note.text}
+              <pre>{note.text}</pre>
             </div>
             <div className="NoteIcons">
               <MyIcon
