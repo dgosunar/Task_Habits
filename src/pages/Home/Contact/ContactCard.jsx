@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import { Separator } from "../Modals/Separator";
+import { Separator } from "../../../Components/Modals/Separator";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 function ContactCard({ title }) {
   return (
     <Card>
-      <span className="primarySubtitlePM">{title}</span>
-      <Separator />
       <MyPresentation>
-        <span className="primaryTitle_main">Daniel Osuna</span>
+        <span className="primaryTitle">Daniel Osuna</span>
+        <Separator />
         <span className="mediumTextSM">Desarrollador Frontend</span>
         <span className="mediumText">React | Astro | JavaScript</span>
         <span className="mediumText">dgosunar@gmail.com</span>
@@ -17,14 +18,14 @@ function ContactCard({ title }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="./Iconos/GitHub.svg" alt="IconoGithub" />
+            <FontAwesomeIcon icon={faGithub} size="xl" />
           </a>
           <a
             href="https://www.linkedin.com/in/daniel-osuna-r/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="./Iconos/Linkedin.svg" alt="IconoLinkedin" />
+            <FontAwesomeIcon icon={faLinkedin} size="xl" />
           </a>
         </SocialNetworks>
       </MyPresentation>
@@ -65,6 +66,7 @@ export const MyPresentation = styled.div`
   align-items: center;
   padding: 20px;
   gap: 10px;
+  width: 100%;
 
   & img {
     border-radius: 8px;

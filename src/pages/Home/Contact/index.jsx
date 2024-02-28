@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout } from "../../../layout/Home";
 import styled from "styled-components";
-import ContactCard from "../../../componets/ContactCard";
+import ContactCard from "./ContactCard";
 
 function Contact() {
   return (

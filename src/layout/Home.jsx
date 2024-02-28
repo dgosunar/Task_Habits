@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Navbar } from "../componets/Navbar";
-import { BbHome } from "../componets/Backgrounds/BgHome";
+import { Navbar } from "../Components/Navbar";
+import { BbHome } from "../Components/Backgrounds/BgHome";
 
 function Layout({ children, title, description }) {
   return (

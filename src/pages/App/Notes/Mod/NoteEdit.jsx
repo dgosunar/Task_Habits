@@ -2,8 +2,8 @@ import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { Context } from "../../../../Context";
 import styled from "styled-components";
-import { PBotton, SBotton } from "../../../../componets/Bottons";
-import { Card } from "../../../../componets/Modals/Card";
+import { PBotton, SBotton } from "../../../../Components/Bottons";
+import { Card } from "../../../../Components/Modals/Card";
 
 function NoteEdit() {
   const { setShowEdit, notesDetails, upDateNote, getWorkspace, space } =

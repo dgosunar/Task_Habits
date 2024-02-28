@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "../../../layout/Dashboard";
-import { TaskStatus } from "../../../componets/TaskStatus";
+import { TaskStatus } from "../../../Components/TaskStatus";
 
 function Summary() {
   return (

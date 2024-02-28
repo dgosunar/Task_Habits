@@ -1,14 +1,14 @@
 import React from "react";
 import { Context } from "../../../Context";
-import { SelectorSpace } from "../../../componets/SelectorSpace";
-import { Separator } from "../../../componets/Modals/Separator";
-import { TaskFinder } from "../../../componets/TaskFinder";
-import { TaskLoading } from "../../../componets/Task/TaskLoading";
-import { TaskError } from "../../../componets/Task/TaskError";
-import { TaskEmpty } from "../../../componets/Task/TaskEmpty";
-import { Task } from "../../../componets/Task";
-import { CreateTask } from "../../../componets/CreateTask";
-import { Modal } from "../../../componets/Modals/Modal";
+import { SelectorSpace } from "../../../Components/SelectorSpace";
+import { Separator } from "../../../Components/Modals/Separator";
+import { TaskFinder } from "../../../Components/TaskFinder";
+import { TaskLoading } from "../../../Components/Task/TaskLoading";
+import { TaskError } from "../../../Components/Task/TaskError";
+import { TaskEmpty } from "../../../Components/Task/TaskEmpty";
+import { Task } from "../../../Components/Task";
+import { CreateTask } from "../../../Components/CreateTask";
+import { Modal } from "../../../Components/Modals/Modal";
 import { NewTask } from "../Notes/Mod/NewTask";
 import styled from "styled-components";
 

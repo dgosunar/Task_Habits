@@ -2,7 +2,7 @@ import React from "react";
 import { useRoutes, BrowserRouter } from "react-router-dom";
 import { ContextProvider } from "./Context";
 
-import Home from "./pages/Home";
+import Home from "./pages/";
 import Contact from "./pages/Home/Contact";
 import Summary from "./pages/App/Summary";
 import Tasks from "./pages/App/Tasks";

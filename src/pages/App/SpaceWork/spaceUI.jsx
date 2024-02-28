@@ -1,9 +1,9 @@
 import React from "react";
 import { Context } from "../../../Context";
-import { Separator } from "../../../componets/Modals/Separator";
-import { Modal } from "../../../componets/Modals/Modal";
-import { NewSpace } from "../../../componets/Modals/NewSpace";
-import { CreateTask } from "../../../componets/CreateTask";
+import { Separator } from "../../../Components/Modals/Separator";
+import { Modal } from "../../../Components/Modals/Modal";
+import { NewSpace } from "../../../Components/Modals/NewSpace";
+import { CreateTask } from "../../../Components/CreateTask";
 import { MyIcon } from "../../../styles/styles";
 import styled from "styled-components";
 import "./spaceUI.css";
