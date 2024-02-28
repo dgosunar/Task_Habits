@@ -9,7 +9,7 @@ import { TaskEmpty } from "../../../componets/Task/TaskEmpty";
 import { Task } from "../../../componets/Task";
 import { CreateTask } from "../../../componets/CreateTask";
 import { Modal } from "../../../componets/Modals/Modal";
-import { NewTask } from "../../../componets/Modals/NewTask";
+import { NewTask } from "../Notes/Mod/NewTask";
 import styled from "styled-components";
 
 function TaskUI() {

@@ -5,7 +5,7 @@ import { Modal } from "../../../componets/Modals/Modal";
 import { CreateTask } from "../../../componets/CreateTask";
 import { MyIcon } from "../../../styles/styles";
 import { NewNote } from "../../../componets/Modals/NewNote";
-import { NoteEdit } from "./NoteEdit";
+import { NoteEdit } from "./Mod/NoteEdit";
 import styled from "styled-components";
 import "./notes.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +14,7 @@ import {
   faTrash,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
-import { NoteDetails } from "./NoteDetails";
+import { NoteDetails } from "./Mod/NoteDetails";
 
 function NotesUI() {
   const {
