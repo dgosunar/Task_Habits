@@ -17,7 +17,6 @@ const useSpaceFunctions = (getGeneralStatus, task, setTask) => {
   const getWorkspaceError = () => error;
 
   const [space, setSpace] = React.useState(0);
-  const getSpace = () => space;
 
   //Filtrador de Espacios de Trabajo
   const selectSpace = (spaceId) =>
@@ -56,7 +55,7 @@ const useSpaceFunctions = (getGeneralStatus, task, setTask) => {
     getWorkspace,
     getWorkspaceLoading,
     getWorkspaceError,
-    getSpace,
+    space,
     setSpace,
     selectSpace,
     totalTaskSpace,

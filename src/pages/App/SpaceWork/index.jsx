@@ -1,6 +1,6 @@
 import React from "react";
-import { Layout } from "../../layout/Dashboard";
-import { ContextProvider } from "../../Context";
+import { Layout } from "../../../layout/Dashboard";
+import { ContextProvider } from "../../../Context";
 import SpaceUI from "./spaceUI";
 
 function SpaceWork() {

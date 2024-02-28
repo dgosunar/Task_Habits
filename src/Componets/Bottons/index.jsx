@@ -59,12 +59,23 @@ export const SBotton = styled(Botton)`
   }
 `;
 
+export const TBotton = styled(Botton)`
+  background-color: var(--primary-main);
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--gray-light);
+  }
+  &:active {
+    background-color: var(--gray);
+  }
+`;
+
 export const BottonBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 50px;
-  width: calc(100% - 40px);
+  gap: 20px;
   padding: 10px 20px;
 `;

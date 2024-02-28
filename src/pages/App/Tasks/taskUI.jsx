@@ -1,16 +1,15 @@
 import React from "react";
-import { Context } from "../../Context";
-import { SelectorSpace } from "../../componets/SelectorSpace";
-import { Separator } from "../../componets/Modals/Separator";
-import { TaskStatus } from "../../componets/TaskStatus";
-import { TaskFinder } from "../../componets/TaskFinder";
-import { TaskLoading } from "../../componets/Task/TaskLoading";
-import { TaskError } from "../../componets/Task/TaskError";
-import { TaskEmpty } from "../../componets/Task/TaskEmpty";
-import { Task } from "../../componets/Task";
-import { CreateTask } from "../../componets/CreateTask";
-import { Modal } from "../../componets/Modals/Modal";
-import { NewTask } from "../../componets/Modals/NewTask";
+import { Context } from "../../../Context";
+import { SelectorSpace } from "../../../componets/SelectorSpace";
+import { Separator } from "../../../componets/Modals/Separator";
+import { TaskFinder } from "../../../componets/TaskFinder";
+import { TaskLoading } from "../../../componets/Task/TaskLoading";
+import { TaskError } from "../../../componets/Task/TaskError";
+import { TaskEmpty } from "../../../componets/Task/TaskEmpty";
+import { Task } from "../../../componets/Task";
+import { CreateTask } from "../../../componets/CreateTask";
+import { Modal } from "../../../componets/Modals/Modal";
+import { NewTask } from "../../../componets/Modals/NewTask";
 import styled from "styled-components";
 
 function TaskUI() {

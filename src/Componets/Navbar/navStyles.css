@@ -59,6 +59,7 @@
 
 .background {
     display: none;
+
 }
 
 .background.open {
@@ -87,7 +88,7 @@
     height: 100vh;
     background-color: var(--secondary-main);
     color: var(--primary-main);
-    gap: 20px;
+    justify-content: space-between;
 }
 
 .logoNav {
@@ -97,6 +98,12 @@
     height: 30px;
     width: 100%;
     margin-bottom: 50px;
+}
+
+.itemList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .item {

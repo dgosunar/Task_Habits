@@ -1,7 +1,7 @@
 import React from "react";
-import { Layout } from "../../layout/Dashboard";
-import { ContextProvider } from "../../Context";
+import { Layout } from "../../../layout/Dashboard";
 import NotesUI from "./notesUI";
+import { ContextProvider } from "../../../Context";
 
 function Notes() {
   return (

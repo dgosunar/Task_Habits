@@ -1,9 +1,9 @@
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { Context } from "../../Context";
+import { Context } from "../../../Context";
 import styled from "styled-components";
-import { PBotton, XButton } from "../../componets/Bottons";
-import { Separator } from "../../componets/Modals/Separator";
+import { PBotton, XButton } from "../../../componets/Bottons";
+import { Separator } from "../../../componets/Modals/Separator";
 
 function NoteDetails() {
   const { setShowDetails, setShowEdit, notesDetails } =

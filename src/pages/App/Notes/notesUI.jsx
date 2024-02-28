@@ -1,10 +1,10 @@
 import React from "react";
-import { Context } from "../../Context";
-import { Separator } from "../../componets/Modals/Separator";
-import { Modal } from "../../componets/Modals/Modal";
-import { CreateTask } from "../../componets/CreateTask";
-import { MyIcon } from "../../styles/styles";
-import { NewNote } from "../../componets/Modals/NewNote";
+import { Context } from "../../../Context";
+import { Separator } from "../../../componets/Modals/Separator";
+import { Modal } from "../../../componets/Modals/Modal";
+import { CreateTask } from "../../../componets/CreateTask";
+import { MyIcon } from "../../../styles/styles";
+import { NewNote } from "../../../componets/Modals/NewNote";
 import { NoteEdit } from "./NoteEdit";
 import styled from "styled-components";
 import "./notes.css";

@@ -1,6 +1,6 @@
 import React from "react";
+import { Layout } from "../../../layout/Dashboard";
 import TaskUI from "./taskUI";
-import { Layout } from "../../layout/Dashboard";
 
 function Tasks() {
   return (

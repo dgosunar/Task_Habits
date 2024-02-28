@@ -5,39 +5,37 @@ import "./TaskStatus.css";
 
 function TaskStatus() {
   const {
-    getSpace,
+    space,
     totalPendingSpace,
     totalStartSpace,
     totalCompleteSpace,
     totalTaskSpace,
   } = React.useContext(Context);
 
-  const mySpace = getSpace();
-
   const anchoPendiente =
-    totalTaskSpace(mySpace) === 0
+    totalTaskSpace(space) === 0
       ? 0
-      : (100 / totalTaskSpace(mySpace)) * totalPendingSpace(mySpace);
+      : (100 / totalTaskSpace(space)) * totalPendingSpace(space);
   const anchoEnProceso =
-    totalTaskSpace(mySpace) === 0
+    totalTaskSpace(space) === 0
       ? 0
-      : (100 / totalTaskSpace(mySpace)) * totalStartSpace(mySpace);
+      : (100 / totalTaskSpace(space)) * totalStartSpace(space);
   const anchoCompleto =
-    totalTaskSpace(mySpace) === 0
+    totalTaskSpace(space) === 0
       ? 0
-      : (100 / totalTaskSpace(mySpace)) * totalCompleteSpace(mySpace);
+      : (100 / totalTaskSpace(space)) * totalCompleteSpace(space);
 
   const status = [
     {
       tipo: "Pending",
       ancho: anchoPendiente,
-      total: totalPendingSpace(mySpace),
+      total: totalPendingSpace(space),
     },
-    { tipo: "OnStart", ancho: anchoEnProceso, total: totalStartSpace(mySpace) },
+    { tipo: "OnStart", ancho: anchoEnProceso, total: totalStartSpace(space) },
     {
       tipo: "Complete",
       ancho: anchoCompleto,
-      total: totalCompleteSpace(mySpace),
+      total: totalCompleteSpace(space),
     },
   ];
 

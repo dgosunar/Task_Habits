@@ -6,6 +6,8 @@ import useNoteFunctions from "../Hooks/useNoteFunctions";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
+  const [isLogin, setIsLogin] = React.useState();
+
   const accentColors = [
     { id: 0, color: "#FFFFFF" },
     { id: 1, color: "#F16767" },
@@ -55,7 +57,7 @@ function ContextProvider({ children }) {
     getWorkspace,
     getWorkspaceLoading,
     getWorkspaceError,
-    getSpace,
+    space,
     setSpace,
     selectSpace,
     totalTaskSpace,
@@ -87,7 +89,7 @@ function ContextProvider({ children }) {
 
   React.useEffect(() => {
     if (task.length > 0) {
-      setSpaceTasks(selectSpace(getSpace()));
+      setSpaceTasks(selectSpace(space));
     }
   }, [task]);
 
@@ -101,6 +103,8 @@ function ContextProvider({ children }) {
   return (
     <Context.Provider
       value={{
+        isLogin,
+        setIsLogin,
         accentColors,
         colorSelected,
         setColorSelected,
@@ -128,7 +132,7 @@ function ContextProvider({ children }) {
         getWorkspace,
         getWorkspaceLoading,
         getWorkspaceError,
-        getSpace,
+        space,
         setSpace,
         selectSpace,
         totalTaskSpace,

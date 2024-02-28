@@ -1,10 +1,10 @@
 import React from "react";
-import { Context } from "../../Context";
-import { Separator } from "../../componets/Modals/Separator";
-import { Modal } from "../../componets/Modals/Modal";
-import { NewSpace } from "../../componets/Modals/NewSpace";
-import { CreateTask } from "../../componets/CreateTask";
-import { MyIcon } from "../../styles/styles";
+import { Context } from "../../../Context";
+import { Separator } from "../../../componets/Modals/Separator";
+import { Modal } from "../../../componets/Modals/Modal";
+import { NewSpace } from "../../../componets/Modals/NewSpace";
+import { CreateTask } from "../../../componets/CreateTask";
+import { MyIcon } from "../../../styles/styles";
 import styled from "styled-components";
 import "./spaceUI.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

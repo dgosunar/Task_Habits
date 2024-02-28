@@ -1,20 +1,23 @@
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { Context } from "../../Context";
+import { Context } from "../../../Context";
 import styled from "styled-components";
-import { PBotton, SBotton } from "../../componets/Bottons";
-import { Card } from "../../componets/Modals/Card";
+import { PBotton, SBotton } from "../../../componets/Bottons";
+import { Card } from "../../../componets/Modals/Card";
 
 function NoteEdit() {
-  const { setShowEdit, notesDetails, upDateNote, getWorkspace } =
+  const { setShowEdit, notesDetails, upDateNote, getWorkspace, space } =
     React.useContext(Context);
 
   const [title, setTitle] = React.useState(notesDetails.title);
   const [description, setDescription] = React.useState(notesDetails.text);
-  const [space, setSpace] = React.useState(0);
+  const [mySpace, setMySpace] = React.useState(0);
+  const [nameSpace, setNameSpace] = React.useState(
+    getWorkspace()[notesDetails.workspace].name
+  );
 
   const onSubmit = () => {
-    upDateNote(notesDetails.id, title, description, space);
+    upDateNote(notesDetails.id, title, description, mySpace);
     setShowEdit(false);
   };
 
@@ -34,7 +37,8 @@ function NoteEdit() {
     const idCorrespondiente = getWorkspace().findIndex(
       (space) => space.name === event.target.value
     );
-    setSpace(idCorrespondiente);
+    setNameSpace(getWorkspace()[idCorrespondiente].name);
+    setMySpace(idCorrespondiente);
   };
 
   return (
@@ -61,11 +65,13 @@ function NoteEdit() {
               <Label>Espacio de Trabajo</Label>
               <select
                 className="status generalText"
-                selected={space}
+                value={nameSpace}
                 onChange={onChangeSpace}
               >
                 {getWorkspace().map((item) => (
-                  <option key={item.id}>{item.name}</option>
+                  <option key={item.id} value={item.name}>
+                    {item.name}
+                  </option>
                 ))}
               </select>
             </StatusBox>
