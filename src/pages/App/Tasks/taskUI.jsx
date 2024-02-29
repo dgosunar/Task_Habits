@@ -2,14 +2,15 @@ import React from "react";
 import { Context } from "../../../Context";
 import { SelectorSpace } from "../../../Components/SelectorSpace";
 import { Separator } from "../../../Components/Modals/Separator";
-import { TaskFinder } from "../../../Components/TaskFinder";
-import { TaskLoading } from "../../../Components/Task/TaskLoading";
-import { TaskError } from "../../../Components/Task/TaskError";
-import { TaskEmpty } from "../../../Components/Task/TaskEmpty";
-import { Task } from "../../../Components/Task";
-import { CreateTask } from "../../../Components/CreateTask";
+import { TaskFinder } from "./Components/TaskFinder";
+import { TaskLoading } from "./Components/Task/TaskLoading";
+import { TaskError } from "./Components/Task/TaskError";
+import { TaskEmpty } from "./Components/Task/TaskEmpty";
+import { Task } from "./Components/Task";
+import { CBotton } from "../../../Components/Bottons/CBotton";
 import { Modal } from "../../../Components/Modals/Modal";
-import { NewTask } from "../Notes/Mod/NewTask";
+import { TaskStatus } from "./Components/TaskStatus";
+import { NewTask } from "./Mods/NewTask";
 import styled from "styled-components";
 
 function TaskUI() {
@@ -21,7 +22,7 @@ function TaskUI() {
     startTask,
     completeTask,
     deleteTask,
-    getGeneralStatus,
+    generalStatus,
     openModal,
     setOpenModal,
   } = React.useContext(Context);
@@ -32,10 +33,11 @@ function TaskUI() {
       <Separator />
 
       <WorkSpace>
+        <TaskStatus />
         <TaskFinder />
         <ContainerTasks>
           <GeneralList>
-            {getGeneralStatus().map((status) => (
+            {generalStatus.map((status) => (
               <TaskList key={status.id}>
                 <div>{status.name}</div>
                 <Separator />
@@ -70,7 +72,7 @@ function TaskUI() {
         </ContainerTasks>
       </WorkSpace>
 
-      <CreateTask setOpenModal={setOpenModal} title="Nueva" />
+      <CBotton setOpenModal={setOpenModal} title="Nueva" />
       {openModal ? (
         <Modal>
           <NewTask />

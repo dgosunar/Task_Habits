@@ -7,9 +7,6 @@ function Layout({ children, title, description }) {
     <>
       <Navbar />
       <Container>
-        <div className="presentation">
-          <div className="primaryTitle_SM">{title}</div>
-        </div>
         <div className="content">{children}</div>
       </Container>
       <BbHome />
@@ -22,11 +19,11 @@ export { Layout };
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 70px 0 0 0;
+  padding: 60px 120px 15px 120px;
   gap: 10px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-  height: calc(100% - 70px);
+  height: calc(100% - 80px);
   color: var(--white);
   overflow-y: auto;
 
@@ -39,7 +36,7 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    padding: 10px;
+    padding: 60px 15px 15px 15px;
   }
 
   .presentation {

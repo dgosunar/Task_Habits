@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "../../styles/generalStyles.css";
 import "./navStyles.css";
 import styled from "styled-components";
-import { BottonBox, SBotton, TBotton } from "../Bottons";
+import { SBotton, TBotton } from "../Bottons";
 import { Context } from "../../Context";
 import { useNavigate } from "react-router-dom";
 
@@ -38,13 +38,11 @@ function DeskNav({ titles }) {
           </NavLink>
         ))}
       </div>
-      <BottonBox>
-        {isLogin ? (
-          <SBotton onClick={logOut}>Salir</SBotton>
-        ) : (
-          <TBotton onClick={logIn}>Ingresar</TBotton>
-        )}
-      </BottonBox>
+      {isLogin ? (
+        <SBotton onClick={logOut}>Salir</SBotton>
+      ) : (
+        <TBotton onClick={logIn}>Ingresar</TBotton>
+      )}
     </Nav>
   );
 }
@@ -56,6 +54,8 @@ export const Nav = styled.div`
   width: calc(100% - 280px);
   height: 100%;
   justify-content: space-between;
+  align-items: center;
+
   @media screen and (max-width: 768px) {
     display: none;
   }

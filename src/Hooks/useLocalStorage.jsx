@@ -1,16 +1,11 @@
 import React from "react";
 
-// const generalStatus = [
-//   { id: 1, name: 'Pendiente' },
-//   { id: 2, name: 'En Proceso' },
-//   { id: 3, name: 'Completado' },
-// ];
-
 function useLocalStorage(itemName, inicialValue) {
   const [item, setItem] = React.useState(inicialValue);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => {
     setTimeout(() => {
       try {
@@ -36,7 +31,6 @@ function useLocalStorage(itemName, inicialValue) {
     localStorage.setItem(itemName, JSON.stringify(newItem));
     setItem(newItem);
   };
-
   return { item, saveItem, loading, error };
 }
 

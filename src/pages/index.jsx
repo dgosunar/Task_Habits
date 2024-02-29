@@ -4,10 +4,9 @@ import { Layout } from "../layout/Home";
 import { PBotton } from "../Components/Bottons";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../Context";
-import { Separator } from "../Components/Modals/Separator";
 
 function Home() {
-  const { isLogin, setIsLogin } = React.useContext(Context);
+  const { setIsLogin } = React.useContext(Context);
   const navigate = useNavigate();
 
   const redirecionar = (dirección) => navigate(dirección);
@@ -21,7 +20,7 @@ function Home() {
     <Layout>
       <Container>
         <LogoBox>
-          <img src="./Logos/CompletLogo_light.png" alt="imagotipo" />{" "}
+          <img src="./Logos/CompletLogo_light.png" alt="imagotipo" />
           <div className="secondarySubtitle">
             Gestiona tus tareas, conquista tus metas
           </div>
@@ -70,7 +69,7 @@ export const LogoBox = styled.div`
   width: 50%;
 
   @media screen and (max-width: 768px) {
-    height: 30%;
+    height: 50%;
     width: 100%;
   }
 `;

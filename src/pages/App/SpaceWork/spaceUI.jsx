@@ -2,28 +2,26 @@ import React from "react";
 import { Context } from "../../../Context";
 import { Separator } from "../../../Components/Modals/Separator";
 import { Modal } from "../../../Components/Modals/Modal";
-import { NewSpace } from "../../../Components/Modals/NewSpace";
-import { CreateTask } from "../../../Components/CreateTask";
+import { NewSpace } from "./NewSpace";
 import { MyIcon } from "../../../styles/styles";
 import styled from "styled-components";
 import "./spaceUI.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGears, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import { CBotton } from "../../../Components/Bottons/CBotton";
 
 function SpaceUI() {
   const {
     accentColors,
-    getWorkspace,
+    workspace,
     openModal,
     setOpenModal,
     totalPendingSpace,
-    totalStartSpace,
-    totalCompleteSpace,
+    totalInProcessSpace,
+    totalCompletedSpace,
     deleteSpace,
     totalNoteSpace,
   } = React.useContext(Context);
-
-  const onSubmit = () => {};
 
   const onDelete = (id) => {
     deleteSpace(id);
@@ -31,8 +29,10 @@ function SpaceUI() {
 
   return (
     <Container>
+      <Separator />
+
       <div className="workspace">
-        {getWorkspace().map((space) => (
+        {workspace.map((space) => (
           <div className="space" key={space.id}>
             <div
               className="title"
@@ -49,10 +49,10 @@ function SpaceUI() {
                   Pendientes: {totalPendingSpace(space.id)}
                 </div>
                 <div className="miniText">
-                  En proceso: {totalStartSpace(space.id)}
+                  En proceso: {totalInProcessSpace(space.id)}
                 </div>
                 <div className="miniText">
-                  Completadas: {totalCompleteSpace(space.id)}
+                  Completadas: {totalCompletedSpace(space.id)}
                 </div>
               </div>
               <div className="notes">
@@ -61,13 +61,9 @@ function SpaceUI() {
               </div>
             </div>
             <div className="icons">
-              {/* <MyIcon
-                onClick={() => {
-                  onSubmit();
-                }}
-              >
+              <MyIcon>
                 <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
-              </MyIcon> */}
+              </MyIcon>
               <MyIcon
                 onClick={() => {
                   onDelete(space.id);
@@ -84,7 +80,7 @@ function SpaceUI() {
         ))}
       </div>
       <div>
-        <CreateTask setOpenModal={setOpenModal} title="Nuevo" />
+        <CBotton setOpenModal={setOpenModal} title="Nuevo" />
         {openModal ? (
           <Modal>
             <NewSpace />
@@ -103,7 +99,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - 210px);
+  width: 100%;
   height: 100%;
   gap: 10px;
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocalStorage } from "../Hooks/useLocalStorage";
 import useTaskFunctions from "../Hooks/useTaskFunctions";
 import useSpaceFunctions from "../Hooks/useSpaceFunctions";
 import useNoteFunctions from "../Hooks/useNoteFunctions";
@@ -6,7 +7,17 @@ import useNoteFunctions from "../Hooks/useNoteFunctions";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
+  // ==============================================================
+  // Uso del LocalStorage =========================================
+  const {
+    item: space,
+    saveItem: setSpace,
+    spaceLoading,
+    spaceError,
+  } = useLocalStorage("spaceSelected_v1", 0);
+
   const [isLogin, setIsLogin] = React.useState();
+  const [openModal, setOpenModal] = React.useState(false);
 
   const accentColors = [
     { id: 0, color: "#FFFFFF" },
@@ -20,7 +31,6 @@ function ContextProvider({ children }) {
     { id: 8, color: "#AC67F1" },
     { id: 9, color: "#F167E0" },
   ];
-
   const [colorSelected, setColorSelected] = React.useState(0);
 
   const generalStatus = [
@@ -28,14 +38,14 @@ function ContextProvider({ children }) {
     { id: 2, name: "En Proceso" },
     { id: 3, name: "Completado" },
   ];
-  const getGeneralStatus = () => generalStatus;
 
-  const taskFunctions = useTaskFunctions(getGeneralStatus);
+  const taskFunctions = useTaskFunctions(generalStatus, space);
   const {
     task,
     setTask,
     loading,
     error,
+    selectTask,
     searchValue,
     setSearchValue,
     spaceTasks,
@@ -44,6 +54,10 @@ function ContextProvider({ children }) {
     totalPending,
     totalInProcess,
     totalCompleted,
+    totalTaskSpace,
+    totalPendingSpace,
+    totalInProcessSpace,
+    totalCompletedSpace,
     searchTask,
     addTask,
     pendingTask,
@@ -52,26 +66,20 @@ function ContextProvider({ children }) {
     deleteTask,
   } = taskFunctions;
 
-  const spaceFunctions = useSpaceFunctions(getGeneralStatus, task, setTask);
+  const spaceFunctions = useSpaceFunctions(task, setTask);
   const {
-    getWorkspace,
-    getWorkspaceLoading,
-    getWorkspaceError,
-    space,
-    setSpace,
-    selectSpace,
-    totalTaskSpace,
-    totalPendingSpace,
-    totalStartSpace,
-    totalCompleteSpace,
+    workspace,
+    workspaceLoading,
+    workspaceError,
     addSpace,
+    updateSpace,
     deleteSpace,
   } = spaceFunctions;
 
-  const noteFunctions = useNoteFunctions();
+  const noteFunctions = useNoteFunctions(space);
   const {
-    notes,
-    setNotes,
+    allNotes,
+    setAllNotes,
     notesLoading,
     notesError,
     selectNotes,
@@ -84,37 +92,32 @@ function ContextProvider({ children }) {
     setShowDetails,
     showEdit,
     setShowEdit,
+    spaceNotes,
+    setSpaceNotes,
     upDateNote,
   } = noteFunctions;
-
-  React.useEffect(() => {
-    if (task.length > 0) {
-      setSpaceTasks(selectSpace(space));
-    }
-  }, [task]);
-
-  const [openModal, setOpenModal] = React.useState(false);
-
-  // const initialworkspace = workspace.length === 0 ? [
-  //     { id: 0, name: 'General' }
-  // ] : workspace;
-  // const [currentworkspace, setCurrentworkspace] = React.useState(initialworkspace);
 
   return (
     <Context.Provider
       value={{
         isLogin,
         setIsLogin,
+        openModal,
+        setOpenModal,
         accentColors,
         colorSelected,
         setColorSelected,
-        getGeneralStatus,
-        openModal,
-        setOpenModal,
+        generalStatus,
+        space,
+        setSpace,
+        spaceLoading,
+        spaceError,
+
         task,
         setTask,
         loading,
         error,
+        selectTask,
         searchValue,
         setSearchValue,
         spaceTasks,
@@ -123,27 +126,26 @@ function ContextProvider({ children }) {
         totalPending,
         totalInProcess,
         totalCompleted,
+        totalTaskSpace,
+        totalPendingSpace,
+        totalInProcessSpace,
+        totalCompletedSpace,
         searchTask,
         addTask,
         pendingTask,
         startTask,
         completeTask,
         deleteTask,
-        getWorkspace,
-        getWorkspaceLoading,
-        getWorkspaceError,
-        space,
-        setSpace,
-        selectSpace,
-        totalTaskSpace,
-        totalPendingSpace,
-        totalStartSpace,
-        totalCompleteSpace,
+
+        workspace,
+        workspaceLoading,
+        workspaceError,
         addSpace,
+        updateSpace,
         deleteSpace,
 
-        notes,
-        setNotes,
+        allNotes,
+        setAllNotes,
         notesLoading,
         notesError,
         selectNotes,
@@ -156,6 +158,8 @@ function ContextProvider({ children }) {
         setShowDetails,
         showEdit,
         setShowEdit,
+        spaceNotes,
+        setSpaceNotes,
         upDateNote,
       }}
     >

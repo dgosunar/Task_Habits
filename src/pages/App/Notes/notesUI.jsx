@@ -2,10 +2,8 @@ import React from "react";
 import { Context } from "../../../Context";
 import { Separator } from "../../../Components/Modals/Separator";
 import { Modal } from "../../../Components/Modals/Modal";
-import { CreateTask } from "../../../Components/CreateTask";
 import { MyIcon } from "../../../styles/styles";
-import { NewNote } from "../../../Components/Modals/NewNote";
-import { NoteEdit } from "./Mod/NoteEdit";
+import { NewNote } from "./Mods/NewNote";
 import styled from "styled-components";
 import "./notes.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,30 +12,23 @@ import {
   faTrash,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
-import { NoteDetails } from "./Mod/NoteDetails";
+import { CBotton } from "../../../Components/Bottons/CBotton";
+import { NoteDetails } from "./Mods/NoteDetails";
+import { NoteEdit } from "./Mods/NoteEdit";
+import { SelectorSpace } from "../../../Components/SelectorSpace";
 
 function NotesUI() {
   const {
-    notes,
-    setNotes,
-    notesLoading,
-    notesError,
-    selectNotes,
-    totalNoteSpace,
-    addNote,
     deleteNote,
-    notesDetails,
     setNotesDetails,
     showDetails,
     setShowDetails,
     showEdit,
     setShowEdit,
-    upDateNote,
+    spaceNotes,
     openModal,
     setOpenModal,
   } = React.useContext(Context);
-
-  const onSubmit = () => {};
 
   const onDelete = (id) => {
     deleteNote(id);
@@ -45,8 +36,11 @@ function NotesUI() {
 
   return (
     <Container>
+      <SelectorSpace />
+      <Separator />
+
       <div className="generalNotes">
-        {notes.map((note) => (
+        {spaceNotes.map((note) => (
           <div className="note" key={note.id}>
             <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
               <FontAwesomeIcon icon={faNoteSticky} />
@@ -95,7 +89,7 @@ function NotesUI() {
           </div>
         ))}
       </div>
-      <CreateTask setOpenModal={setOpenModal} title="Nueva" />
+      <CBotton setOpenModal={setOpenModal} title="Nueva" />
 
       {/* Modal para Editar Notas */}
       {showEdit ? (
@@ -131,7 +125,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  width: 100%;
   height: 100%;
   gap: 10px;
 

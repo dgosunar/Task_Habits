@@ -4,7 +4,7 @@ import { GrMenu, GrClose } from "react-icons/gr";
 import "../../styles/generalStyles.css";
 import "./navStyles.css";
 import styled from "styled-components";
-import { BottonBox, TBotton, SBotton } from "../Bottons";
+import { TBotton, SBotton } from "../Bottons";
 import { Context } from "../../Context";
 import { useNavigate } from "react-router-dom";
 
@@ -30,20 +30,20 @@ function MobNav({ titles }) {
   };
   return (
     <Nav>
-      <GrMenu className="burguerButton" onClick={handleClick} />
+      <GrMenu
+        className={isOpen ? "burguerButton open" : "burguerButton"}
+        onClick={handleClick}
+      />
+      <GrClose
+        className={isOpen ? "xBotton open" : "xBotton"}
+        onClick={handleClick}
+      />
       <div
         className={isOpen ? "background open" : "background"}
         onClick={handleClick}
       />
       <div className={isOpen ? "mobMenu open" : "mobMenu"}>
         <div>
-          <GrClose
-            className={isOpen ? "xBotton open" : "xBotton"}
-            onClick={handleClick}
-          />
-          <div className="logoNav">
-            <img src="./Logos/Imagotipo_dark.png" alt="Imagotipo" />
-          </div>
           <div className="itemList">
             {titles.map((t) => (
               <NavLink
@@ -58,13 +58,11 @@ function MobNav({ titles }) {
             ))}
           </div>
         </div>
-        <BottonBox>
-          {isLogin ? (
-            <SBotton onClick={logOut}>Salir</SBotton>
-          ) : (
-            <TBotton onClick={logIn}>Ingresar</TBotton>
-          )}
-        </BottonBox>
+        {isLogin ? (
+          <SBotton onClick={logOut}>Salir</SBotton>
+        ) : (
+          <TBotton onClick={logIn}>Ingresar</TBotton>
+        )}
       </div>
     </Nav>
   );

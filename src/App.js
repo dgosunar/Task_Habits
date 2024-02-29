@@ -20,8 +20,8 @@ const AppRoutes = () => {
     { path: "/Task_Habits/*", element: <NotFound /> },
     { path: "/Task_Habits/summary", element: <Summary /> },
     { path: "/Task_Habits/tasks", element: <Tasks /> },
-    { path: "/Task_Habits/space", element: <SpaceWork /> },
     { path: "/Task_Habits/notes", element: <Notes /> },
+    { path: "/Task_Habits/space", element: <SpaceWork /> },
     { path: "/Task_Habits/habits", element: <Habits /> },
   ]);
   return routes;

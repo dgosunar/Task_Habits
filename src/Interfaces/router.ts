@@ -1,4 +1,4 @@
 export default interface RouteTitles {
-    label: string;
-    route: string;
+  label: string;
+  route: string;
 }

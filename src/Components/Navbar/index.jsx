@@ -13,8 +13,8 @@ const titlesOff = [
 const titlesOn = [
   { label: "Resumen", route: "/Task_Habits/summary" },
   { label: "Tareas", route: "/Task_Habits/tasks" },
-  { label: "Espacios de Trabajo", route: "/Task_Habits/space" },
   { label: "Notas", route: "/Task_Habits/notes" },
+  { label: "Espacios de Trabajo", route: "/Task_Habits/space" },
   // { label: "Habitos", route: "/Task_Habits/App/habits" },
 ];
 

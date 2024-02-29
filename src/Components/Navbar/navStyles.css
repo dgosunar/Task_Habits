@@ -27,7 +27,13 @@
 
 @media screen and (max-width: 768px) {
     .header {
-        padding: 10px 20px;
+        padding: 10px 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        padding: 10px 15px;
     }
 }
 
@@ -57,6 +63,10 @@
     margin: 0 10px;
 }
 
+.burguerButton.open {
+    display: none;
+}
+
 .background {
     display: none;
 
@@ -65,6 +75,7 @@
 .background.open {
     display: flex;
     position: absolute;
+    margin-top: 50px;
     left: 0px;
     top: 0px;
     background-color: rgba(0, 23, 36, 0.75);
@@ -81,14 +92,17 @@
     display: flex;
     flex-direction: column;
     position: absolute;
+    padding: 50px 15px 15px 15px;
+    margin-top: 50px;
     right: 0;
     top: 0;
     z-index: 30;
-    width: 300px;
-    height: 100vh;
+    width: calc(100% - 30px);
     background-color: var(--secondary-main);
     color: var(--primary-main);
     justify-content: space-between;
+    align-items: center;
+    gap: 75px;
 }
 
 .logoNav {
@@ -97,7 +111,6 @@
     padding: 10px 15px;
     height: 30px;
     width: 100%;
-    margin-bottom: 50px;
 }
 
 .itemList {
