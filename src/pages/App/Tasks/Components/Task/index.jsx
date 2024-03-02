@@ -8,43 +8,44 @@ import {
 import "../../../../../styles/generalStyles.css";
 import styled from "styled-components";
 
-function Task(props) {
-  const { generalStatus } = React.useContext(Context);
+function Task({ task }) {
+  const { generalStatus, pendingTask, startTask, completeTask, deleteTask } =
+    React.useContext(Context);
 
-  return props.task.status === generalStatus[0].id ? (
+  return task.status === generalStatus[0].id ? (
     <Container className="Pending">
       <TasksButtom />
       <div className="detalles">
-        <span className="generalText">{props.task.text}</span>
-        <span className="miniText">{props.task.date}</span>
+        <span className="generalText">{task.text}</span>
+        <span className="miniText">{task.date}</span>
       </div>
-      <TasksButtom onClick={props.onStart}>
+      <TasksButtom onClick={() => startTask(task.id)}>
         <Next />
       </TasksButtom>
     </Container>
-  ) : props.task.status === generalStatus[1].id ? (
+  ) : task.status === generalStatus[1].id ? (
     <Container className="Start">
-      <TasksButtom onClick={props.onPending}>
+      <TasksButtom onClick={() => pendingTask(task.id)}>
         <Back />
       </TasksButtom>
       <div className="detalles">
-        <span className="generalText">{props.task.text}</span>
-        <span className="miniText">{props.task.date}</span>
+        <span className="generalText">{task.text}</span>
+        <span className="miniText">{task.date}</span>
       </div>
-      <TasksButtom onClick={props.onComplete}>
+      <TasksButtom onClick={() => completeTask(task.id)}>
         <Next />
       </TasksButtom>
     </Container>
-  ) : props.task.status === generalStatus[2].id ? (
+  ) : task.status === generalStatus[2].id ? (
     <Container className="Completed">
-      <TasksButtom onClick={props.onStart}>
+      <TasksButtom onClick={() => startTask(task.id)}>
         <Back />
       </TasksButtom>
       <div className="detalles">
-        <span className="generalText">{props.task.text}</span>
-        <span className="miniText">{props.task.date}</span>
+        <span className="generalText">{task.text}</span>
+        <span className="miniText">{task.date}</span>
       </div>
-      <TasksButtom onClick={props.onDelete}>
+      <TasksButtom onClick={() => deleteTask(task.id)}>
         <Completed color="var(--accent-green)" />
       </TasksButtom>
     </Container>

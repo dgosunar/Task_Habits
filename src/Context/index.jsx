@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocalStorage } from "../Hooks/useLocalStorage";
 import useTaskFunctions from "../Hooks/useTaskFunctions";
 import useSpaceFunctions from "../Hooks/useSpaceFunctions";
 import useNoteFunctions from "../Hooks/useNoteFunctions";
@@ -7,18 +6,6 @@ import useNoteFunctions from "../Hooks/useNoteFunctions";
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
-  // ==============================================================
-  // Uso del LocalStorage =========================================
-  const {
-    item: space,
-    saveItem: setSpace,
-    spaceLoading,
-    spaceError,
-  } = useLocalStorage("spaceSelected_v1", 0);
-
-  const [isLogin, setIsLogin] = React.useState();
-  const [openModal, setOpenModal] = React.useState(false);
-
   const accentColors = [
     { id: 0, color: "#FFFFFF" },
     { id: 1, color: "#F16767" },
@@ -31,7 +18,6 @@ function ContextProvider({ children }) {
     { id: 8, color: "#AC67F1" },
     { id: 9, color: "#F167E0" },
   ];
-  const [colorSelected, setColorSelected] = React.useState(0);
 
   const generalStatus = [
     { id: 1, name: "Pendiente" },
@@ -39,7 +25,12 @@ function ContextProvider({ children }) {
     { id: 3, name: "Completado" },
   ];
 
-  const taskFunctions = useTaskFunctions(generalStatus, space);
+  // ==============================================================
+  // Uso del LocalStorage =========================================
+
+  const [space, setSpace] = React.useState(0);
+
+  const taskFunctions = useTaskFunctions(generalStatus);
   const {
     task,
     setTask,
@@ -48,8 +39,6 @@ function ContextProvider({ children }) {
     selectTask,
     searchValue,
     setSearchValue,
-    spaceTasks,
-    setSpaceTasks,
     totalTask,
     totalPending,
     totalInProcess,
@@ -66,17 +55,7 @@ function ContextProvider({ children }) {
     deleteTask,
   } = taskFunctions;
 
-  const spaceFunctions = useSpaceFunctions(task, setTask);
-  const {
-    workspace,
-    workspaceLoading,
-    workspaceError,
-    addSpace,
-    updateSpace,
-    deleteSpace,
-  } = spaceFunctions;
-
-  const noteFunctions = useNoteFunctions(space);
+  const noteFunctions = useNoteFunctions();
   const {
     allNotes,
     setAllNotes,
@@ -92,10 +71,26 @@ function ContextProvider({ children }) {
     setShowDetails,
     showEdit,
     setShowEdit,
-    spaceNotes,
-    setSpaceNotes,
     upDateNote,
   } = noteFunctions;
+
+  const spaceFunctions = useSpaceFunctions(
+    task,
+    setTask,
+    allNotes,
+    setAllNotes
+  );
+  const {
+    workspace,
+    workspaceLoading,
+    workspaceError,
+    addSpace,
+    updateSpace,
+    deleteSpace,
+  } = spaceFunctions;
+
+  const [isLogin, setIsLogin] = React.useState();
+  const [openModal, setOpenModal] = React.useState(false);
 
   return (
     <Context.Provider
@@ -105,13 +100,9 @@ function ContextProvider({ children }) {
         openModal,
         setOpenModal,
         accentColors,
-        colorSelected,
-        setColorSelected,
         generalStatus,
         space,
         setSpace,
-        spaceLoading,
-        spaceError,
 
         task,
         setTask,
@@ -120,8 +111,6 @@ function ContextProvider({ children }) {
         selectTask,
         searchValue,
         setSearchValue,
-        spaceTasks,
-        setSpaceTasks,
         totalTask,
         totalPending,
         totalInProcess,
@@ -137,13 +126,6 @@ function ContextProvider({ children }) {
         completeTask,
         deleteTask,
 
-        workspace,
-        workspaceLoading,
-        workspaceError,
-        addSpace,
-        updateSpace,
-        deleteSpace,
-
         allNotes,
         setAllNotes,
         notesLoading,
@@ -158,9 +140,14 @@ function ContextProvider({ children }) {
         setShowDetails,
         showEdit,
         setShowEdit,
-        spaceNotes,
-        setSpaceNotes,
         upDateNote,
+
+        workspace,
+        workspaceLoading,
+        workspaceError,
+        addSpace,
+        updateSpace,
+        deleteSpace,
       }}
     >
       {children}

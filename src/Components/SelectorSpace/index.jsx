@@ -4,23 +4,11 @@ import React from "react";
 import { Context } from "../../Context";
 
 function SelectorSpace() {
-  const {
-    workspace,
-    setSpaceTasks,
-    selectNotes,
-    space,
-    setSpace,
-    selectTask,
-    setSpaceNotes,
-  } = React.useContext(Context);
+  const { workspace, space, setSpace } = React.useContext(Context);
 
-  const onChangeSpace = (event) => {
-    const id = workspace.findIndex(
-      (space) => space.name === event.target.value
-    );
+  const onChangeSpace = (nameSpace) => {
+    const id = workspace.findIndex((space) => space.name === nameSpace);
     setSpace(id);
-    setSpaceTasks(selectTask(id));
-    setSpaceNotes(selectNotes(id));
   };
 
   return (
@@ -30,7 +18,7 @@ function SelectorSpace() {
         <select
           className="status generalText"
           value={workspace[space].name}
-          onChange={onChangeSpace}
+          onChange={(event) => onChangeSpace(event.target.value)}
         >
           {workspace.map((s) => (
             <option key={s.id} value={s.name}>

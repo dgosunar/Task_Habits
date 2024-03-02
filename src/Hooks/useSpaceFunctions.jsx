@@ -1,6 +1,6 @@
 import { useLocalStorage } from "../Hooks/useLocalStorage";
 
-const useSpaceFunctions = (task, setTask) => {
+const useSpaceFunctions = (task, setTask, allNotes, setAllNotes) => {
   // ==============================================================
   // Uso del LocalStorage =========================================
   const defaultWork = [{ id: 0, name: "General", color: 0 }];
@@ -23,9 +23,11 @@ const useSpaceFunctions = (task, setTask) => {
   const updateSpace = (name, color) => {};
 
   const deleteSpace = (id) => {
-    const updatedTasks = task.filter((task) => task.workspace !== id);
+    const updatedTasks = task.filter((t) => t.workspace !== id);
     setTask(updatedTasks);
-    const updatedSpace = workspace.filter((space) => space.id !== id);
+    const updatedNotes = allNotes.filter((n) => n.workspace !== id);
+    setAllNotes(updatedNotes);
+    const updatedSpace = workspace.filter((s) => s.id !== id);
     setWorkspace(updatedSpace);
   };
 

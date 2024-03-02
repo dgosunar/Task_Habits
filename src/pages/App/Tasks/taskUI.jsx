@@ -17,21 +17,17 @@ function TaskUI() {
   const {
     taskLoading,
     taskError,
-    searchTask,
-    pendingTask,
-    startTask,
-    completeTask,
-    deleteTask,
     generalStatus,
     openModal,
     setOpenModal,
+    selectTask,
+    space,
   } = React.useContext(Context);
 
   return (
     <Container>
       <SelectorSpace />
       <Separator />
-
       <WorkSpace>
         <TaskStatus />
         <TaskFinder />
@@ -47,19 +43,12 @@ function TaskUI() {
                     <TaskLoading />
                   ) : taskError ? (
                     <TaskError />
-                  ) : !taskLoading && searchTask().length === 0 ? (
+                  ) : !taskLoading && selectTask(space).length === 0 ? (
                     <TaskEmpty />
                   ) : (
-                    searchTask().map((task) =>
-                      task.status === status.id ? (
-                        <Task
-                          key={task.id}
-                          task={task}
-                          onPending={() => pendingTask(task.id)}
-                          onStart={() => startTask(task.id)}
-                          onComplete={() => completeTask(task.id)}
-                          onDelete={() => deleteTask(task.id)}
-                        />
+                    selectTask(space).map((t) =>
+                      t.status === status.id ? (
+                        <Task key={t.id} task={t} />
                       ) : (
                         <></>
                       )
@@ -71,7 +60,6 @@ function TaskUI() {
           </GeneralList>
         </ContainerTasks>
       </WorkSpace>
-
       <CBotton setOpenModal={setOpenModal} title="Nueva" />
       {openModal ? (
         <Modal>

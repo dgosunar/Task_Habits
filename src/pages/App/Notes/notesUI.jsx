@@ -19,15 +19,18 @@ import { SelectorSpace } from "../../../Components/SelectorSpace";
 
 function NotesUI() {
   const {
+    notesLoading,
+    notesError,
     deleteNote,
     setNotesDetails,
     showDetails,
     setShowDetails,
     showEdit,
     setShowEdit,
-    spaceNotes,
     openModal,
     setOpenModal,
+    selectNotes,
+    space,
   } = React.useContext(Context);
 
   const onDelete = (id) => {
@@ -40,54 +43,64 @@ function NotesUI() {
       <Separator />
 
       <div className="generalNotes">
-        {spaceNotes.map((note) => (
-          <div className="note" key={note.id}>
-            <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
-              <FontAwesomeIcon icon={faNoteSticky} />
+        {notesLoading ? (
+          <></>
+        ) : notesError ? (
+          <></>
+        ) : !notesLoading && selectNotes(space).length === 0 ? (
+          <></>
+        ) : (
+          selectNotes(space).map((n) => (
+            <div className="note" key={n.id}>
               <div
-                className="secondarySubtitle"
+                style={{ display: "flex", flexDirection: "row", gap: "10px" }}
+              >
+                <FontAwesomeIcon icon={faNoteSticky} />
+                <div
+                  className="secondarySubtitle"
+                  onClick={() => {
+                    setNotesDetails(n);
+                    setShowDetails((stateDetails) => !stateDetails);
+                  }}
+                >
+                  {n.title}
+                </div>
+              </div>
+              <Separator />
+              <div
+                className="description miniText"
                 onClick={() => {
-                  setNotesDetails(note);
+                  setNotesDetails(n);
                   setShowDetails((stateDetails) => !stateDetails);
                 }}
               >
-                {note.title}
+                <pre>{n.text}</pre>
+              </div>
+              <div className="NoteIcons">
+                <MyIcon
+                  key={n.id}
+                  onClick={() => {
+                    setNotesDetails(n);
+                    setShowEdit((stateEdit) => !stateEdit);
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
+                </MyIcon>
+                <MyIcon
+                  onClick={() => {
+                    onDelete(n.id);
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    color="#f26868"
+                    alt="TrashIcon"
+                  />
+                </MyIcon>
               </div>
             </div>
-            <Separator />
-            <div
-              className="description miniText"
-              onClick={() => {
-                setNotesDetails(note);
-                setShowDetails((stateDetails) => !stateDetails);
-              }}
-            >
-              <pre>{note.text}</pre>
-            </div>
-            <div className="NoteIcons">
-              <MyIcon
-                key={note.id}
-                onClick={() => {
-                  setNotesDetails(note);
-                  setShowEdit((stateEdit) => !stateEdit);
-                }}
-              >
-                <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
-              </MyIcon>
-              <MyIcon
-                onClick={() => {
-                  onDelete(note.id);
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faTrash}
-                  color="#f26868"
-                  alt="TrashIcon"
-                />
-              </MyIcon>
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       <CBotton setOpenModal={setOpenModal} title="Nueva" />
 

@@ -39,7 +39,7 @@ function NewTask() {
 
   const onChangeSpace = (event) => {
     const idCorrespondiente = workspace.findIndex(
-      (space) => space.name === event.target.value
+      (s) => s.name === event.target.value
     );
     setMySpace(idCorrespondiente);
   };

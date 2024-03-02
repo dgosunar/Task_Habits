@@ -5,7 +5,6 @@ function useLocalStorage(itemName, inicialValue) {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => {
     setTimeout(() => {
       try {

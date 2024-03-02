@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
 
-const useNoteFunctions = (space) => {
+const useNoteFunctions = () => {
   // ==============================================================
   // Uso del LocalStorage =========================================
   // const defaultNotes = [
@@ -22,9 +22,9 @@ const useNoteFunctions = (space) => {
 
   // ==============================================================
   //Filtrador de notas ============================================
+
   const selectNotes = (spaceId) =>
     allNotes.filter((n) => n.workspace === spaceId);
-  const [spaceNotes, setSpaceNotes] = React.useState(selectNotes(space));
 
   // ==============================================================
   // Cantidad de tareas por Espacio de Trabajo ====================
@@ -47,11 +47,9 @@ const useNoteFunctions = (space) => {
   };
 
   const upDateNote = (id, title, text, workspace) => {
-    console.log(id + ", " + title + ", " + text + ", " + workspace);
     const updatedNotes = allNotes.map((n) =>
       n.id === id ? { ...n, title: title, text: text, workspace: workspace } : n
     );
-    console.log(updatedNotes);
     setAllNotes(updatedNotes);
   };
 
@@ -75,8 +73,6 @@ const useNoteFunctions = (space) => {
     setShowDetails,
     showEdit,
     setShowEdit,
-    spaceNotes,
-    setSpaceNotes,
     upDateNote,
   };
 };

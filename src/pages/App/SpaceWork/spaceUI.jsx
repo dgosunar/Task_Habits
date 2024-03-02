@@ -32,50 +32,54 @@ function SpaceUI() {
       <Separator />
 
       <div className="workspace">
-        {workspace.map((space) => (
-          <div className="space" key={space.id}>
+        {workspace.map((s) => (
+          <div className="space" key={s.id}>
             <div
               className="title"
-              style={{ color: accentColors[space.color].color }}
+              style={{ color: accentColors[s.color].color }}
             >
               <FontAwesomeIcon icon={faGears} size="xl" />
-              <div className="secondarySubtitle">{space.name}</div>
+              <div className="secondarySubtitle">{s.name}</div>
             </div>
             <Separator />
             <div className="details">
               <div className="task">
                 <div className="mediumText">Tareas:</div>
                 <div className="miniText">
-                  Pendientes: {totalPendingSpace(space.id)}
+                  Pendientes: {totalPendingSpace(s.id)}
                 </div>
                 <div className="miniText">
-                  En proceso: {totalInProcessSpace(space.id)}
+                  En proceso: {totalInProcessSpace(s.id)}
                 </div>
                 <div className="miniText">
-                  Completadas: {totalCompletedSpace(space.id)}
+                  Completadas: {totalCompletedSpace(s.id)}
                 </div>
               </div>
               <div className="notes">
                 <div className="mediumText">Notas:</div>
-                <div className="miniText">{totalNoteSpace(space.id)}</div>
+                <div className="miniText">{totalNoteSpace(s.id)}</div>
               </div>
             </div>
-            <div className="icons">
-              <MyIcon>
-                <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
-              </MyIcon>
-              <MyIcon
-                onClick={() => {
-                  onDelete(space.id);
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faTrash}
-                  color="#f26868"
-                  alt="TrashIcon"
-                />
-              </MyIcon>
-            </div>
+            {s.id === 0 ? (
+              <></>
+            ) : (
+              <div className="icons">
+                <MyIcon>
+                  <FontAwesomeIcon icon={faPen} color="#68D6F1" alt="PenIcon" />
+                </MyIcon>
+                <MyIcon
+                  onClick={() => {
+                    onDelete(s.id);
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    color="#f26868"
+                    alt="TrashIcon"
+                  />
+                </MyIcon>
+              </div>
+            )}
           </div>
         ))}
       </div>

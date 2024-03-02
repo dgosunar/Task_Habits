@@ -1,20 +1,20 @@
 import React from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
 
-const useTaskFunctions = (generalStatus, space) => {
+const useTaskFunctions = (generalStatus) => {
   // ==============================================================
   // Uso del LocalStorage =========================================
-  const defaultTask = [
-    { id: 1, text: "Tarea Pendiente...", status: 1, workspace: 0, date: "" },
-    { id: 2, text: "Tarea en Proceso...", status: 2, workspace: 0, date: "" },
-    { id: 3, text: "Tarea Completada!!!", status: 3, workspace: 0, date: "" },
-  ];
+  // const defaultTask = [
+  //   { id: 1, text: "Tarea Pendiente...", status: 1, workspace: 0, date: "" },
+  //   { id: 2, text: "Tarea en Proceso...", status: 2, workspace: 0, date: "" },
+  //   { id: 3, text: "Tarea Completada!!!", status: 3, workspace: 0, date: "" },
+  // ];
   const {
     item: task,
     saveItem: setTask,
     loading,
     error,
-  } = useLocalStorage("Task_v1", defaultTask);
+  } = useLocalStorage("Task_v1", []);
 
   // ==============================================================
   // Cantidad de tareas globales ==================================
@@ -45,18 +45,16 @@ const useTaskFunctions = (generalStatus, space) => {
 
   // ==============================================================
   //Filtrador de tareas ===========================================
-  const selectTask = (spaceId) => task.filter((t) => t.workspace === spaceId);
-  const [spaceTasks, setSpaceTasks] = React.useState(selectTask(space));
-
-  console.log(space);
-  console.log(selectTask(space));
-  console.log(spaceTasks);
 
   const [searchValue, setSearchValue] = React.useState("");
+
   const searchTask = () =>
-    spaceTasks.filter((t) =>
+    task.filter((t) =>
       t.text.toLowerCase().includes(searchValue.toLowerCase())
     );
+
+  const selectTask = (spaceId) =>
+    searchTask().filter((t) => t.workspace === spaceId);
 
   // ==============================================================
   //Metodos para tareas ===========================================
@@ -105,8 +103,6 @@ const useTaskFunctions = (generalStatus, space) => {
     selectTask,
     searchValue,
     setSearchValue,
-    spaceTasks,
-    setSpaceTasks,
     totalTask,
     totalPending,
     totalInProcess,
