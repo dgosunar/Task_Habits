@@ -29,7 +29,7 @@ function TaskUI() {
       <SelectorSpace />
       <Separator />
       <WorkSpace>
-        <TaskStatus />
+        <TaskStatus mySpace={space} />
         <TaskFinder />
         <ContainerTasks>
           <GeneralList>

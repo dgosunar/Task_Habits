@@ -3,9 +3,8 @@ import { Context } from "../../../../../Context";
 import styled from "styled-components";
 import "./TaskStatus.css";
 
-function TaskStatus() {
+function TaskStatus({ mySpace }) {
   const {
-    space,
     totalTaskSpace,
     totalPendingSpace,
     totalInProcessSpace,
@@ -13,33 +12,33 @@ function TaskStatus() {
   } = React.useContext(Context);
 
   const anchoPendiente =
-    totalTaskSpace(space) === 0
+    totalTaskSpace(mySpace) === 0
       ? 0
-      : (100 / totalTaskSpace(space)) * totalPendingSpace(space);
+      : (100 / totalTaskSpace(mySpace)) * totalPendingSpace(mySpace);
   const anchoEnProceso =
-    totalTaskSpace(space) === 0
+    totalTaskSpace(mySpace) === 0
       ? 0
-      : (100 / totalTaskSpace(space)) * totalInProcessSpace(space);
+      : (100 / totalTaskSpace(mySpace)) * totalInProcessSpace(mySpace);
   const anchoCompleto =
-    totalTaskSpace(space) === 0
+    totalTaskSpace(mySpace) === 0
       ? 0
-      : (100 / totalTaskSpace(space)) * totalCompletedSpace(space);
+      : (100 / totalTaskSpace(mySpace)) * totalCompletedSpace(mySpace);
 
   const status = [
     {
       tipo: "Pending",
       ancho: anchoPendiente,
-      total: totalPendingSpace(space),
+      total: totalPendingSpace(mySpace),
     },
     {
       tipo: "OnStart",
       ancho: anchoEnProceso,
-      total: totalInProcessSpace(space),
+      total: totalInProcessSpace(mySpace),
     },
     {
       tipo: "Complete",
       ancho: anchoCompleto,
-      total: totalCompletedSpace(space),
+      total: totalCompletedSpace(mySpace),
     },
   ];
 
