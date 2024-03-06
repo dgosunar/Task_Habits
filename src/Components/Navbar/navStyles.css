@@ -102,7 +102,7 @@
 }
 
 .itemSelected {
-    color: var(--primary-main);
+    color: var(--secondary-main);
     height: 30px;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -139,6 +139,11 @@
     box-shadow: 0px 4px 10px 0px var(--black);
 }
 
+.dashlogo {
+    display: flex;
+    height: 100%;
+}
+
 .dashMenu {
     display: flex;
     z-index: 30;
@@ -167,6 +172,10 @@
 @media screen and (max-width: 800px) {
     .header {
         padding: 10px 30px;
+    }
+
+    .itemSelected {
+        color: var(--primary-main);
     }
 
     .dashlogo {
