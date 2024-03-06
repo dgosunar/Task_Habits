@@ -52,10 +52,6 @@
     background-color: var(--accent-blue);
 }
 
-.boxOnStart {
-    background-color: var(--accent-yellow);
-}
-
 .boxComplete {
     background-color: var(--accent-green);
 }

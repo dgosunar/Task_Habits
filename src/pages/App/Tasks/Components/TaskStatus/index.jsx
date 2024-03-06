@@ -4,21 +4,13 @@ import styled from "styled-components";
 import "./TaskStatus.css";
 
 function TaskStatus({ mySpace }) {
-  const {
-    totalTaskSpace,
-    totalPendingSpace,
-    totalInProcessSpace,
-    totalCompletedSpace,
-  } = React.useContext(Context);
+  const { totalTaskSpace, totalPendingSpace, totalCompletedSpace } =
+    React.useContext(Context);
 
   const anchoPendiente =
     totalTaskSpace(mySpace) === 0
       ? 0
       : (100 / totalTaskSpace(mySpace)) * totalPendingSpace(mySpace);
-  const anchoEnProceso =
-    totalTaskSpace(mySpace) === 0
-      ? 0
-      : (100 / totalTaskSpace(mySpace)) * totalInProcessSpace(mySpace);
   const anchoCompleto =
     totalTaskSpace(mySpace) === 0
       ? 0
@@ -29,11 +21,6 @@ function TaskStatus({ mySpace }) {
       tipo: "Pending",
       ancho: anchoPendiente,
       total: totalPendingSpace(mySpace),
-    },
-    {
-      tipo: "OnStart",
-      ancho: anchoEnProceso,
-      total: totalInProcessSpace(mySpace),
     },
     {
       tipo: "Complete",
@@ -61,10 +48,6 @@ function TaskStatus({ mySpace }) {
           <div>Pendiente</div>
         </div>
         <div className="items">
-          <div className="box boxOnStart"></div>
-          <div>En Proceso</div>
-        </div>
-        <div className="items">
           <div className="box boxComplete"></div>
           <div>Completado</div>
         </div>
@@ -78,7 +61,7 @@ export { TaskStatus };
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 4px);
   height: 65px;
   gap: 5px;
   border: 1px solid var(--primary-main);

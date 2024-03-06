@@ -5,36 +5,18 @@
     width: 100vw;
     position: absolute;
     top: 0;
-    z-index: 10;
     background: var(--primary-main);
     box-shadow: 0px 4px 10px 0px var(--black);
+    z-index: 20;
 }
 
 .header {
     display: flex;
     width: 100%;
+    height: calc(100% - 20px);
     padding: 10px 120px;
     justify-content: space-between;
     align-items: center;
-
-}
-
-@media screen and (max-width: 1024px) {
-    .header {
-        padding: 10px 60px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .header {
-        padding: 10px 30px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .header {
-        padding: 10px 15px;
-    }
 }
 
 .logo {
@@ -49,7 +31,6 @@
     align-items: center;
     gap: 20px;
 }
-
 
 .burguerButton {
     display: flex;
@@ -69,7 +50,6 @@
 
 .background {
     display: none;
-
 }
 
 .background.open {
@@ -81,7 +61,7 @@
     background-color: rgba(0, 23, 36, 0.75);
     height: 100vh;
     width: 100vw;
-    z-index: 20;
+    z-index: 10;
 }
 
 .mobMenu {
@@ -96,21 +76,13 @@
     margin-top: 50px;
     right: 0;
     top: 0;
-    z-index: 30;
+    z-index: 10;
     width: calc(100% - 30px);
     background-color: var(--secondary-main);
     color: var(--primary-main);
     justify-content: space-between;
     align-items: center;
     gap: 75px;
-}
-
-.logoNav {
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px 15px;
-    height: 30px;
-    width: 100%;
 }
 
 .itemList {
@@ -121,6 +93,7 @@
 
 .item {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -129,32 +102,97 @@
 }
 
 .itemSelected {
+    color: var(--primary-main);
+    height: 30px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.dashitemSelected {
     color: var(--secondary-main);
     height: 30px;
     text-decoration: underline;
     text-underline-offset: 4px;
-
-    @media screen and (max-width: 768px) {
-        color: var(--primary-main);
-    }
 }
-
 
 .xBotton {
     display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    z-index: 30;
 }
 
-.xBotton.open {
-    @media screen and (max-width: 768px) {
+.dashContainer {
+    display: flex;
+    height: 50px;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background: var(--primary-main);
+    box-shadow: 0px 4px 10px 0px var(--black);
+}
+
+.dashMenu {
+    display: flex;
+    z-index: 30;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-main);
+    color: var(--white);
+    align-items: center;
+    gap: 75px;
+}
+
+.dashItemList {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .header {
+        padding: 10px 60px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        padding: 10px 30px;
+    }
+
+    .dashlogo {
+        display: none;
+    }
+
+    .dashContainer {
+        top: auto;
+        bottom: 0;
+    }
+
+    .deskMenu {
+        display: none;
+    }
+
+    .xBotton.open {
         display: flex;
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        height: 30px;
-        width: 30px;
-        justify-content: center;
-        align-items: center;
-        margin: 0 10px;
-        z-index: 30;
+    }
+
+    .dashContainer {
+        box-shadow: 0px -4px 10px 0px var(--black);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        padding: 10px 15px;
     }
 }

@@ -21,8 +21,7 @@ function ContextProvider({ children }) {
 
   const generalStatus = [
     { id: 1, name: "Pendiente" },
-    { id: 2, name: "En Proceso" },
-    { id: 3, name: "Completado" },
+    { id: 2, name: "Completado" },
   ];
 
   // ==============================================================
@@ -41,16 +40,13 @@ function ContextProvider({ children }) {
     setSearchValue,
     totalTask,
     totalPending,
-    totalInProcess,
     totalCompleted,
     totalTaskSpace,
     totalPendingSpace,
-    totalInProcessSpace,
     totalCompletedSpace,
     searchTask,
     addTask,
     pendingTask,
-    startTask,
     completeTask,
     deleteTask,
   } = taskFunctions;
@@ -113,16 +109,13 @@ function ContextProvider({ children }) {
         setSearchValue,
         totalTask,
         totalPending,
-        totalInProcess,
         totalCompleted,
         totalTaskSpace,
         totalPendingSpace,
-        totalInProcessSpace,
         totalCompletedSpace,
         searchTask,
         addTask,
         pendingTask,
-        startTask,
         completeTask,
         deleteTask,
 

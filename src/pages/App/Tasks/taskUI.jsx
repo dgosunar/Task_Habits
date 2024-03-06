@@ -93,7 +93,7 @@ export const WorkSpace = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: calc(100% - 123px);
+  height: calc(100% - 72px);
   gap: 10px;
 
   @media screen and (max-width: 1024px) {
@@ -200,5 +200,6 @@ export const TaskList = styled.div`
     overflow-y: auto;
     width: 100%;
     height: 100%;
+    scrollbar-width: none;
   }
 `;

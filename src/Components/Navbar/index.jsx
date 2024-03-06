@@ -5,17 +5,34 @@ import { DeskNav } from "./DeskNav";
 import { MobNav } from "./MobNav";
 import { Context } from "../../Context";
 import { useNavigate } from "react-router-dom";
+import { DashNav } from "./DashNav";
+import {
+  faHouse,
+  faSquareCheck,
+  faNoteSticky,
+  faClipboardList,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 const titlesOff = [
   { label: "Inicio", route: "/Task_Habits/" },
   { label: "Contacto", route: "/Task_Habits/contact" },
 ];
 const titlesOn = [
-  { label: "Resumen", route: "/Task_Habits/summary" },
-  { label: "Tareas", route: "/Task_Habits/tasks" },
-  { label: "Notas", route: "/Task_Habits/notes" },
-  { label: "Espacios de Trabajo", route: "/Task_Habits/space" },
-  // { label: "Habitos", route: "/Task_Habits/App/habits" },
+  { label: "Resumen", route: "/Task_Habits/summary", icon: faHouse },
+  { label: "Tareas", route: "/Task_Habits/tasks", icon: faSquareCheck },
+  { label: "Notas", route: "/Task_Habits/notes", icon: faNoteSticky },
+  { label: "Habitos", route: "/Task_Habits/habits", icon: faClipboardList },
+  {
+    label: "Perfil",
+    route: "/Task_Habits/space",
+    icon: faUser,
+  },
+  // {
+  //   label: "Espacios de Trabajo",
+  //   route: "/Task_Habits/space",
+  //   icon: "faHouse",
+  // },
 ];
 
 function Navbar() {
@@ -27,16 +44,31 @@ function Navbar() {
     isLogin ? navigate("/Task_Habits/summary") : navigate("/Task_Habits/");
 
   return (
-    <div className="container">
-      <div className="header">
-        <div className="logo" onClick={redi}>
-          <img src="./Logos/Imagotipo_light.png" alt="Imagotipo" />
-          <img src="./Logos/BannerTaskHabits_dev.png" alt="Imagotipo" />
+    <>
+      {isLogin ? (
+        <div className="dashContainer">
+          <div className="header">
+            <div className="dashlogo" onClick={redi}>
+              <img src="./Logos/Imagotipo_light.png" alt="Imagotipo" />
+              <img src="./Logos/BannerTaskHabits_dev.png" alt="Imagotipo" />
+            </div>
+            <DeskNav titles={titlesOn} />
+            <DashNav titles={titlesOn} />
+          </div>
         </div>
-        <DeskNav titles={isLogin ? titlesOn : titlesOff} />
-        <MobNav titles={isLogin ? titlesOn : titlesOff} />
-      </div>
-    </div>
+      ) : (
+        <div className="container">
+          <div className="header">
+            <div className="logo" onClick={redi}>
+              <img src="./Logos/Imagotipo_light.png" alt="Imagotipo" />
+              <img src="./Logos/BannerTaskHabits_dev.png" alt="Imagotipo" />
+            </div>
+            <DeskNav titles={titlesOff} />
+            <MobNav titles={titlesOff} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

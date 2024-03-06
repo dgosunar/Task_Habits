@@ -17,7 +17,6 @@ function SpaceUI() {
     openModal,
     setOpenModal,
     totalPendingSpace,
-    totalInProcessSpace,
     totalCompletedSpace,
     deleteSpace,
     totalNoteSpace,
@@ -47,9 +46,6 @@ function SpaceUI() {
                 <div className="mediumText">Tareas:</div>
                 <div className="miniText">
                   Pendientes: {totalPendingSpace(s.id)}
-                </div>
-                <div className="miniText">
-                  En proceso: {totalInProcessSpace(s.id)}
                 </div>
                 <div className="miniText">
                   Completadas: {totalCompletedSpace(s.id)}
@@ -84,7 +80,7 @@ function SpaceUI() {
         ))}
       </div>
       <div>
-        <CBotton setOpenModal={setOpenModal} title="Nuevo" />
+        <CBotton setOpenModal={setOpenModal} title="+" />
         {openModal ? (
           <Modal>
             <NewSpace />

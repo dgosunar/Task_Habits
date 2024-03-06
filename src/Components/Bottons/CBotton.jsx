@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import { PBotton } from ".";
 
-function CBotton({ setOpenModal, title }) {
+function CBotton({ setOpenModal }) {
   return (
     <CreateTodoButton>
-      <PBotton
+      <PlusBotton
         onClick={() => {
           setOpenModal((state) => !state);
         }}
+        className="secondaryTitle"
       >
-        {title}
-      </PBotton>
+        +
+      </PlusBotton>
     </CreateTodoButton>
   );
 }
@@ -18,6 +18,21 @@ function CBotton({ setOpenModal, title }) {
 export { CBotton };
 
 export const CreateTodoButton = styled.div`
-  position: relative;
-  bottom: 0px;
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+  z-index: 30;
+  cursor: pointer;
+`;
+
+export const PlusBotton = styled.div`
+  display: flex;
+  color: var(--black);
+  background-color: var(--secondary-main);
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 `;

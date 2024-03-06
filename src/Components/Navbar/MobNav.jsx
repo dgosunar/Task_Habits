@@ -72,8 +72,8 @@ export { MobNav };
 
 export const Nav = styled.div`
   display: none;
-  height: 100%;
   @media screen and (max-width: 768px) {
+    height: 100%;
     display: flex;
   }
 `;

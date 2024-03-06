@@ -5,13 +5,13 @@ import { BgDashboard } from "../Components/Backgrounds/BgDashboard";
 function Layout({ children, title, description }) {
   return (
     <>
-      <Navbar />
       <Container>
         <div className="presentation">
           <div className="primaryTitle">{title}</div>
         </div>
         <div className="content">{children}</div>
       </Container>
+      <Navbar />
       <BgDashboard />
     </>
   );
@@ -35,11 +35,11 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    padding: 65px 30px 15px 30px;
+    padding: 15px 30px 65px 30px;
   }
 
   @media screen and (max-width: 600px) {
-    padding: 65px 15px 15px 15px;
+    padding: 15px 15px 65px 15px;
   }
 
   .presentation {

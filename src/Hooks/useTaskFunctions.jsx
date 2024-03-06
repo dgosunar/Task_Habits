@@ -21,10 +21,8 @@ const useTaskFunctions = (generalStatus) => {
   const totalTask = () => task.length;
   const totalPending = () =>
     task.filter((task) => task.status === generalStatus[0].id).length;
-  const totalInProcess = () =>
-    task.filter((task) => task.status === generalStatus[1].id).length;
   const totalCompleted = () =>
-    task.filter((task) => task.status === generalStatus[2].id).length;
+    task.filter((task) => task.status === generalStatus[1].id).length;
 
   // ==============================================================
   // Cantidad de tareas por espacio de trabajo ==================================
@@ -34,14 +32,10 @@ const useTaskFunctions = (generalStatus) => {
     task
       .filter((task) => task.workspace === id)
       .filter((task) => task.status === generalStatus[0].id).length;
-  const totalInProcessSpace = (id) =>
-    task
-      .filter((task) => task.workspace === id)
-      .filter((task) => task.status === generalStatus[1].id).length;
   const totalCompletedSpace = (id) =>
     task
       .filter((task) => task.workspace === id)
-      .filter((task) => task.status === generalStatus[2].id).length;
+      .filter((task) => task.status === generalStatus[1].id).length;
 
   // ==============================================================
   //Filtrador de tareas ===========================================
@@ -83,11 +77,8 @@ const useTaskFunctions = (generalStatus) => {
   const pendingTask = (id) => {
     updateTaskStatus(id, generalStatus[0].id);
   };
-  const startTask = (id) => {
-    updateTaskStatus(id, generalStatus[1].id);
-  };
   const completeTask = (id) => {
-    updateTaskStatus(id, generalStatus[2].id);
+    updateTaskStatus(id, generalStatus[1].id);
   };
 
   const deleteTask = (idTask) => {
@@ -105,16 +96,13 @@ const useTaskFunctions = (generalStatus) => {
     setSearchValue,
     totalTask,
     totalPending,
-    totalInProcess,
     totalCompleted,
     totalTaskSpace,
     totalPendingSpace,
-    totalInProcessSpace,
     totalCompletedSpace,
     searchTask,
     addTask,
     pendingTask,
-    startTask,
     completeTask,
     deleteTask,
   };
