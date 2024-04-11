@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Task_Habits/static/css/main.de1f2ae1.css",
-    "main.js": "/Task_Habits/static/js/main.99fa5f9d.js",
+    "main.css": "/Task_Habits/static/css/main.5659f59f.css",
+    "main.js": "/Task_Habits/static/js/main.724d1f2e.js",
     "static/js/453.6682b858.chunk.js": "/Task_Habits/static/js/453.6682b858.chunk.js",
     "static/media/Fondo.png": "/Task_Habits/static/media/Fondo.369eebb87fcd7d04dd08.png",
     "index.html": "/Task_Habits/index.html",
-    "main.de1f2ae1.css.map": "/Task_Habits/static/css/main.de1f2ae1.css.map",
-    "main.99fa5f9d.js.map": "/Task_Habits/static/js/main.99fa5f9d.js.map",
+    "main.5659f59f.css.map": "/Task_Habits/static/css/main.5659f59f.css.map",
+    "main.724d1f2e.js.map": "/Task_Habits/static/js/main.724d1f2e.js.map",
     "453.6682b858.chunk.js.map": "/Task_Habits/static/js/453.6682b858.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.de1f2ae1.css",
-    "static/js/main.99fa5f9d.js"
+    "static/css/main.5659f59f.css",
+    "static/js/main.724d1f2e.js"
   ]
 }
