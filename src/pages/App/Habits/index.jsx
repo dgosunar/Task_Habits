@@ -11,7 +11,7 @@ function Habits() {
     <Layout title={"Habitos"}>
       <div>
         <CBotton setOpenModal={setOpenModal} title="+" />
-        {openModal ? <Modal></Modal> : <></>}
+        {/* {openModal ? <Modal></Modal> : <></>} */}
       </div>
     </Layout>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Navbar } from "../Components/Navbar";
 import { BbHome } from "../Components/Backgrounds/BgHome";
 
-function Layout({ children, title, description }) {
+function Layout({ children }) {
   return (
     <>
       <Navbar />
@@ -51,7 +51,7 @@ export const Container = styled.div`
   .content {
     display: flex;
     width: 100%;
-    min-height: calc(100% - 60px);
+    height: calc(100% - 60px);
     justify-content: center;
   }
 `;

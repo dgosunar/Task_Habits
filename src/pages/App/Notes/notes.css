@@ -21,6 +21,7 @@
     flex-direction: column;
     height: 300px;
     width: 200px;
+    min-width: 200px;
     background-color: var(--bg-cards);
     box-shadow: 0px 4px 10px 0px var(--black);
     backdrop-filter: blur(7px);
@@ -30,6 +31,7 @@
 
     @media screen and (max-width: 600px) {
         width: calc(50% - 25px);
+        min-width: calc(50% - 25px);
     }
 }
 

@@ -174,7 +174,7 @@ export const TaskList = styled.div`
   padding: 10px;
   flex-direction: column;
   align-items: center;
-  min-width: 350px;
+  width: 350px;
   height: calc(100% - 20px);
   gap: 10px;
   border-radius: 8px;
@@ -185,10 +185,12 @@ export const TaskList = styled.div`
   @media screen and (max-width: 1024px) {
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
+    width: calc(100% - 20px);
   }
 
   @media screen and (max-width: 600px) {
+    min-width: 350px;
   }
 
   .list {

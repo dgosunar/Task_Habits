@@ -5,7 +5,7 @@ import "./../../styles/index.css";
 import { PBotton } from "../../Components/Bottons";
 import { useNavigate } from "react-router-dom";
 
-function NotFound() {
+function NotFound2() {
   const navigate = useNavigate();
   const redi = () => navigate("/Task_Habits/");
   return (
@@ -14,7 +14,7 @@ function NotFound() {
         <div className="primaryTitle">Pagina No Encontrada</div>
         <PBotton onClick={redi}>Volver</PBotton>
         <img
-          src="./Images/404 error with person looking for-bro.png"
+          src="./Task_Habits/Images/404 error with person looking for-bro.png"
           alt="image404"
         />
         <a
@@ -29,7 +29,7 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default NotFound2;
 
 export const Container = styled.div`
   display: flex;

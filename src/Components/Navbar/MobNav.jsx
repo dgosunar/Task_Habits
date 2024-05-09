@@ -43,20 +43,20 @@ function MobNav({ titles }) {
         onClick={handleClick}
       />
       <div className={isOpen ? "mobMenu open" : "mobMenu"}>
-        <div>
-          <div className="itemList">
-            {titles.map((t) => (
-              <NavLink
-                to={t.route}
-                key={t.label}
-                className={({ isActive }) =>
-                  isActive ? "itemSelected mediumTextB" : "mediumText"
-                }
-              >
-                <div className="item">{t.label}</div>
-              </NavLink>
-            ))}
-          </div>
+        <div className="itemList">
+          {titles.map((t) => (
+            <NavLink
+              to={t.route}
+              key={t.label}
+              className={({ isActive }) =>
+                isActive ? "itemSelected mediumTextB" : "mediumText"
+              }
+            >
+              <div className={({ isLogin }) => (isLogin ? "item" : "")}>
+                {t.label}
+              </div>
+            </NavLink>
+          ))}
         </div>
         {isLogin ? (
           <SBotton onClick={logOut}>Salir</SBotton>

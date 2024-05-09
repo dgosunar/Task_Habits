@@ -41,7 +41,7 @@ function DashNav({ titles }) {
                 isActive ? "dashitemSelected item" : "item"
               }
             >
-              <FontAwesomeIcon icon={t.icon} />
+              <FontAwesomeIcon icon={t.icon} size="xl" />
               <div className="miniText">{t.label}</div>
             </NavLink>
           ))}

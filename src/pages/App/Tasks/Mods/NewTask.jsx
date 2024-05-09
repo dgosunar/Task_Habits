@@ -1,10 +1,12 @@
 import React from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Context } from "../../../../Context";
 import styled from "styled-components";
 import { PBotton, SBotton } from "../../../../Components/Bottons";
 import { Card } from "../../../../Components/Modals/Card";
+import ReactDatePicker from "react-datepicker";
+import TextArea from "../../../../Components/Inputs/TextArea";
+import Select from "../../../../Components/Inputs/Select";
 
 function NewTask() {
   const { setOpenModal, addTask, workspace } = React.useContext(Context);
@@ -48,41 +50,34 @@ function NewTask() {
     <Card title="Crear Nueva Tarea">
       <Container>
         <Form>
-          <TextBox>
-            <Label>Ingresa una nueva tarea</Label>
-            <textarea
-              placeholder="Hacer ..."
-              className="newTaskStyle"
-              value={description}
-              onChange={onChangeDescripcion}
-            />
-          </TextBox>
-          <Details>
-            <StatusBox>
-              <Label>Espacio de Trabajo</Label>
-              <select
-                className="status generalText"
-                selected={mySpace}
-                onChange={onChangeSpace}
-              >
-                {workspace.map((item) => (
-                  <option key={item.id}>{item.name}</option>
-                ))}
-              </select>
-            </StatusBox>
+          <TextArea
+            label={"Ingresa una nueva tarea"}
+            placeholder={"Hacer..."}
+            onChange={onChangeDescripcion}
+          />
 
-            <StatusBox>
-              <Label>Fecha Limite:</Label>
-              <DatePicker
-                className="calendar generalText"
-                selected={date}
-                onChange={(date) => setDate(date)}
-                showTimeSelect
-                dateFormat="Pp"
-              />
-            </StatusBox>
-          </Details>
+          <Select
+            label={"Espacio de Trabajo"}
+            values={workspace}
+            onChange={onChangeSpace}
+          />
+
+          <StatusBox>
+            <Label>Fecha Limite:</Label>
+            <ReactDatePicker
+              className="calendar generalText"
+              selected={date}
+              onChange={(date) => setDate(date)}
+              showTimeSelect
+              dateFormat="Pp"
+            />
+          </StatusBox>
+          <Details></Details>
         </Form>
+
+        {/* <TextArea label={"Ingresa una nueva tarea"} />
+        <Select label={"Selecciona el Espacio de Trabajo"} /> */}
+
         <BottonBox>
           <SBotton onClick={onCancel}>Cancelar</SBotton>
           <PBotton onClick={onSubmit}>Crear</PBotton>
@@ -98,6 +93,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 20px;
 `;
 
 export const Form = styled.div`

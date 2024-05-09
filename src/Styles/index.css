@@ -53,6 +53,7 @@ img {
 }
 
 .primaryTitle {
+  font-family: "Montserrat", sans-serif;
   font-size: 41px;
   font-style: normal;
   font-weight: 700;
@@ -60,6 +61,7 @@ img {
 }
 
 .secondaryTitle {
+  font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -67,6 +69,7 @@ img {
 }
 
 .primarySubtitle {
+  font-family: "Montserrat", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -74,6 +77,7 @@ img {
 }
 
 .secondarySubtitle {
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
@@ -81,6 +85,7 @@ img {
 }
 
 .mediumText {
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -88,6 +93,7 @@ img {
 }
 
 .mediumTextB {
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -95,6 +101,7 @@ img {
 }
 
 .generalText {
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 300;
@@ -102,8 +109,95 @@ img {
 }
 
 .miniText {
+  font-family: "Montserrat", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+}
+
+
+.sss {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 135px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 10px;
+}
+
+.asdaq {
+  display: flex;
+  height: calc(100% - 10px);
+  width: 220px;
+  min-width: 220px;
+  background-color: var(--bg-cards);
+  backdrop-filter: blur(0);
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px 0px var(--black);
+  padding: 5px;
+}
+
+.aaa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.asdasd {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+
+.pplasjdfs {
+  display: flex;
+  height: calc(100% - 25px);
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.espaciosDeTrabajo {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+
+.tareasPendientes {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 525px);
+}
+
+.notasRecientes {
+  display: flex;
+  width: 100%;
+  height: 400px;
+}
+
+.porcentaje {
+  display: flex;
+  position: absolute;
+  height: fit-content;
+  bottom: 30px;
+}
+
+.porqwuno {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 10px;
 }

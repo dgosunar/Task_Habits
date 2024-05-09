@@ -16,6 +16,15 @@ const useNoteFunctions = () => {
     notesError,
   } = useLocalStorage("Note_v1", []);
 
+  const {
+    item: recentNotes,
+    saveItem: setRecentNotes,
+    recentNotesLoading,
+    recentNotesError,
+  } = useLocalStorage("Recent_Note_v1", {});
+
+  console.log(recentNotes);
+
   const [notesDetails, setNotesDetails] = React.useState([]);
   const [showDetails, setShowDetails] = React.useState(false);
   const [showEdit, setShowEdit] = React.useState(false);
@@ -63,6 +72,10 @@ const useNoteFunctions = () => {
     setAllNotes,
     notesLoading,
     notesError,
+    recentNotes,
+    setRecentNotes,
+    recentNotesLoading,
+    recentNotesError,
     selectNotes,
     totalNoteSpace,
     addNote,

@@ -1,6 +1,5 @@
 import React from "react";
 import { Layout } from "../../../layout/Dashboard";
-import { TaskStatus } from "../Tasks/Components/TaskStatus";
 import { Context } from "../../../Context";
 import { TaskList } from "../Tasks/taskUI";
 import { Task } from "../Tasks/Components/Task";
@@ -8,32 +7,94 @@ import styled from "styled-components";
 import { CBotton } from "../../../Components/Bottons/CBotton";
 import { NewTask } from "../Tasks/Mods/NewTask";
 import { Modal } from "../../../Components/Modals/Modal";
+import { Separator } from "../../../Components/Modals/Separator";
+import MyPieChart from "./Components/PieChar";
+import { Note } from "../Notes/Components/Note";
 
 function Summary() {
-  const { workspace, task, openModal, setOpenModal } =
-    React.useContext(Context);
+  const {
+    workspace,
+    task,
+    openModal,
+    setOpenModal,
+    selectNotes,
+    space,
+    deleteNote,
+  } = React.useContext(Context);
+
+  const onDelete = (id) => {
+    deleteNote(id);
+  };
 
   return (
     <Layout title={"Resumen"}>
       <Container>
-        <div className="statusWorkplaces">
-          {workspace.map((s) => (
-            <div className="leaveBox">
-              {s.name}
-              <TaskStatus mySpace={s.id} />
+        <div className="espaciosDeTrabajo">
+          <div className="leaveBox">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <Separator />
+              <div className="mediumText">Procentage_de_Progreso</div>
+              <Separator />
             </div>
-          ))}
+            <div className="sss">
+              {workspace.map((s) => (
+                <MyPieChart space={s.id} label={s.name} />
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="leaveBox">
-          Tareas en Pendientes
-          <div style={{ maxHeight: "185px" }}>
-            <TaskList>
-              <div className="list">
-                {task.map((t) =>
-                  t.status === 1 ? <Task key={t.id} task={t} /> : <></>
-                )}
-              </div>
-            </TaskList>
+        <div className="tareasPendientes">
+          <div className="leaveBox">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <Separator />
+              <div className="mediumText">Tareas_Pendientes</div>
+              <Separator />
+            </div>
+
+            <div className="pplasjdfs">
+              <TaskList>
+                <div className="list">
+                  {task.map((t) =>
+                    t.status === 1 ? <Task key={t.id} task={t} /> : <></>
+                  )}
+                </div>
+              </TaskList>
+            </div>
+          </div>
+        </div>
+        <div className="notasRecientes">
+          <div className="leaveBox">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <Separator />
+              <div className="mediumText">Notas_Recientes</div>
+              <Separator />
+            </div>
+            <div className="porqwuno">
+              {selectNotes(space).map((n) => (
+                <Note n={n} onDelete={onDelete} />
+              ))}
+            </div>
           </div>
         </div>
         <CBotton setOpenModal={setOpenModal} />
@@ -53,33 +114,39 @@ export default Summary;
 
 export const Container = styled.div`
   display: flex;
-  gap: 20px;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
 
-  .statusWorkplaces {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: 100%;
-    width: 370px;
-    @media screen and (max-width: 600px) {
-      width: 100%;
-    }
+  @media screen and (max-width: 600px) {
   }
 
   .leaveBox {
     display: flex;
     flex-direction: column;
     gap: 5px;
-  }
-
-  @media screen and (max-width: 768px) {
-  }
-
-  @media screen and (max-width: 600px) {
-    flex-direction: column-reverse;
+    height: calc(100% - 20px);
     width: 100%;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 800px) {
+    }
+    @media screen and (max-width: 600px) {
+    }
+  }
+
+  .statusWorkplaces {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    width: 450px;
+    @media screen and (max-width: 800px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
   }
 `;

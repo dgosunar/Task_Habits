@@ -28,7 +28,7 @@ export const Container = styled.div`
   align-items: flex-start;
   height: calc(100% - 80px);
   color: var(--white);
-  overflow-y: auto;
+  overflow-y: hidden;
 
   @media screen and (max-width: 1024px) {
     padding: 65px 60px 15px 60px;

@@ -12,12 +12,14 @@ import Habits from "./pages/App/Habits";
 import NotFound from "./pages/NotFound";
 
 import "./styles/App.css";
+import NotFound2 from "./pages/NotFound2";
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: "/Task_Habits/", element: <Home /> },
     { path: "/Task_Habits/contact", element: <Contact /> },
     { path: "/Task_Habits/*", element: <NotFound /> },
+    { path: "/*", element: <NotFound2 /> },
     { path: "/Task_Habits/summary", element: <Summary /> },
     { path: "/Task_Habits/tasks", element: <Tasks /> },
     { path: "/Task_Habits/notes", element: <Notes /> },
